@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One Radio. Every Road. - Andreia Cruz</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --white: #f0ede8;
+    --muted: #a8a5a0;
+    --muted-dark: #888480;
+    --muted-light: #c0bdb8;
+    --primary: #5e67e6;
+    --primary-hover: #7880ea;
+    --highlight: #e8845a;
+    --border: rgba(240,237,232,0.22);
+    --hover: rgba(240,237,232,0.03);
+    --card-bg: #111;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'Outfit', sans-serif; font-weight: 300;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* CURSOR */
+  .cursor {
+    position: fixed; width: 10px; height: 10px;
+    background: var(--white); border-radius: 50%;
+    pointer-events: none; z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.15s ease;
+  }
+  .cursor-ring {
+    position: fixed; width: 36px; height: 36px;
+    border: 1px solid rgba(240,237,232,0.25); border-radius: 50%;
+    pointer-events: none; z-index: 9998;
+    transform: translate(-50%, -50%);
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100; padding: 1.5rem 3rem;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem;
+    letter-spacing: 0.15em; color: var(--white); text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 1.2rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted); text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    background: var(--primary); color: #fff !important;
+    padding: 0.45rem 1.1rem; border-radius: 2px;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--primary-hover) !important; }
+
+  /* HERO */
+  .case-hero {
+    min-height: 90vh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 8rem 3rem 5rem;
+    border-bottom: 1px solid var(--border);
+    position: relative; overflow: hidden;
+  }
+
+  .case-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 80% 20%, rgba(240,237,232,0.03) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .case-back {
+    font-size: 1.2rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--white); text-decoration: none;
+    display: flex; align-items: center; gap: 0.75rem;
+    margin-bottom: 3rem;
+    opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s;
+    width: fit-content;
+    transition: opacity 0.2s;
+  }
+  .case-back:hover { opacity: 0.7; }
+  .case-back:hover { color: var(--white); }
+
+  .case-tag {
+    font-size: 1.2rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--highlight); margin-bottom: 1.5rem;
+    opacity: 0; animation: fadeUp 0.8s ease forwards 0.3s;
+    font-weight: 500;
+  }
+
+  .case-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 10vw, 9rem);
+    line-height: 0.92; letter-spacing: 0.02em; color: var(--white);
+    opacity: 0; animation: fadeUp 0.8s ease forwards 0.5s;
+  }
+
+  .case-title em {
+    color: var(--white); font-style: normal; display: block;
+  }
+
+  .case-hero-bottom {
+    margin-top: 3.5rem;
+    opacity: 0; animation: fadeUp 0.8s ease forwards 0.7s;
+  }
+
+  .case-tagline {
+    font-size: 1.2rem; color: var(--muted); max-width: 52ch;
+    font-style: italic; line-height: 1.8; margin-bottom: 2.5rem;
+  }
+
+  .case-meta-row {
+    display: flex; gap: 4rem; align-items: flex-start;
+  }
+
+  .case-meta-item { text-align: left; }
+  .case-meta-item .label {
+    font-size: 1.02rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 0.4rem;
+  }
+  .case-meta-item .value {
+    font-size: 1.2rem; color: var(--white); font-weight: 500;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 6rem 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-eyebrow {
+    font-size: 1.15rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--highlight); margin-bottom: 2.5rem;
+    display: flex; align-items: center; gap: 1.2rem; font-weight: 500;
+  }
+  .section-eyebrow::after {
+    content: ''; height: 1px; width: 40px; background: rgba(232,132,90,0.4);
+  }
+
+  h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    line-height: 1.05; letter-spacing: 0.02em;
+    margin-bottom: 2rem;
+  }
+
+  h3 {
+    font-size: 1.2rem; font-weight: 500;
+    margin-bottom: 0.6rem; color: var(--white);
+  }
+
+  p {
+    font-size: 1.2rem; color: var(--muted); max-width: 62ch;
+    margin-bottom: 1.4rem; line-height: 1.85;
+  }
+
+  p:last-child { margin-bottom: 0; }
+
+  /* HIGHLIGHT QUOTE */
+  .highlight {
+    border-left: 2px solid var(--highlight);
+    padding: 1.5rem 2.5rem;
+    margin: 3rem 0;
+    background: var(--card-bg);
+  }
+  .highlight p {
+    font-size: 1.15rem; font-style: italic;
+    color: var(--muted-light); max-width: 70ch; margin-bottom: 0;
+  }
+
+  /* GRID 3 */
+  .grid-3 {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; margin-top: 3rem; background: var(--border);
+  }
+  .grid-3-item {
+    background: var(--bg); padding: 2rem;
+  }
+  .grid-3-item .label {
+    font-size: 1.15rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 0.8rem;
+  }
+  .grid-3-item .value {
+    font-size: 1.2rem; color: var(--white); font-weight: 500;
+  }
+
+  /* GRID 2 */
+  .grid-2 {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1px; margin-top: 3rem; background: var(--border);
+  }
+  .grid-2-item {
+    background: var(--bg); padding: 2.5rem;
+  }
+  .grid-2-item .num {
+    font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem;
+    color: #e8845a; line-height: 1; margin-bottom: 1.2rem;
+  }
+  .grid-2-item h3 {
+    font-size: 0.98rem; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--white); margin-bottom: 0.75rem; font-weight: 500;
+  }
+  .grid-2-item p { font-size: 0.98rem; max-width: 100%; }
+
+  /* MARKET TABLE */
+  .table-wrap { margin-top: 3rem; overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 1.15rem; }
+  th {
+    text-align: left; padding: 1rem 1.5rem;
+    font-size: 0.98rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--muted); border-bottom: 1px solid var(--border); font-weight: 500;
+  }
+  td {
+    padding: 1.1rem 1.5rem;
+    border-bottom: 1px solid rgba(240,237,232,0.18);
+    color: var(--muted); vertical-align: middle; font-size: 1.15rem;
+  }
+  td:first-child { color: var(--white); font-weight: 500; }
+  .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-right: 0.6rem; vertical-align: middle; }
+  .dot-on { background: var(--white); }
+  .dot-off { background: #2a2a2a; }
+
+  /* TIMELINE */
+  .timeline { margin-top: 3rem; }
+  .tl-item {
+    display: grid; grid-template-columns: 160px 1fr;
+    gap: 3rem; padding: 2.5rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .tl-item:last-child { border-bottom: 1px solid var(--border); }
+  .tl-step {
+    font-size: 1.15rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--highlight); padding-top: 0.2rem; font-weight: 500;
+  }
+  .tl-content h3 { font-size: 1.2rem; font-weight: 500; margin-bottom: 0.75rem; }
+  .tl-content p { font-size: 1.2rem; max-width: 58ch; }
+
+  /* DIAGRAM */
+  .diagram-wrap {
+    margin-top: 3rem;
+    border: 1px solid var(--border);
+  }
+  .diagram-top {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.15rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--muted); border-bottom: 1px solid var(--border);
+    background: var(--card-bg);
+  }
+  .diagram-svg { width: 100%; height: auto; display: block; background: #0d0d0d; }
+  .diagram-caption {
+    padding: 0.8rem 1.5rem; font-size: 1.2rem; font-style: italic;
+    color: var(--muted); border-top: 1px solid var(--border);
+    background: var(--card-bg);
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; margin-top: 3rem; background: var(--border);
+  }
+  .skill-item { background: var(--bg); padding: 2rem; }
+  .skill-name {
+    font-size: 1.2rem; font-weight: 500; color: var(--highlight); margin-bottom: 0.5rem;
+  }
+  .skill-item p { font-size: 0.98rem; color: var(--muted); max-width: 100%; margin: 0; line-height: 1.7; }
+
+  /* IMPACT */
+  .impact-list { margin-top: 3rem; }
+  .impact-item {
+    display: flex; gap: 2.5rem; align-items: flex-start;
+    padding: 2rem 0; border-top: 1px solid var(--border);
+  }
+  .impact-item:last-child { border-bottom: 1px solid var(--border); }
+  .impact-n {
+    font-family: 'Bebas Neue', sans-serif; font-size: 3rem;
+    color: #e8845a; line-height: 1; flex-shrink: 0; width: 3rem;
+  }
+  .impact-item h3 { font-size: 1.2rem; font-weight: 500; margin-bottom: 0.5rem; color: var(--white); }
+  .impact-item p { font-size: 0.93rem; max-width: 100%; margin: 0; color: var(--muted); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 768px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .case-hero { padding: 6rem 1.5rem 3rem; }
+    .case-hero-bottom { flex-direction: column; gap: 2rem; }
+    .case-meta-row { justify-content: flex-start; }
+    .case-meta-item { text-align: left; }
+    section { padding: 4rem 1.5rem; }
+    .grid-3, .skills-grid { grid-template-columns: 1fr; }
+    .grid-2 { grid-template-columns: 1fr; }
+    .tl-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    table { font-size: 0.98rem; }
+    th, td { padding: 0.75rem; }
+  }
+
+  /* MOBILE */
+  @media (hover: none) {
+    .cursor, .cursor-ring { display: none; }
+    body { cursor: auto; }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .nav-links li:not(:last-child) { display: none; }
+    .case-hero { padding: 5rem 1.5rem 3rem; min-height: auto; }
+    .case-title { font-size: clamp(3rem, 12vw, 6rem); }
+    .case-hero-bottom { margin-top: 2rem; }
+    .case-meta-row { gap: 2rem; flex-wrap: wrap; }
+    section { padding: 3.5rem 1.5rem; }
+    .grid-2, .skills-grid { grid-template-columns: 1fr; }
+    .tl-item { grid-template-columns: 1fr; gap: 0.4rem; }
+    .tl-step { padding-top: 0; }
+    table { font-size: 0.82rem; }
+    th, td { padding: 0.7rem 0.8rem; }
+    .diagram-svg { min-height: 120px; }
+    .impact-item { gap: 1.5rem; }
+    footer { flex-direction: column; gap: 1.2rem; padding: 2rem 1.5rem; text-align: center; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav>
+  <a href="https://andreiacruz-design.github.io/" class="nav-logo">Andreia Cruz</a>
+  <ul class="nav-links">
+    <li><a href="https://andreiacruz-design.github.io/#projects">Work</a></li>
+    <li><a href="https://andreiacruz-design.github.io/#about">About</a></li>
+    <li><a href="mailto:hello@andreiacruz.com" class="nav-cta">Contact ↗</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header class="case-hero">
+  <a href="https://andreiacruz-design.github.io/" class="case-back"><span style="font-size:1rem; line-height:1;">←</span> Back to Work</a>
+  <p class="case-tag">UX Design · Automotive · In-Car Media</p>
+  <h1 class="case-title">
+    One Radio.
+    <em>Every Road.</em>
+  </h1>
+  <div class="case-hero-bottom">
+    <p class="case-tagline">A next-generation in-car radio experience designed for global markets - balancing legal requirements, legacy features, and a shared component system.</p>
+    <div class="case-meta-row">
+      <div class="case-meta-item">
+        <p class="label">Duration</p>
+        <p class="value">8 months</p>
+      </div>
+      <div class="case-meta-item">
+        <p class="label">Industry</p>
+        <p class="value">Automotive</p>
+      </div>
+      <div class="case-meta-item">
+        <p class="label">Role</p>
+        <p class="value">UX Designer</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- OVERVIEW -->
+<section class="reveal">
+  <div class="section-eyebrow">Overview</div>
+  <h2>Context & Role</h2>
+  <p>Over 8 months, I was the lead UX designer for the in-car radio feature within a next-generation automotive media system. The project was already underway when I joined - the foundational concept was in place, but a significant scope of work remained: validating that every market's requirements were covered, ensuring the design system had all the necessary component variants, and completing three key features from concept to handoff.</p>
+  <p>I worked closely with Functional Owners, Product Owners, and developers - owning the radio feature end-to-end, from early requirements gathering through wireframes, prototypes, user flows, and final documentation.</p>
+
+
+</section>
+
+<!-- CHALLENGE -->
+<section class="reveal">
+  <div class="section-eyebrow">The Challenge</div>
+  <h2>One System.<br>Many Markets.</h2>
+  <p>Radio is not a universal product. Listening habits, technical standards, and legal requirements vary significantly across markets - and our system needed to handle all of them through a single, cohesive component framework.</p>
+
+  <div class="highlight">
+    <p>"The goal was not to build different versions for each market. It was to design components flexible enough to cover every variation, while maintaining consistency and reducing implementation effort."</p>
+  </div>
+
+  <p>This required balancing three forces in tension: delivering the best possible user experience, respecting strict implementation constraints, and satisfying market-specific requirements - including a legal one that arrived mid-project.</p>
+  <p>Underlying every decision was a non-negotiable constraint: drivers interact with the radio while in motion. Minimising distraction and making interactions as fast and intuitive as possible was not a design preference - it was a safety requirement.</p>
+</section>
+
+<!-- MARKET SPECIFICS -->
+<section class="reveal">
+  <div class="section-eyebrow">Market Analysis</div>
+  <h2>Market Differences</h2>
+  <p>A key early task was mapping every market-specific requirement into component-level decisions. The same radio list entry component needed to behave differently depending on where the car was registered - and in some cases, where it was physically located.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Rest of World</th>
+          <th>Germany</th>
+          <th>USA</th>
+          <th>Japan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Station name</td>
+          <td><span class="dot dot-on"></span>Yes</td>
+          <td><span class="dot dot-on"></span>Yes</td>
+          <td><span class="dot dot-on"></span>Yes</td>
+          <td><span class="dot dot-on"></span>Yes</td>
+        </tr>
+        <tr>
+          <td>Frequency shown</td>
+          <td><span class="dot dot-off"></span>No</td>
+          <td><span class="dot dot-off"></span>No</td>
+          <td><span class="dot dot-on"></span>Yes</td>
+          <td><span class="dot dot-on"></span>Yes</td>
+        </tr>
+        <tr>
+          <td>FM/AM/DAB band indicator</td>
+          <td><span class="dot dot-on"></span>Yes - unified list</td>
+          <td><span class="dot dot-on"></span>Yes - unified list</td>
+          <td><span class="dot dot-off"></span>No - separate lists</td>
+          <td><span class="dot dot-off"></span>No - separate lists</td>
+        </tr>
+        <tr>
+          <td>HD Radio indicator</td>
+          <td><span class="dot dot-off"></span>No</td>
+          <td><span class="dot dot-off"></span>No</td>
+          <td><span class="dot dot-on"></span>When digital only</td>
+          <td><span class="dot dot-off"></span>No</td>
+        </tr>
+        <tr>
+          <td>Public Value (PV) indicator</td>
+          <td><span class="dot dot-off"></span>No</td>
+          <td><span class="dot dot-on"></span>Yes - legal requirement</td>
+          <td><span class="dot dot-off"></span>No</td>
+          <td><span class="dot dot-off"></span>No</td>
+        </tr>
+        <tr>
+          <td>Transit stations list</td>
+          <td><span class="dot dot-off"></span>No</td>
+          <td><span class="dot dot-off"></span>No</td>
+          <td><span class="dot dot-off"></span>No</td>
+          <td><span class="dot dot-on"></span>Yes</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p style="margin-top:2rem;">These differences were documented into a component rules framework shared with developers, clearly defining which elements appeared conditionally and when.</p>
+
+  <div class="diagram-wrap" style="margin-top:3rem;">
+    <div class="diagram-top">Diagram 1 - List Entry Component: Conditional Elements</div>
+    <svg viewBox="0 0 700 210" xmlns="http://www.w3.org/2000/svg" class="diagram-svg">
+      <rect width="700" height="210" fill="#0d0d0d"/>
+      <text x="24" y="34" fill="#5a5855" font-size="10" font-family="Outfit,sans-serif" letter-spacing="2">REST OF WORLD</text>
+      <rect x="24" y="44" width="48" height="44" rx="2" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+      <text x="48" y="69" fill="#3a3a3a" font-size="9" font-family="Outfit,sans-serif" text-anchor="middle">cover</text>
+      <rect x="84" y="50" width="130" height="11" rx="1" fill="#181818"/>
+      <text x="149" y="60" fill="#555" font-size="9" font-family="Outfit,sans-serif" text-anchor="middle">Station name</text>
+      <rect x="84" y="68" width="90" height="9" rx="1" fill="#141414"/>
+      <text x="129" y="76" fill="#3a3a3a" font-size="9" font-family="Outfit,sans-serif" text-anchor="middle">Song / Programme</text>
+      <rect x="638" y="51" width="36" height="16" rx="2" fill="none" stroke="#f0ede8" stroke-width="1"/>
+      <text x="656" y="63" fill="#f0ede8" font-size="10" font-family="Outfit,sans-serif" text-anchor="middle" font-weight="500">FM</text>
+      <text x="656" y="80" fill="#3a3a3a" font-size="8" font-family="Outfit,sans-serif" text-anchor="middle">always present</text>
+      <line x1="24" y1="108" x2="676" y2="108" stroke="#1a1a1a" stroke-width="1"/>
+      <text x="24" y="128" fill="#5a5855" font-size="10" font-family="Outfit,sans-serif" letter-spacing="2">GERMANY</text>
+      <rect x="24" y="138" width="48" height="44" rx="2" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+      <text x="48" y="163" fill="#3a3a3a" font-size="9" font-family="Outfit,sans-serif" text-anchor="middle">cover</text>
+      <rect x="84" y="144" width="130" height="11" rx="1" fill="#181818"/>
+      <text x="149" y="154" fill="#555" font-size="9" font-family="Outfit,sans-serif" text-anchor="middle">Station name</text>
+      <rect x="592" y="144" width="28" height="16" rx="2" fill="none" stroke="#f0ede8" stroke-width="1" stroke-dasharray="3,2"/>
+      <text x="606" y="156" fill="#f0ede8" font-size="10" font-family="Outfit,sans-serif" text-anchor="middle">PV</text>
+      <text x="606" y="174" fill="#3a3a3a" font-size="8" font-family="Outfit,sans-serif" text-anchor="middle">transient</text>
+      <rect x="638" y="144" width="36" height="16" rx="2" fill="none" stroke="#f0ede8" stroke-width="1"/>
+      <text x="656" y="156" fill="#f0ede8" font-size="10" font-family="Outfit,sans-serif" text-anchor="middle" font-weight="500">FM</text>
+      <text x="656" y="174" fill="#3a3a3a" font-size="8" font-family="Outfit,sans-serif" text-anchor="middle">always present</text>
+      <line x1="606" y1="110" x2="606" y2="138" stroke="#2a2a2a" stroke-width="1" stroke-dasharray="2,3"/>
+      <text x="340" y="121" fill="#444" font-size="9" font-family="Outfit,sans-serif" text-anchor="middle">PV anchored left - FM position never shifts</text>
+    </svg>
+    <div class="diagram-caption">Positioning PV to the left of the permanent FM icon ensures layout stability when crossing market boundaries.</div>
+  </div>
+</section>
+
+<!-- PUBLIC VALUE -->
+<section class="reveal">
+  <div class="section-eyebrow">Feature Deep Dive · 01</div>
+  <h2>Public Value -<br>A German<br>Legal Requirement</h2>
+  <p>Public Value is a German legal requirement: certain radio stations must be identified as publicly funded. What made this particularly interesting was that the indicator is not static - it appears in Germany and disappears when a driver crosses into Austria or Italy. A requirement that travels with the car, not the market.</p>
+  <p>The requirement arrived mid-project with a tight legal deadline, and with no prior benchmarks - the regulation was new. The challenge was to meet it without disrupting a component that had to work across all markets.</p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <p class="tl-step">The Problem</p>
+      <div class="tl-content">
+        <h3>How do you display a label that only exists in one market?</h3>
+        <p>Spelling out "Public Value" was too long and added cognitive load - critical in an in-car context. A standalone icon was too abstract. But the information had to be always present for legally qualifying stations.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <p class="tl-step">The Insight</p>
+      <div class="tl-content">
+        <h3>Progressive disclosure across contexts</h3>
+        <p>Not every screen needs to explain everything. In compact contexts - lists, widgets - the abbreviation PV is sufficient. In the full-screen player and settings, the full label "Public Value" appears alongside the icon, providing comprehension where there's space for it.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <p class="tl-step">The Decision</p>
+      <div class="tl-content">
+        <h3>Icon positioning to prevent layout instability</h3>
+        <p>PV is a transient indicator - it appears in Germany and disappears when the driver crosses into Austria or Italy. To prevent jarring layout shifts, the frequency icon (always present) was anchored to the right, and the PV icon was placed to the left. When PV disappears, nothing moves.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <p class="tl-step">Edge Case</p>
+      <div class="tl-content">
+        <h3>Sorting by PV when no PV stations exist</h3>
+        <p>If a user sorts by Public Value in a market or region with no qualifying stations, the list doesn't break - it surfaces a clear message explaining that no PV stations are available, then shows all available stations below.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="diagram-wrap" style="margin-top:3rem;">
+    <div class="diagram-top">Diagram 2 - Public Value: Progressive Disclosure Across Contexts</div>
+    <svg viewBox="0 0 700 160" xmlns="http://www.w3.org/2000/svg" class="diagram-svg">
+      <rect width="700" height="160" fill="#0d0d0d"/>
+      <text x="60" y="28" fill="#5a5855" font-size="10" font-family="Outfit,sans-serif" text-anchor="middle" letter-spacing="2">LIST / WIDGET</text>
+      <rect x="20" y="40" width="80" height="90" rx="3" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+      <rect x="28" y="52" width="26" height="26" rx="2" fill="#181818"/>
+      <rect x="60" y="56" width="32" height="8" rx="1" fill="#181818"/>
+      <rect x="60" y="68" width="24" height="6" rx="1" fill="#141414"/>
+      <rect x="28" y="94" width="16" height="10" rx="1" fill="none" stroke="#f0ede8" stroke-width="1" stroke-dasharray="2,2"/>
+      <text x="36" y="103" fill="#f0ede8" font-size="7" font-family="Outfit,sans-serif" text-anchor="middle" font-weight="500">PV</text>
+      <text x="140" y="88" fill="#2a2a2a" font-size="22" font-family="Outfit,sans-serif" text-anchor="middle">→</text>
+      <text x="140" y="106" fill="#3a3a3a" font-size="8" font-family="Outfit,sans-serif" text-anchor="middle">user curious</text>
+      <text x="280" y="28" fill="#5a5855" font-size="10" font-family="Outfit,sans-serif" text-anchor="middle" letter-spacing="2">FULL SCREEN</text>
+      <rect x="200" y="40" width="160" height="90" rx="3" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+      <rect x="216" y="56" width="50" height="50" rx="2" fill="#181818"/>
+      <rect x="278" y="60" width="70" height="10" rx="1" fill="#181818"/>
+      <rect x="278" y="76" width="50" height="8" rx="1" fill="#141414"/>
+      <rect x="216" y="112" width="22" height="12" rx="1" fill="none" stroke="#f0ede8" stroke-width="1" stroke-dasharray="2,2"/>
+      <text x="227" y="122" fill="#f0ede8" font-size="8" font-family="Outfit,sans-serif" text-anchor="middle" font-weight="500">PV</text>
+      <rect x="244" y="112" width="60" height="12" rx="1" fill="#181818"/>
+      <text x="274" y="122" fill="#888" font-size="8" font-family="Outfit,sans-serif" text-anchor="middle">Public Value</text>
+      <text x="420" y="88" fill="#2a2a2a" font-size="22" font-family="Outfit,sans-serif" text-anchor="middle">→</text>
+      <text x="420" y="106" fill="#3a3a3a" font-size="8" font-family="Outfit,sans-serif" text-anchor="middle">needs clarity</text>
+      <text x="590" y="28" fill="#5a5855" font-size="10" font-family="Outfit,sans-serif" text-anchor="middle" letter-spacing="2">SETTINGS</text>
+      <rect x="490" y="40" width="200" height="90" rx="3" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+      <rect x="506" y="56" width="168" height="14" rx="1" fill="#141414"/>
+      <text x="590" y="67" fill="#444" font-size="9" font-family="Outfit,sans-serif" text-anchor="middle">Sort by</text>
+      <rect x="506" y="78" width="168" height="14" rx="1" fill="#141414"/>
+      <text x="590" y="89" fill="#444" font-size="9" font-family="Outfit,sans-serif" text-anchor="middle">Alphabetical</text>
+      <rect x="506" y="98" width="168" height="26" rx="1" fill="#181818"/>
+      <rect x="514" y="106" width="22" height="12" rx="1" fill="none" stroke="#f0ede8" stroke-width="1"/>
+      <text x="525" y="116" fill="#f0ede8" font-size="8" font-family="Outfit,sans-serif" text-anchor="middle" font-weight="500">PV</text>
+      <text x="608" y="116" fill="#f0ede8" font-size="8" font-family="Outfit,sans-serif" text-anchor="middle">Public Value ✓</text>
+    </svg>
+    <div class="diagram-caption">The same indicator scales in verbosity: abbreviated in compact contexts, fully labelled where space and attention allow.</div>
+  </div>
+</section>
+
+<!-- MANUAL TUNER -->
+<section class="reveal">
+  <div class="section-eyebrow">Feature Deep Dive · 02</div>
+  <h2>Manual Tuner -<br>Built Around<br>Real Usage</h2>
+  <p>Manual tuning - seeking across the spectrum or incrementing/decrementing frequency - existed in the previous generation but was rarely used. The data pointed to why: accessing it meant leaving the main screen entirely. For a feature used while driving, that navigation cost was too high.</p>
+  <p>Usage data also revealed that the full-screen player was by far the most used view - users spent the majority of their time there. That insight shaped the entire approach: rather than designing a separate tuner experience, the goal was to bring manual tuning into the space users already trusted, with minimal disruption to their mental model.</p>
+
+  <div class="highlight">
+    <p>"Manual tuning is exploratory - it serves a fundamentally different user mental model. That distinction, combined with the imperative to minimise in-car distraction, shaped every decision."</p>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <p class="tl-step">Early Exploration</p>
+      <div class="tl-content">
+        <h3>What if all controls were always visible?</h3>
+        <p>Initial explorations placed seeking, increment/decrement, and standard radio controls together in the full-screen player. The space allowed it technically - but the cognitive load was too high. In a driving context, presenting unfamiliar controls alongside familiar ones increases the risk of hesitation and distraction. Simplicity was not optional.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <p class="tl-step">The Solution</p>
+      <div class="tl-content">
+        <h3>A mode, not a screen</h3>
+        <p>Rather than opening a separate manual tuner screen (as in the previous generation), I proposed a toggle button in the full-screen player. Activating it replaces standard playback controls with manual tuning controls - without navigating away. The user stays within the full-screen layout they already know and trust, retaining access to all station metadata. Fewer navigation steps means less time eyes-off-road.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <p class="tl-step">Stakeholder Concerns</p>
+      <div class="tl-content">
+        <h3>Making the mode change unmistakably clear</h3>
+        <p>Stakeholders were concerned that users wouldn't know they'd entered a different mode. The solution was layered: the toggle icon is visibly selected, the screen title updates, the AM/FM toggle appears exclusively in this mode, and a subtle animation transitions between the two sets of controls - making the shift unambiguous without being disruptive.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <p class="tl-step">Deliverables</p>
+      <div class="tl-content">
+        <h3>Wireframes, prototypes & user flows</h3>
+        <p>I produced wireframes to communicate the Manual Tuner concept clearly to stakeholders and developers. To bring the mode transition to life, I built animated prototypes showing how the controls would switch - making abstract animation descriptions concrete and reviewable. User flows were also documented to map every possible interaction path, giving both stakeholders and developers a clear reference for implementation.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <p class="tl-step">Benchmarking</p>
+      <div class="tl-content">
+        <h3>Informed by industry patterns</h3>
+        <p>I researched how other automotive brands implement seeking and increment/decrement controls. Common patterns existed across the industry - aligning with them reduced the learning curve for drivers already familiar with other systems.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="diagram-wrap" style="margin-top:3rem;">
+    <div class="diagram-top">Diagram 3 - Manual Tuner: Normal vs Active Mode</div>
+    <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg" class="diagram-svg">
+      <rect width="700" height="220" fill="#0d0d0d"/>
+      <text x="165" y="28" fill="#5a5855" font-size="10" font-family="Outfit,sans-serif" text-anchor="middle" letter-spacing="2">NORMAL MODE</text>
+      <rect x="30" y="38" width="270" height="162" rx="4" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+      <text x="165" y="62" fill="#5a5855" font-size="11" font-family="Outfit,sans-serif" text-anchor="middle">Radio</text>
+      <rect x="95" y="72" width="140" height="70" rx="3" fill="#181818"/>
+      <text x="165" y="111" fill="#3a3a3a" font-size="9" font-family="Outfit,sans-serif" text-anchor="middle">album / station</text>
+      <rect x="80" y="150" width="170" height="10" rx="1" fill="#181818"/>
+      <text x="165" y="159" fill="#444" font-size="9" font-family="Outfit,sans-serif" text-anchor="middle">Station name · Song</text>
+      <circle cx="100" cy="186" r="14" fill="none" stroke="#222" stroke-width="1.5"/>
+      <text x="100" y="190" fill="#444" font-size="9" font-family="Outfit,sans-serif" text-anchor="middle">⏮</text>
+      <circle cx="165" cy="186" r="14" fill="none" stroke="#222" stroke-width="1.5"/>
+      <text x="165" y="190" fill="#444" font-size="9" font-family="Outfit,sans-serif" text-anchor="middle">♥</text>
+      <circle cx="230" cy="186" r="14" fill="none" stroke="#222" stroke-width="1.5"/>
+      <text x="230" y="190" fill="#444" font-size="9" font-family="Outfit,sans-serif" text-anchor="middle">⏭</text>
+      <rect x="270" y="42" width="22" height="22" rx="2" fill="none" stroke="#2a2a2a" stroke-width="1.2"/>
+      <text x="281" y="57" fill="#333" font-size="9" font-family="Outfit,sans-serif" text-anchor="middle">≋</text>
+      <text x="350" y="108" fill="#2a2a2a" font-size="20" font-family="Outfit,sans-serif" text-anchor="middle">→</text>
+      <text x="350" y="126" fill="#444" font-size="8" font-family="Outfit,sans-serif" text-anchor="middle">toggle</text>
+      <text x="350" y="138" fill="#444" font-size="8" font-family="Outfit,sans-serif" text-anchor="middle">activated</text>
+      <text x="535" y="28" fill="#f0ede8" font-size="10" font-family="Outfit,sans-serif" text-anchor="middle" letter-spacing="2">MANUAL TUNER MODE</text>
+      <rect x="400" y="38" width="270" height="162" rx="4" fill="none" stroke="#f0ede8" stroke-width="1"/>
+      <text x="535" y="62" fill="#f0ede8" font-size="11" font-family="Outfit,sans-serif" text-anchor="middle">Manual Tuner</text>
+      <rect x="465" y="72" width="140" height="70" rx="3" fill="#181818"/>
+      <text x="535" y="111" fill="#3a3a3a" font-size="9" font-family="Outfit,sans-serif" text-anchor="middle">album / station</text>
+      <rect x="450" y="150" width="170" height="10" rx="1" fill="#181818"/>
+      <text x="535" y="159" fill="#444" font-size="9" font-family="Outfit,sans-serif" text-anchor="middle">Station name · Frequency</text>
+      <rect x="415" y="172" width="240" height="22" rx="2" fill="#141414" stroke="#222" stroke-width="1"/>
+      <text x="424" y="187" fill="#666" font-size="9" font-family="Outfit,sans-serif">◀◀  seek  ▲  incr  ▼  decr  ▶▶</text>
+      <rect x="415" y="198" width="55" height="16" rx="8" fill="#1a1a1a" stroke="#f0ede8" stroke-width="0.8"/>
+      <text x="443" y="210" fill="#f0ede8" font-size="8" font-family="Outfit,sans-serif" text-anchor="middle">AM · FM</text>
+      <rect x="640" y="42" width="22" height="22" rx="2" fill="#f0ede8"/>
+      <text x="651" y="57" fill="#0a0a0a" font-size="9" font-family="Outfit,sans-serif" text-anchor="middle">≋</text>
+    </svg>
+    <div class="diagram-caption">Activating the Manual Tuner replaces standard controls in place - title, toggle state, and AM/FM selector confirm the mode change without leaving the full-screen layout.</div>
+  </div>
+</section>
+
+<!-- SETTINGS -->
+<section class="reveal">
+  <div class="section-eyebrow">Feature Deep Dive · 03</div>
+  <h2>Settings -<br>Complexity, Structured</h2>
+  <p>The Settings screen needed to accommodate different combinations of options depending on market, while remaining clean and comprehensible. The main challenge was sorting logic - and the edge cases it created.</p>
+
+  <div class="grid-2">
+    <div class="grid-2-item">
+      <div class="num">01</div>
+      <h3>Market-Specific Sorting Options</h3>
+      <p>Rest of World supports alphabetical and frequency sorting. The German market adds Public Value as a sorting criterion. Each combination required defined behaviour.</p>
+    </div>
+    <div class="grid-2-item">
+      <div class="num">02</div>
+      <h3>DAB Stations in Frequency Sort</h3>
+      <p>DAB stations don't map neatly onto FM/AM frequency ordering. Solution: DAB stations appear first, ordered by DAB block, then FM, then AM. Stations sharing the same DAB block are sorted alphabetically.</p>
+    </div>
+    <div class="grid-2-item">
+      <div class="num">03</div>
+      <h3>Market-Specific Toggles</h3>
+      <p>Rest of World shows Radio Info and Show AM toggles. US/Japan shows Show AM Stations and HD Radio toggles. Conditional rendering keeps settings relevant to the user's context.</p>
+    </div>
+    <div class="grid-2-item">
+      <div class="num">04</div>
+      <h3>PV Sort with No PV Stations</h3>
+      <p>Consistent with the list behaviour: if PV is selected as a sort criterion and no stations qualify, a clear message is shown and all available stations follow below.</p>
+    </div>
+  </div>
+</section>
+
+<!-- METADATA CASCADE -->
+<section class="reveal">
+  <div class="section-eyebrow">Feature Deep Dive · 04</div>
+  <h2>Metadata Cascade -<br>Logic When Data<br>Is Missing</h2>
+  <p>Metadata from radio stations is not guaranteed. Stations may send a full set of information, partial information, or nothing at all. The component needed to behave gracefully across all scenarios - we controlled the display logic, not the data source.</p>
+  <p>I defined a cascade of fallback rules across two independent dimensions - image and text - ensuring the component always had something meaningful to show.</p>
+
+  <div class="grid-2">
+    <div class="grid-2-item">
+      <div class="num">-</div>
+      <h3>Image Hierarchy</h3>
+      <p>Album cover art (best case) → Station logo → Generic fallback image. Each level is independent of the text metadata state.</p>
+    </div>
+    <div class="grid-2-item">
+      <div class="num">-</div>
+      <h3>Text Hierarchy</h3>
+      <p>Song title + artist name (best case) → Radio programme name → Station slogan or descriptor. If no station name is available, the frequency is shown instead.</p>
+    </div>
+  </div>
+
+  <div class="diagram-wrap" style="margin-top:3rem;">
+    <div class="diagram-top">Diagram 4 - Metadata Cascade Logic</div>
+    <svg viewBox="0 0 700 230" xmlns="http://www.w3.org/2000/svg" class="diagram-svg">
+      <rect width="700" height="230" fill="#0d0d0d"/>
+      <text x="175" y="28" fill="#5a5855" font-size="10" font-family="Outfit,sans-serif" text-anchor="middle" letter-spacing="2">IMAGE</text>
+      <rect x="100" y="38" width="150" height="30" rx="2" fill="#181818" stroke="#222" stroke-width="1"/>
+      <text x="175" y="58" fill="#f0ede8" font-size="10" font-family="Outfit,sans-serif" text-anchor="middle">Album cover art</text>
+      <line x1="175" y1="68" x2="175" y2="88" stroke="#222" stroke-width="1" stroke-dasharray="2,2"/>
+      <text x="185" y="82" fill="#444" font-size="8" font-family="Outfit,sans-serif">not available</text>
+      <rect x="100" y="88" width="150" height="30" rx="2" fill="#141414" stroke="#1e1e1e" stroke-width="1"/>
+      <text x="175" y="108" fill="#888" font-size="10" font-family="Outfit,sans-serif" text-anchor="middle">Station logo</text>
+      <line x1="175" y1="118" x2="175" y2="138" stroke="#222" stroke-width="1" stroke-dasharray="2,2"/>
+      <text x="185" y="132" fill="#444" font-size="8" font-family="Outfit,sans-serif">not available</text>
+      <rect x="100" y="138" width="150" height="30" rx="2" fill="#111" stroke="#1a1a1a" stroke-width="1"/>
+      <text x="175" y="158" fill="#444" font-size="10" font-family="Outfit,sans-serif" text-anchor="middle">Generic fallback</text>
+      <line x1="350" y1="20" x2="350" y2="210" stroke="#1a1a1a" stroke-width="1"/>
+      <text x="525" y="28" fill="#5a5855" font-size="10" font-family="Outfit,sans-serif" text-anchor="middle" letter-spacing="2">TEXT</text>
+      <rect x="420" y="38" width="210" height="30" rx="2" fill="#181818" stroke="#222" stroke-width="1"/>
+      <text x="525" y="58" fill="#f0ede8" font-size="10" font-family="Outfit,sans-serif" text-anchor="middle">Song title + Artist name</text>
+      <line x1="525" y1="68" x2="525" y2="88" stroke="#222" stroke-width="1" stroke-dasharray="2,2"/>
+      <text x="535" y="82" fill="#444" font-size="8" font-family="Outfit,sans-serif">not available</text>
+      <rect x="420" y="88" width="210" height="30" rx="2" fill="#141414" stroke="#1e1e1e" stroke-width="1"/>
+      <text x="525" y="108" fill="#888" font-size="10" font-family="Outfit,sans-serif" text-anchor="middle">Programme name</text>
+      <line x1="525" y1="118" x2="525" y2="138" stroke="#222" stroke-width="1" stroke-dasharray="2,2"/>
+      <text x="535" y="132" fill="#444" font-size="8" font-family="Outfit,sans-serif">not available</text>
+      <rect x="420" y="138" width="210" height="30" rx="2" fill="#111" stroke="#1a1a1a" stroke-width="1"/>
+      <text x="525" y="158" fill="#444" font-size="10" font-family="Outfit,sans-serif" text-anchor="middle">Station slogan / Frequency</text>
+      <text x="350" y="205" fill="#333" font-size="9" font-family="Outfit,sans-serif" text-anchor="middle">Both cascades are independent - image and text fallbacks resolve separately</text>
+    </svg>
+    <div class="diagram-caption">Two parallel fallback chains ensure the component always displays something meaningful, regardless of what data the station provides.</div>
+  </div>
+
+  <p style="margin-top:2rem;">All cascade rules were documented and shared with the development team, providing a precise reference for every possible data state.</p>
+</section>
+
+<!-- SKILLS -->
+<section class="reveal">
+  <div class="section-eyebrow">Reflection</div>
+  <h2>Skills Demonstrated</h2>
+
+  <div class="skills-grid">
+    <div class="skill-item">
+      <p class="skill-name">Constraint-Driven Design</p>
+      <p>Worked within an existing design system, proposing new elements only when clearly justified by user or market needs.</p>
+    </div>
+    <div class="skill-item">
+      <p class="skill-name">Stakeholder Management</p>
+      <p>Defended design decisions with clear rationale, navigated competing priorities, and adapted proposals based on structured feedback sessions.</p>
+    </div>
+    <div class="skill-item">
+      <p class="skill-name">Interaction Logic & Hierarchy</p>
+      <p>Defined progressive disclosure patterns, sorting logic, and fallback hierarchies - ensuring every state and transition had a clear, considered behaviour.</p>
+    </div>
+    <div class="skill-item">
+      <p class="skill-name">Prototyping & Communication</p>
+      <p>Produced wireframes, animated prototypes, and user flows to make complex interactions tangible for stakeholders and developers alike.</p>
+    </div>
+    <div class="skill-item">
+      <p class="skill-name">Edge Case & System Thinking</p>
+      <p>Anticipated empty states, cross-border transitions, missing metadata, and layout instability - documenting behaviour before implementation.</p>
+    </div>
+    <div class="skill-item">
+      <p class="skill-name">Data-Informed Decisions</p>
+      <p>Used usage data to justify the Manual Tuner approach and benchmarked against industry patterns to ground design decisions in real-world context.</p>
+    </div>
+    <div class="skill-item">
+      <p class="skill-name">Cross-Market UX</p>
+      <p>Mapped legal, technical, and behavioural differences across markets into a unified component framework - without fragmenting the system.</p>
+    </div>
+    <div class="skill-item">
+      <p class="skill-name">Developer Collaboration</p>
+      <p>Produced detailed component rule documentation and metadata cascade logic, reducing ambiguity and back-and-forth during implementation.</p>
+    </div>
+    <div class="skill-item">
+      <p class="skill-name">Accessibility & Cognitive Load</p>
+      <p>Applied progressive disclosure and clear visual hierarchy to reduce in-car cognitive load - with accessibility considered across all contexts.</p>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section class="reveal">
+  <div class="section-eyebrow">Impact</div>
+  <h2>What This Work Enabled</h2>
+
+  <div class="impact-list">
+    <div class="impact-item">
+      <div class="impact-n">01</div>
+      <div>
+        <h3>Single component system across all markets</h3>
+        <p>No parallel versions. Market-specific behaviour was handled through conditional rules within a shared component framework, reducing design and implementation overhead.</p>
+      </div>
+    </div>
+    <div class="impact-item">
+      <div class="impact-n">02</div>
+      <div>
+        <h3>Legal requirement delivered on schedule</h3>
+        <p>The Public Value feature was designed, validated with stakeholders, and handed off to meet a legally mandated implementation deadline - with no prior benchmarks to reference.</p>
+      </div>
+    </div>
+    <div class="impact-item">
+      <div class="impact-n">03</div>
+      <div>
+        <h3>Legacy feature modernised and re-contextualised</h3>
+        <p>The Manual Tuner moved from a separate, rarely-used screen to an integrated mode within the full-screen player - making it more discoverable and coherent with the overall experience.</p>
+      </div>
+    </div>
+    <div class="impact-item">
+      <div class="impact-n">04</div>
+      <div>
+        <h3>Clear handoff documentation</h3>
+        <p>Component rules, metadata cascades, and market-specific behaviour were fully documented, giving developers a reliable reference and reducing implementation risk.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT PROJECT -->
+<section class="reveal" style="border-bottom:none; padding: 5rem 3rem;">
+  <a href="https://andreiacruz-design.github.io/#projects" style="text-decoration:none; display:inline-flex; flex-direction:column; gap:1rem; group;">
+    <p style="font-size:0.75rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--muted); margin:0; max-width:100%;">Back to all projects</p>
+    <span style="font-family:'Bebas Neue',sans-serif; font-size:clamp(2rem,4vw,3.2rem); letter-spacing:0.02em; color:var(--white); display:flex; align-items:center; gap:1rem; transition: gap 0.3s;"
+      onmouseenter="this.style.gap='1.5rem'" onmouseleave="this.style.gap='1rem'">
+      Selected Projects <span style="font-size:1.4rem; font-family:'Outfit',sans-serif; color:var(--white);">→</span>
+    </span>
+  </a>
+</section>
+
+<footer style="border-top:1px solid var(--border); padding:3rem; display:flex; justify-content:space-between; align-items:center;">
+  <p style="font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); max-width:100%;">© 2024 Andreia Cruz</p>
+  <div style="display:flex; gap:2rem;">
+    <a href="mailto:hello@andreiacruz.com" style="font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); text-decoration:none;">Email ↗</a>
+    <a href="#" style="font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); text-decoration:none;">LinkedIn ↗</a>
+  </div>
+</footer>
+
+<script>
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+  });
+
+  function animRing() {
+    rx += (mx - rx) * 0.1; ry += (my - ry) * 0.1;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(animRing);
+  }
+  animRing();
+
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.transform = 'translate(-50%,-50%) scale(2)';
+      ring.style.width = '56px'; ring.style.height = '56px';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.transform = 'translate(-50%,-50%) scale(1)';
+      ring.style.width = '36px'; ring.style.height = '36px';
+    });
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
