@@ -634,7 +634,7 @@ Over 8 months, I drove three key initiatives end-to-end, defining behaviour, int
     <table>
       <thead>
         <tr>
-          <th>Marketing</th>
+          <th>Market</th>
           <th>Sorting Options</th>
           <th>Toggles</th>
         </tr>
@@ -659,28 +659,17 @@ Over 8 months, I drove three key initiatives end-to-end, defining behaviour, int
       </tbody>
     </table>
   
-  <div class="grid-2">
-    <div class="grid-2-item">
-      <div class="num">01</div>
-      <h3>Market-Specific Sorting Options</h3>
-      <p>In the USA and Japan, no sorting criteria existed — the station list was presented in a fixed order only. The Rest of World market already supported alphabetical and frequency sorting, and the German market extended this further by adding Public Value as an additional sorting criterion. Each combination required precisely defined behaviour.</p>
-    </div>
-    <div class="grid-2-item">
-      <div class="num">02</div>
-      <h3>DAB Stations in Frequency Sort</h3>
-      <p>DAB stations don't map neatly onto FM/AM frequency ordering. Solution: DAB stations appear first, ordered by DAB block, then FM, then AM. Stations sharing the same DAB block are sorted alphabetically.</p>
-    </div>
-    <div class="grid-2-item">
-      <div class="num">03</div>
-      <h3>Market-Specific Toggles</h3>
-      <p>Rest of World shows Radio Info and Show AM toggles. US/Japan shows Show AM Stations and HD Radio toggles. Conditional rendering keeps settings relevant to the user's context.</p>
-    </div>
-    <div class="grid-2-item">
-      <div class="num">04</div>
-      <h3>PV Sort with No PV Stations</h3>
-      <p>Consistent with the list behaviour: if PV is selected as a sort criterion and no stations qualify, a clear message is shown and all available stations follow below.</p>
-    </div>
-  </div>
+<p><strong>Key improvements:</strong></p>
+    <ul class="bullet-list">
+    <li class="bullet-list-item">In frequency sort, DAB stations come first (by block, then alphabetically), followed by FM/AM</li>
+    <li class="bullet-list-item">When no Public Value stations exist, it shows a clear message + full list</li>
+    <li class="bullet-list-item">Region-specific toggles (Show AM, HD Radio, Radio Info)</li>
+    <li class="bullet-list-item">Consistent handling of all edge cases, preventing empty screens</li>
+    </ul>
+   
+  <p>This structure ensures global consistency while staying locally relevant.</p>
+
+   
 </section>
 
 <!-- METADATA CASCADE -->
