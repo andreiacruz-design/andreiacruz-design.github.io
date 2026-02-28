@@ -688,132 +688,43 @@ Over 8 months, I drove three key initiatives end-to-end, defining behaviour, int
 </div>
 </section>
 
-<!-- SKILLS -->
-<section class="reveal">
-  <div class="section-eyebrow">Reflection</div>
-  <h2>Skills Demonstrated</h2>
-
-  <div class="skills-grid">
-    <div class="skill-item">
-      <p class="skill-name">Constraint-Driven Design</p>
-      <p>Worked within an established design system, proposing new elements only when clearly justified — keeping the system coherent rather than growing it for its own sake.</p>
-    </div>
-    <div class="skill-item">
-      <p class="skill-name">Stakeholder Management</p>
-      <p>Defended decisions with clear rationale, navigated competing priorities, and adapted proposals through structured feedback cycles — without losing design intent.</p>
-    </div>
-    <div class="skill-item">
-      <p class="skill-name">Interaction Logic & States</p>
-      <p>Defined sorting logic, fallback hierarchies, and contextual disclosure patterns — ensuring every state and transition had a deliberate, documented behaviour.</p>
-    </div>
-    <div class="skill-item">
-      <p class="skill-name">Prototyping & Communication</p>
-      <p>Produced wireframes, animated prototypes, and annotated flows to make complex interactions concrete for stakeholders and developers at every stage.</p>
-    </div>
-    <div class="skill-item">
-      <p class="skill-name">Edge Case & System Thinking</p>
-      <p>Anticipated empty states, cross-border transitions, missing metadata, and layout instability — resolving failure modes before they reached implementation.</p>
-    </div>
-    <div class="skill-item">
-      <p class="skill-name">Data-Informed Decisions</p>
-      <p>Used existing usage data and industry benchmarks to ground every concept in evidence — making proposals easier to defend and less dependent on subjective judgement.</p>
-    </div>
-    <div class="skill-item">
-      <p class="skill-name">Cross-Market UX</p>
-      <p>Translated legal, technical, and behavioural differences across markets into a unified component framework — one system, no parallel versions.</p>
-    </div>
-    <div class="skill-item">
-      <p class="skill-name">Developer Collaboration</p>
-      <p>Delivered component rule documentation and metadata cascade logic precise enough to remove ambiguity at handoff — reducing back-and-forth during implementation.</p>
-    </div>
-    <div class="skill-item">
-      <p class="skill-name">Cognitive Load & In-Car Context</p>
-      <p>Designed for glanceability and minimal distraction — applying visual hierarchy and contextual disclosure with automotive safety constraints as a primary driver.</p>
-    </div>
-  </div>
-</section>
-
-<!-- IMPACT -->
-<section class="reveal">
-  <div class="section-eyebrow">Impact</div>
-  <h2>What This Work Enabled</h2>
-
-  <div class="impact-list">
-    <div class="impact-item">
-      <div class="impact-n">01</div>
-      <div>
-        <h3>One system across all markets</h3>
-        <p>No parallel versions. Market-specific behaviour was encoded as conditional rules within a shared component framework — a scalable approach that reduces both design and engineering overhead as new markets are added.</p>
-      </div>
-    </div>
-    <div class="impact-item">
-      <div class="impact-n">02</div>
-      <div>
-        <h3>Legal requirement shipped on deadline</h3>
-        <p>Public Value was a legally mandated feature with a fixed deadline and no prior benchmarks in the industry. It was scoped, validated, and handed off on schedule — without disrupting the broader component architecture.</p>
-      </div>
-    </div>
-    <div class="impact-item">
-      <div class="impact-n">03</div>
-      <div>
-        <h3>Legacy feature made relevant again</h3>
-        <p>The Manual Tuner shifted from a buried, rarely-used screen to an integrated mode within the full-screen player — more discoverable, more contextually coherent, and no longer feeling like an afterthought.</p>
-      </div>
-    </div>
-    <div class="impact-item">
-      <div class="impact-n">04</div>
-      <div>
-        <h3>Foundation for future scalability</h3>
-        <p>The component rules, metadata cascades, and market logic were documented in enough detail to serve as a live reference — giving the team a stable foundation to build on as the product evolves.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- LIMITATIONS -->
 <section class="reveal">
-  <div class="section-eyebrow">Context</div>
-  <h2>On Testing &<br>Validation</h2>
+  <div class="section-eyebrow">Testing & validation</div>
+  <h2>Industry<br>tests limitations</h2>
 
-  <p>In automotive UX, dedicated usability testing with end users is not always part of the process - and this project was no exception. Testing a feature designed for use while driving requires controlled conditions: a simulator environment, safety protocols, and significant time investment. Within the timeline and constraints of this project, that was not available.</p>
+  <p>In automotive UX, dedicated usability testing isn't always feasible — this project had no simulator access due to timeline constraints. Validation used industry standards instead: HMI guidelines, ISO safety compliance, and reviews with Functional Owners + engineering.</p>
 
   <p>Validation instead followed the standards typical of the sector: compliance with internal HMI guidelines, alignment with ISO and automotive safety regulations, and structured review sessions with Functional Owners and engineering. These processes exist precisely to compensate for the absence of live user testing - they are not a shortcut, but an industry-standard alternative.</p>
 
-  <div class="highlight">
-    <p>If the context had allowed for it, the logical next step would have been a usability test in a driving simulator - evaluating cognitive load, legibility at a glance, and interaction speed under realistic conditions. A heuristic evaluation by an independent HMI specialist would also have been valuable, particularly for the Manual Tuner mode transition.</p>
-  </div>
+  <p><strong>Next steps (if possible):</strong></p>
+    <ul class="bullet-list">
+    <li class="bullet-list-item">Driving simulator tests (cognitive load, glanceability, speed)</li>
+    <li class="bullet-list-item">Independent HMI heuristic evaluation (Manual Tuner focus)</li>
+    </ul>
+
+
 </section>
 
 <!-- REFLECTIONS -->
 <section class="reveal">
-  <div class="section-eyebrow">Reflections</div>
-  <h2>What I Learned</h2>
+  <div class="section-eyebrow">Key Learnings & Impact</div>
+  <h2>Main lessons<br>from this project</h2>
 
-  <p>The core challenge here wasn't visual — it was systemic. Multiple markets, overlapping constraints, and a legacy feature that needed rethinking, all within a single component framework. The discipline was in resisting the pull to solve each problem in isolation and instead finding the abstraction layer that kept the system coherent.</p>
+  <p>This redesign delivered a production-ready radio player balancing legacy features, market variations, and data challenges within automotive constraints.</p>
 
-  <div class="tl-list" style="margin-top:2.5rem;">
-    <div class="tl-item">
-      <p class="tl-step">01</p>
-      <div class="tl-content">
-        <h3>Alignment before execution reduces risk</h3>
-        <p>Mapping market differences and edge cases before opening Figma saved significant rework later. Bringing stakeholders into those early conversations — not just review sessions — meant fewer redirects at handoff. That sequencing is now a fixed part of how I approach complex scoping work.</p>
-      </div>
-    </div>
-    <div class="tl-item">
-      <p class="tl-step">02</p>
-      <div class="tl-content">
-        <h3>Evidence makes decisions defensible</h3>
-        <p>Grounding proposals in usage data and industry benchmarks — rather than intuition alone — changed the quality of stakeholder conversations. It shifted the focus from "do we like this?" to "does this hold up?" In contexts where fresh research isn't available, that's the most credible path to confident decision-making.</p>
-      </div>
-    </div>
-    <div class="tl-item">
-      <p class="tl-step">03</p>
-      <div class="tl-content">
-        <h3>Documentation is a design output, not a handoff task</h3>
-        <p>Writing component rules, edge cases, and conditional logic as I designed — not after — meant the documentation reflected actual decisions rather than reconstructed ones. Developers had fewer questions, implementation risk dropped, and the spec became a reference the team could trust. That shift in mindset is something I carry into every project now.</p>
-      </div>
-    </div>
-  </div>
+  <ul class="bullet-list">
+    <li class="bullet-list-item">Data vs. Requirements: When usage data conflicts with stakeholders requirements (like legacy tuning), relocate features to high-traffic areas rather than removing them.</li>
+    <li class="bullet-list-item">Edge Case Mastery: Map market variations (USA/Japan fixed lists vs. Germany Public Value) into tables for clarity, then build systematic fallbacks.</li>
+    <li class="bullet-list-item">Process Documentation: I learned that documenting decisions throughout the process is crucial - it forces clearer thinking about edge cases, trade-offs, and validation alternatives.</li>
+    <li class="bullet-list-item">Stakeholder Collaboration: Translate specific concerns (like mode confusion) into universal design principles that build trust across teams.</li>
+    <li class="bullet-list-item">When simulator testing isn't possible, use HMI/ISO standards and stakeholder reviews as reliable alternatives — and always document your ideal next steps (driving tests and HMI heuristics).</li>
+    </ul>
+
+
+ <p>Impact: Zero empty states, consistent global behaviors, and driver-focused interactions — delivering reliability where it matters most, the safety-critical automotive UX.</p>
+
 </section>
 
 <!-- NEXT PROJECT -->
