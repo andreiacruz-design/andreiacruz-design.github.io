@@ -575,41 +575,11 @@ Over 8 months, I drove three key initiatives end-to-end, defining behaviour, int
 
 <!-- PUBLIC VALUE -->
 <section class="reveal">
-  <div class="section-eyebrow">Feature Deep Dive · 01</div>
-  <h2>Public Value -<br>A German<br>Legal Requirement</h2>
-  <p>Public Value is a German legal requirement: certain radio stations must be identified as publicly funded. The indicator is strictly territorial — it is only valid within Germany. As a driver moves between German regions, the qualifying stations change: some stations gain the PV designation, others lose it. When the car crosses the border into Austria or Italy, the indicator disappears entirely from all stations.</p>
-  <p>The requirement arrived mid-project with a tight legal deadline, and with no prior benchmarks - the regulation was new. The challenge was to meet it without disrupting a component that had to work across all markets.</p>
+  <div class="section-eyebrow">Public Value Indicator</div>
+  <h2>German<br>Legal Requirement</h2>
+  <p>This arrived mid-project with no prior benchmark references: publicly funded radio stations must be marked only within territorial borders. The designation changes dynamically within Germany and disappears completely when crossing international borders.</p>
 
-  <div class="timeline">
-    <div class="tl-item">
-      <p class="tl-step">The Problem</p>
-      <div class="tl-content">
-        <h3>How do you display a label that only exists in one market?</h3>
-        <p>Spelling out "Public Value" was too long and added cognitive load - critical in an in-car context. A standalone icon was too abstract. But the information had to be always present for legally qualifying stations.</p>
-      </div>
-    </div>
-    <div class="tl-item">
-      <p class="tl-step">The Insight</p>
-      <div class="tl-content">
-        <h3>Progressive disclosure across contexts</h3>
-        <p>Not every screen needs to explain everything. In compact contexts - lists, widgets - the abbreviation PV is sufficient. In the full-screen player and settings, the full label "Public Value" appears alongside the icon, providing comprehension where there's space for it.</p>
-      </div>
-    </div>
-    <div class="tl-item">
-      <p class="tl-step">The Decision</p>
-      <div class="tl-content">
-        <h3>Icon positioning to prevent layout instability</h3>
-        <p>PV is a transient indicator - it appears in Germany and disappears when the driver crosses into Austria or Italy. To prevent jarring layout shifts, the frequency icon (always present) was anchored to the right, and the PV icon was placed to the left. When PV disappears, nothing moves.</p>
-      </div>
-    </div>
-    <div class="tl-item">
-      <p class="tl-step">Edge Case</p>
-      <div class="tl-content">
-        <h3>Sorting by PV when no PV stations exist</h3>
-        <p>If a user sorts by Public Value in a market or region with no qualifying stations, the list doesn't break - it surfaces a clear message explaining that no PV stations are available, then shows all available stations below.</p>
-      </div>
-    </div>
-  </div>
+  <p>The requirement arrived mid-project with a tight legal deadline, and with no prior benchmarks - the regulation was new. The challenge was to meet it without disrupting a component that had to work across all markets.</p>
 
   <div class="diagram-wrap">
     <div class="diagram-top">Diagram 2 - Public Value: Progressive Disclosure Across Contexts</div>
