@@ -472,8 +472,8 @@ Over 8 months, I drove three key initiatives end-to-end, defining behaviour, int
 
 <!-- OVERVIEW -->
 <section class="reveal">
-  <div class="section-eyebrow">01</div>
-  <h2>Context<br>& Constrains</h2>
+  <div class="section-eyebrow">Context & Constrains</div>
+  <h2>Between Legacy,<br>Diversity and Law</h2>
   <p>Radio formats, technical standards, and regulations vary widely across markets, yet the product needed to operate as one coherent system. This shaped the component architecture: every pattern had to flex for regional behaviours while staying consistent globally.
 </p>
   <p>The design reconciled three ongoing pressures:</p>
@@ -492,14 +492,17 @@ Over 8 months, I drove three key initiatives end-to-end, defining behaviour, int
 <!-- CHALLENGE -->
 <section class="reveal">
 
-    <div class="section-eyebrow">The Challenge</div>
-    <h2>One System.<br>Many Markets.</h2>
-    <p>Radio is not a universal product. Listening habits, technical standards, and legal requirements vary significantly across markets - and our system needed to handle all of them through a single, cohesive component framework.</p>
-
-  <p>This required balancing three forces in tension: delivering the best possible user experience, respecting strict implementation constraints, and satisfying market-specific requirements - including a legal one that arrived mid-project.</p>
-  <div class="highlight">
-    <p>Underlying every decision was a non-negotiable constraint: drivers interact with the radio while in motion. Minimising distraction and making interactions as fast and intuitive as possible was not a design preference - it was a safety requirement.</p>
-  </div>
+    <div class="section-eyebrow">Design Strategy</div>
+    <h2>Flexible<br>Consistency</h2>
+    <p>My approach: flexible consistency — evolve legacy behaviours using a single component system that adapts to markets, data, and laws while prioritising driver safety.</p>
+  
+  <p>Key pillars:</p>
+    <ul class="bullet-list">
+    <li class="bullet-list-item">Usage-led: Integrated underused Manual Tuner into the dominant full-screen player based on prior generation data.</li>
+     <li class="bullet-list-item">Market rules: One matrix controlled conditional rendering (PV, frequency, HD Radio) across regions.</li>
+     <li class="bullet-list-item">Stable layouts: Dynamic elements anchored to static ones to prevent distracting shifts.</li>
+     <li class="bullet-list-item">Edge coverage: Graceful fallbacks for missing data, empty sorts, and cross-market quirks.</li>
+    </ul>  
   
 </section>
 
