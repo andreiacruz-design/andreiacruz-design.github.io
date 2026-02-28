@@ -185,7 +185,7 @@
   }
 
   p {
-    font-size: 0.95rem; color: var(--muted); max-width: 62ch;
+    font-size: 0.95rem; color: var(--muted); max-width: 70ch;
     margin-bottom: 1.4rem; line-height: 1.85;
   }
 
@@ -350,7 +350,7 @@
   /* BULLET LIST */
 
   .bullet-list {
-    margin-bottom: 3rem;
+    margin-bottom: 3rem; max-width: 70ch;
   }
   .bullet-list-item {
     margin-left: 1rem;
@@ -670,7 +670,7 @@ Over 8 months, I drove three key initiatives end-to-end, defining behaviour, int
 <!-- METADATA CASCADE -->
 <section class="reveal">
   <div class="section-eyebrow">Metadata Cascade</div>
-  <h2>Logic When Data-<br>Logic When Data<br>Is Missing</h2>
+  <h2>Logic When Data<br>Is Missing</h2>
   <p>Metadata from radio stations is not guaranteed. Stations may send a full set of information, partial information, or nothing at all. The component needed to behave gracefully across all scenarios - we controlled the display logic, not the data source.</p>
   <p>I defined a cascade of fallback rules across two independent dimensions - image and text - ensuring the component always had something meaningful to show and avoiding empty states that users wouldn't perceive as elegant.</p>
 
@@ -688,10 +688,8 @@ Over 8 months, I drove three key initiatives end-to-end, defining behaviour, int
   <div class="section-eyebrow">Testing & validation</div>
   <h2>Industry<br>tests limitations</h2>
 
-  <p>In automotive UX, dedicated usability testing isn't always feasible — this project had no simulator access due to timeline constraints. Validation used industry standards instead: HMI guidelines, ISO safety compliance, and reviews with Functional Owners + engineering.</p>
-
-  <p>Validation instead followed the standards typical of the sector: compliance with internal HMI guidelines, alignment with ISO and automotive safety regulations, and structured review sessions with Functional Owners and engineering. These processes exist precisely to compensate for the absence of live user testing - they are not a shortcut, but an industry-standard alternative.</p>
-
+  <p> In automotive UX, dedicated usability testing isn't always feasible — this project had no simulator access due to timeline constraints. Validation used industry standards instead: HMI guidelines, ISO safety compliance, and reviews with Functional Owners + engineering.</p>
+  
   <p><strong>Next steps (if possible):</strong></p>
     <ul class="bullet-list">
     <li class="bullet-list-item">Driving simulator tests (cognitive load, glanceability, speed)</li>
