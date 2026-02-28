@@ -678,40 +678,14 @@ Over 8 months, I drove three key initiatives end-to-end, defining behaviour, int
   <div class="section-eyebrow">Feature Deep Dive · 04</div>
   <h2>Metadata Cascade -<br>Logic When Data<br>Is Missing</h2>
   <p>Metadata from radio stations is not guaranteed. Stations may send a full set of information, partial information, or nothing at all. The component needed to behave gracefully across all scenarios - we controlled the display logic, not the data source.</p>
-  <p>I defined a cascade of fallback rules across two independent dimensions - image and text - ensuring the component always had something meaningful to show.</p>
+  <p>I defined a cascade of fallback rules across two independent dimensions - image and text - ensuring the component always had something meaningful to show and avoiding empty states that users wouldn't perceive as elegant.</p>
 
 
   <div class="diagram-wrap">
     <div class="diagram-top">Diagram 4 - Metadata Cascade Logic</div>
-    <svg viewBox="0 0 700 230" xmlns="http://www.w3.org/2000/svg" class="diagram-svg">
-      <rect width="700" height="230" fill="#0d0d0d"/>
-      <text x="175" y="28" fill="#5a5855" font-size="10" font-family="Outfit,sans-serif" text-anchor="middle" letter-spacing="2">IMAGE</text>
-      <rect x="100" y="38" width="150" height="30" rx="2" fill="#181818" stroke="#222" stroke-width="1"/>
-      <text x="175" y="58" fill="#f0ede8" font-size="10" font-family="Outfit,sans-serif" text-anchor="middle">Album cover art</text>
-      <line x1="175" y1="68" x2="175" y2="88" stroke="#222" stroke-width="1" stroke-dasharray="2,2"/>
-      <text x="185" y="82" fill="#444" font-size="8" font-family="Outfit,sans-serif">not available</text>
-      <rect x="100" y="88" width="150" height="30" rx="2" fill="#141414" stroke="#1e1e1e" stroke-width="1"/>
-      <text x="175" y="108" fill="#888" font-size="10" font-family="Outfit,sans-serif" text-anchor="middle">Station logo</text>
-      <line x1="175" y1="118" x2="175" y2="138" stroke="#222" stroke-width="1" stroke-dasharray="2,2"/>
-      <text x="185" y="132" fill="#444" font-size="8" font-family="Outfit,sans-serif">not available</text>
-      <rect x="100" y="138" width="150" height="30" rx="2" fill="#111" stroke="#1a1a1a" stroke-width="1"/>
-      <text x="175" y="158" fill="#444" font-size="10" font-family="Outfit,sans-serif" text-anchor="middle">Generic fallback</text>
-      <line x1="350" y1="20" x2="350" y2="210" stroke="#1a1a1a" stroke-width="1"/>
-      <text x="525" y="28" fill="#5a5855" font-size="10" font-family="Outfit,sans-serif" text-anchor="middle" letter-spacing="2">TEXT</text>
-      <rect x="420" y="38" width="210" height="30" rx="2" fill="#181818" stroke="#222" stroke-width="1"/>
-      <text x="525" y="58" fill="#f0ede8" font-size="10" font-family="Outfit,sans-serif" text-anchor="middle">Song title + Artist name</text>
-      <line x1="525" y1="68" x2="525" y2="88" stroke="#222" stroke-width="1" stroke-dasharray="2,2"/>
-      <text x="535" y="82" fill="#444" font-size="8" font-family="Outfit,sans-serif">not available</text>
-      <rect x="420" y="88" width="210" height="30" rx="2" fill="#141414" stroke="#1e1e1e" stroke-width="1"/>
-      <text x="525" y="108" fill="#888" font-size="10" font-family="Outfit,sans-serif" text-anchor="middle">Programme name</text>
-      <line x1="525" y1="118" x2="525" y2="138" stroke="#222" stroke-width="1" stroke-dasharray="2,2"/>
-      <text x="535" y="132" fill="#444" font-size="8" font-family="Outfit,sans-serif">not available</text>
-      <rect x="420" y="138" width="210" height="30" rx="2" fill="#111" stroke="#1a1a1a" stroke-width="1"/>
-      <text x="525" y="158" fill="#444" font-size="10" font-family="Outfit,sans-serif" text-anchor="middle">Station slogan / Frequency</text>
-      <text x="350" y="205" fill="#333" font-size="9" font-family="Outfit,sans-serif" text-anchor="middle">Both cascades are independent - image and text fallbacks resolve separately</text>
-    </svg>
-    <div class="diagram-caption">Two parallel fallback chains ensure the component always displays something meaningful, regardless of what data the station provides.</div>
-  </div>
+    <img style="width:100%; height:auto; display:block;" src="4_port_radio.png" alt="Normal vs Active Mode" style="width:50%; height:auto; display:block;">
+    <div class="diagram-caption">Two parallel fallback chains ensure the component always displays something meaningful, regardless of what data the station provides.
+</div>
 
   <p style="margin-top:2rem;">All cascade rules were documented and shared with the development team, providing a precise reference for every possible data state.</p>
 </section>
