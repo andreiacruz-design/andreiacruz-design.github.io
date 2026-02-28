@@ -600,88 +600,19 @@ Over 8 months, I drove three key initiatives end-to-end, defining behaviour, int
 
 <!-- MANUAL TUNER -->
 <section class="reveal">
-  <div class="section-eyebrow">Feature Deep Dive · 02</div>
-  <h2>Manual Tuner -<br>Built Around<br>Real Usage</h2>
-  <p>Manual tuning - seeking across the spectrum or incrementing/decrementing frequency - existed in the previous generation but was rarely used. The data pointed to why: accessing it meant leaving the main screen entirely. For a feature used while driving, that navigation cost was too high.</p>
+  <div class="section-eyebrow">Manual Tuner</div>
+  <h2>Adapt Legacy<br>to Real Usage</h2>
+  <p>Manual tuning represented my biggest design challenge. The feature (manual seek and tuning controls) had very low usage in the previous generation, yet it was a stakeholder requirement to maintain due to legacy system commitments. Data showed users spent 90% of their time in the full-screen player, so I reimagined the tuner to live there instead of as a separate buried screen.</p>
+
+   <div class="diagram-wrap">
+    <div class="diagram-top">Diagram 3 - Manual Tuner: Normal vs Active Mode</div>
+    <img style="width:100%; height:auto; display:block;" src="3_port_radio.png" alt="Normal vs Active Mode" style="width:50%; height:auto; display:block;">
+    <div class="diagram-caption">Activating the Manual Tuner replaces standard controls in place - title, toggle state, and AM/FM selector confirm the mode change without leaving the full-screen layout.
+</div>
+  </div>
+  
   <p>Usage data also revealed that the full-screen player was by far the most used view - users spent the majority of their time there. That insight shaped the entire approach: rather than designing a separate tuner experience, the goal was to bring manual tuning into the space users already trusted, with minimal disruption to their mental model.</p>
 
-
-  <div class="timeline">
-    <div class="tl-item">
-      <p class="tl-step">Early Exploration</p>
-      <div class="tl-content">
-        <h3>What if all controls were always visible?</h3>
-        <p>Initial explorations placed seeking, increment/decrement, and standard radio controls together in the full-screen player. The space allowed it technically - but the cognitive load was too high. In a driving context, presenting unfamiliar controls alongside familiar ones increases the risk of hesitation and distraction. Simplicity was not optional.</p>
-      </div>
-    </div>
-    <div class="tl-item">
-      <p class="tl-step">The Solution</p>
-      <div class="tl-content">
-        <h3>A mode, not a screen</h3>
-        <p>Rather than opening a separate manual tuner screen (as in the previous generation), I proposed a toggle button in the full-screen player. Activating it replaces standard playback controls with manual tuning controls - without navigating away. The user stays within the full-screen layout they already know and trust, retaining access to all station metadata. Fewer navigation steps means less time eyes-off-road.</p>
-      </div>
-    </div>
-    <div class="tl-item">
-      <p class="tl-step">Stakeholder Concerns</p>
-      <div class="tl-content">
-        <h3>Making the mode change unmistakably clear</h3>
-        <p>Stakeholders were concerned that users wouldn't know they'd entered a different mode. The solution was layered: the toggle icon is visibly selected, the screen title updates, the AM/FM toggle appears exclusively in this mode, and a subtle animation transitions between the two sets of controls - making the shift unambiguous without being disruptive.</p>
-      </div>
-    </div>
-    <div class="tl-item">
-      <p class="tl-step">Deliverables</p>
-      <div class="tl-content">
-        <h3>Wireframes, prototypes & user flows</h3>
-        <p>I produced wireframes to communicate the Manual Tuner concept clearly to stakeholders and developers. To bring the mode transition to life, I built animated prototypes showing how the controls would switch - making abstract animation descriptions concrete and reviewable. User flows were also documented to map every possible interaction path, giving both stakeholders and developers a clear reference for implementation.</p>
-      </div>
-    </div>
-    <div class="tl-item">
-      <p class="tl-step">Benchmarking</p>
-      <div class="tl-content">
-        <h3>Informed by industry patterns</h3>
-        <p>I researched how other automotive brands implement seeking and increment/decrement controls. Common patterns existed across the industry - aligning with them reduced the learning curve for drivers already familiar with other systems.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="diagram-wrap">
-    <div class="diagram-top">Diagram 3 - Manual Tuner: Normal vs Active Mode</div>
-    <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg" class="diagram-svg">
-      <rect width="700" height="220" fill="#0d0d0d"/>
-      <text x="165" y="28" fill="#5a5855" font-size="10" font-family="Outfit,sans-serif" text-anchor="middle" letter-spacing="2">NORMAL MODE</text>
-      <rect x="30" y="38" width="270" height="162" rx="4" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
-      <text x="165" y="62" fill="#5a5855" font-size="11" font-family="Outfit,sans-serif" text-anchor="middle">Radio</text>
-      <rect x="95" y="72" width="140" height="70" rx="3" fill="#181818"/>
-      <text x="165" y="111" fill="#3a3a3a" font-size="9" font-family="Outfit,sans-serif" text-anchor="middle">album / station</text>
-      <rect x="80" y="150" width="170" height="10" rx="1" fill="#181818"/>
-      <text x="165" y="159" fill="#444" font-size="9" font-family="Outfit,sans-serif" text-anchor="middle">Station name · Song</text>
-      <circle cx="100" cy="186" r="14" fill="none" stroke="#222" stroke-width="1.5"/>
-      <text x="100" y="190" fill="#444" font-size="9" font-family="Outfit,sans-serif" text-anchor="middle">⏮</text>
-      <circle cx="165" cy="186" r="14" fill="none" stroke="#222" stroke-width="1.5"/>
-      <text x="165" y="190" fill="#444" font-size="9" font-family="Outfit,sans-serif" text-anchor="middle">♥</text>
-      <circle cx="230" cy="186" r="14" fill="none" stroke="#222" stroke-width="1.5"/>
-      <text x="230" y="190" fill="#444" font-size="9" font-family="Outfit,sans-serif" text-anchor="middle">⏭</text>
-      <rect x="270" y="42" width="22" height="22" rx="2" fill="none" stroke="#2a2a2a" stroke-width="1.2"/>
-      <text x="281" y="57" fill="#333" font-size="9" font-family="Outfit,sans-serif" text-anchor="middle">≋</text>
-      <text x="350" y="108" fill="#2a2a2a" font-size="20" font-family="Outfit,sans-serif" text-anchor="middle">→</text>
-      <text x="350" y="126" fill="#444" font-size="8" font-family="Outfit,sans-serif" text-anchor="middle">toggle</text>
-      <text x="350" y="138" fill="#444" font-size="8" font-family="Outfit,sans-serif" text-anchor="middle">activated</text>
-      <text x="535" y="28" fill="#f0ede8" font-size="10" font-family="Outfit,sans-serif" text-anchor="middle" letter-spacing="2">MANUAL TUNER MODE</text>
-      <rect x="400" y="38" width="270" height="162" rx="4" fill="none" stroke="#f0ede8" stroke-width="1"/>
-      <text x="535" y="62" fill="#f0ede8" font-size="11" font-family="Outfit,sans-serif" text-anchor="middle">Manual Tuner</text>
-      <rect x="465" y="72" width="140" height="70" rx="3" fill="#181818"/>
-      <text x="535" y="111" fill="#3a3a3a" font-size="9" font-family="Outfit,sans-serif" text-anchor="middle">album / station</text>
-      <rect x="450" y="150" width="170" height="10" rx="1" fill="#181818"/>
-      <text x="535" y="159" fill="#444" font-size="9" font-family="Outfit,sans-serif" text-anchor="middle">Station name · Frequency</text>
-      <rect x="415" y="172" width="240" height="22" rx="2" fill="#141414" stroke="#222" stroke-width="1"/>
-      <text x="424" y="187" fill="#666" font-size="9" font-family="Outfit,sans-serif">◀◀  seek  ▲  incr  ▼  decr  ▶▶</text>
-      <rect x="415" y="198" width="55" height="16" rx="8" fill="#1a1a1a" stroke="#f0ede8" stroke-width="0.8"/>
-      <text x="443" y="210" fill="#f0ede8" font-size="8" font-family="Outfit,sans-serif" text-anchor="middle">AM · FM</text>
-      <rect x="640" y="42" width="22" height="22" rx="2" fill="#f0ede8"/>
-      <text x="651" y="57" fill="#0a0a0a" font-size="9" font-family="Outfit,sans-serif" text-anchor="middle">≋</text>
-    </svg>
-    <div class="diagram-caption">Activating the Manual Tuner replaces standard controls in place - title, toggle state, and AM/FM selector confirm the mode change without leaving the full-screen layout.</div>
-  </div>
 </section>
 
 <!-- SETTINGS -->
