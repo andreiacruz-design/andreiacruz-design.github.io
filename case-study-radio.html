@@ -307,6 +307,11 @@
     height: auto;
     object-fit: contain;
     background: #000000;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+  .diagram-wrap img:hover {
+    opacity: 0.85;
   }
   .diagram-caption {
     padding: 0.8rem 1.5rem; font-size: 0.82rem; font-style: italic;
@@ -370,6 +375,55 @@
   .reveal.animate { opacity: 0; transform: translateY(20px); }
   .reveal.animate.visible { opacity: 1; transform: translateY(0); }
 
+  /* MODAL STYLES */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 1);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .modal-overlay.active {
+    display: flex;
+  }
+
+  .modal-close {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 1.5rem;
+    transition: background 0.3s ease;
+  }
+
+  .modal-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .modal-image {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+
   @media (max-width: 768px) {
     nav { padding: 1.2rem 1.5rem; }
     .case-hero { padding: 4rem 1.5rem 3rem; }
@@ -389,6 +443,17 @@
   @media (hover: none) {
     .cursor, .cursor-ring { display: none; }
     body { cursor: auto; }
+    .modal-close {
+      top: 1rem;
+      right: 1rem;
+      width: 36px;
+      height: 36px;
+      font-size: 1.3rem;
+    }
+    .modal-image {
+      max-width: 95%;
+      max-height: 85vh;
+    }
   }
 
   @media (max-width: 768px) {
@@ -414,6 +479,12 @@
 
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
+
+<!-- MODAL OVERLAY -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-close" id="modalClose">×</div>
+  <img class="modal-image" id="modalImage" src="" alt="">
+</div>
 
 <nav>
   <a href="https://andreiacruz-design.github.io" class="nav-logo">Andreia Cruz</a>
@@ -771,3 +842,49 @@ Over 8 months, I drove three key initiatives end-to-end, defining behaviour, int
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classLis
+t.add('visible'); });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.reveal.animate').forEach(r => observer.observe(r));
+
+  // MODAL FUNCTIONALITY FOR DIAGRAM IMAGES
+  const modalOverlay = document.getElementById('modalOverlay');
+  const modalImage = document.getElementById('modalImage');
+  const modalClose = document.getElementById('modalClose');
+  const diagramImages = document.querySelectorAll('.diagram-wrap img');
+
+  // Open modal when clicking on diagram images
+  diagramImages.forEach(img => {
+    img.addEventListener('click', () => {
+      modalImage.src = img.src;
+      modalImage.alt = img.alt;
+      modalOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  // Close modal function
+  function closeModal() {
+    modalOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Close modal when clicking the X button
+  modalClose.addEventListener('click', closeModal);
+
+  // Close modal when clicking outside the image
+  modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) {
+      closeModal();
+    }
+  });
+
+  // Close modal with ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+      closeModal();
+    }
+  });
+</script>
+
+</body>
+</html>
