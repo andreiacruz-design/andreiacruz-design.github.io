@@ -645,26 +645,16 @@ Consistency</h2>
 
 <!-- MANUAL TUNER -->
 <section class="reveal">
-  <div class="section-eyebrow">Feature . Manual Tuner</div>
-  <h2>Adapt Legacy<br>to Real Usage</h2>
-  <p>Manual tuning represented my biggest design challenge. The feature (manual seek and tuning controls) had very low usage in the previous generation, yet it was a stakeholder requirement to maintain due to legacy system commitments. Data showed users spent 90% of their time in the full-screen player, so I reimagined the tuner to live there instead of as a separate buried screen.</p>
-
-   <div class="diagram-wrap">
-    <div class="diagram-top">Diagram 3 - Manual Tuner: Normal vs Active Mode</div>
-    <img style="width:100%; height:auto; display:block;" src="3_port_radio.png" alt="Normal vs Active Mode" style="width:50%; height:auto; display:block;">
-    <div class="diagram-caption">Activating the Manual Tuner replaces standard controls in place - title, toggle state, and AM/FM selector confirm the mode change without leaving the full-screen layout.
-</div>
-  </div>
-  
-  <p>The solution to create a Manual Tuner Mode within the player layout. One tap on the Manual Tuner toggle swaps playback controls for tuning controls via subtle animation - zero navigation, full metadata visible.</p>
-  <p>Stakeholders were worried that users wouldn't clearly understand when they were in manual tuning mode versus playback. I prioritized this by:</p>
+  <div class="section-eyebrow">Popup Priority Matrix</div>
+  <h2>Alert System<br>Priority</h2>
+  <p>I created a priority matrix defining which popups take precedence and how they behave when appearing simultaneously. These examples illustrate the core logic applied across all interface alerts.</p>  
     <ul class="bullet-list">
-    <li class="bullet-list-item">Visually selecting the toggle icon</li>
-     <li class="bullet-list-item">Changing the title to "Manual Tuner"</li>
-     <li class="bullet-list-item">Making AM/FM toggle exclusive to this mode</li>
-     <li class="bullet-list-item">Adding smooth and non distractive control transition animation</li>
+    <li class="bullet-list-item">Critical messages (e.g. engine failure): Immediate safety threats. Always interrupt everything, including open dialogues. Require manual dismissal.</li>
+     <li class="bullet-list-item">Warning messages (e.g. tire pressure, ABS): Important alerts. Same behavior as critical — interrupt dialogues and push them to stack — but queue behind any active critical messages.
+</li>
+     <li class="bullet-list-item">Feedback messages (e.g. setting confirmed): Confirmations and changes. Coexist with other popups - layer alongside dialogues and warnings. Exception: suppressed when critical messages are active.</li>
     </ul>  
-    <p>Regarding the seeking feature, I aligned interaction patterns with competitor vehicles to ensure instant user familiarity.</p>
+    <p>When critical or warning messages appear during an open dialogue, the dialogue pauses and returns to the stack. Feedback messages display alongside existing popups unless critical alerts demand full attention.</p>
 
 </section>
 
