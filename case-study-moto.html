@@ -547,7 +547,7 @@ For more than 1 year, I focused on system architecture and rider-centered featur
   <p>Designing for motorcycles means designing for life-or-death contexts. Every interaction happens while riders navigate traffic at speed, wearing helmets. Any distraction can be fatal.
 </p>
    <p>The instrument cluster serves three motorcycle types (urban, sport, adventure) with different feature sets, handles unpredictable sensor data, and adapts to multiple languages within a fixed screen size.</p>
-  <p>The challenge wasn't designing individual screens—it was architecting a system that flexes across models, features, and failure states while never compromising rider safety.</p>
+  <p>The challenge wasn't designing individual screens - it was architecting a system that flexes across models, features, and failure states while never compromising rider safety.</p>
 
   <div class="table-wrap">
     <table>
@@ -566,7 +566,7 @@ For more than 1 year, I focused on system architecture and rider-centered featur
         </tr>
         <tr>
           <td>Helmet visor</td>
-          <td>Scratched/tinted visors and sunlight reduce visibilityt</td>
+          <td>Scratched/tinted visors and sunlight reduce visibility</td>
           <td>High contrast ratios, larger text, icon-first design</td>
         </tr>
         <tr>
@@ -600,15 +600,19 @@ For more than 1 year, I focused on system architecture and rider-centered featur
 <section class="reveal">
 
     <div class="section-eyebrow">Design Strategy</div>
-    <h2>Flexible<br>Consistency</h2>
-    <p>My approach: flexible consistency — evolve legacy behaviours using a single component system that adapts to markets, data, and laws while prioritising driver safety.</p>
-  
-  <p><strong>Key pillars:</strong></p>
+    <h2>Foundation<br>for
+Consistency</h2>
+    <p>My role centered on building the structural foundation — system architecture, behavior rules, and safety logic — that would ensure consistency across all interface states while keeping riders safe.</p>
+  <p><strong>Core principles:</strong></p>
     <ul class="bullet-list">
-    <li class="bullet-list-item">Usage-led: Integrated underused Manual Tuner into the dominant full-screen player based on prior generation data</li>
-     <li class="bullet-list-item">Market rules: One matrix controlled conditional rendering (PV, frequency, HD Radio) across regions</li>
-     <li class="bullet-list-item">Stable layouts: Dynamic elements anchored to static ones to prevent distracting shifts</li>
-     <li class="bullet-list-item">Edge coverage: Graceful fallbacks for missing data, empty sorts, and cross-market quirks</li>
+    <li class="bullet-list-item">System structure flowchart: I created and maintained a comprehensive flowchart documenting navigation paths, popup behaviors, overlay interactions, and shortcuts. Designers used it for transitions; developers for implementation.
+</li>
+     <li class="bullet-list-item">Decision trees for dynamic features: For heating and ride height, I mapped every state: available/unavailable (based on bike model), active/inactive, levels, and errors.
+</li>
+     <li class="bullet-list-item">Popup priority matrix: I defined which alerts override others when multiple appear. Safety warnings (critical/high) always come first. Rules specify: blocking vs. non-blocking, queuing vs. simultaneous display.
+</li>
+     <li class="bullet-list-item">Rider-centered customization: Riders choose critical vehicle data (tire pressure, engine temperature, fuel). One button press access — no menus.
+</li>
     </ul>  
   
 </section>
