@@ -649,10 +649,10 @@ Consistency</h2>
   <h2>Alert System<br>Priority</h2>
   <p>I created a priority matrix defining which popups take precedence and how they behave when appearing simultaneously. These examples illustrate the core logic applied across all interface alerts.</p>  
     <ul class="bullet-list">
-    <li class="bullet-list-item">Critical messages (e.g. engine failure): Immediate safety threats. Always interrupt everything, including open dialogues. Require manual dismissal.</li>
+    <li class="bullet-list-item">Critical messages (e.g. engine failure): Immediate safety threats. Always interrupt everything, including open dialogues. Require manual dismissal.</li><br>
      <li class="bullet-list-item">Warning messages (e.g. tire pressure, ABS): Important alerts. Same behavior as critical — interrupt dialogues and push them to stack — but queue behind any active critical messages.
-</li>
-     <li class="bullet-list-item">Feedback messages (e.g. setting confirmed): Confirmations and changes. Coexist with other popups - layer alongside dialogues and warnings. Exception: suppressed when critical messages are active.</li>
+</li><br>
+     <li class="bullet-list-item">Feedback messages (e.g. setting confirmed): Confirmations and changes. Coexist with other popups - layer alongside dialogues and warnings. Exception: suppressed when critical messages are active.</li><br>
     </ul>  
     <p>When critical or warning messages appear during an open dialogue, the dialogue pauses and returns to the stack. Feedback messages display alongside existing popups unless critical alerts demand full attention.</p>
 
