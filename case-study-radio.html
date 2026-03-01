@@ -645,7 +645,7 @@ Over 8 months, I drove three key initiatives end-to-end, defining behaviour, int
 
 <!-- PUBLIC VALUE -->
 <section class="reveal">
-  <div class="section-eyebrow">Public Value Indicator</div>
+  <div class="section-eyebrow">Feature . Public Value Indicator</div>
   <h2>German<br>Legal Requirement</h2>
   <p> This arrived mid-project with no prior benchmarks: publicly funded radio stations must be marked only within territorial borders. The designation changes dynamically within Germany and disappears completely when crossing international borders. This drove three specific design decisions:
 
@@ -669,7 +669,7 @@ Over 8 months, I drove three key initiatives end-to-end, defining behaviour, int
 
 <!-- MANUAL TUNER -->
 <section class="reveal">
-  <div class="section-eyebrow">Manual Tuner</div>
+  <div class="section-eyebrow">Feature . Manual Tuner</div>
   <h2>Adapt Legacy<br>to Real Usage</h2>
   <p>Manual tuning represented my biggest design challenge. The feature (manual seek and tuning controls) had very low usage in the previous generation, yet it was a stakeholder requirement to maintain due to legacy system commitments. Data showed users spent 90% of their time in the full-screen player, so I reimagined the tuner to live there instead of as a separate buried screen.</p>
 
@@ -694,7 +694,7 @@ Over 8 months, I drove three key initiatives end-to-end, defining behaviour, int
 
 <!-- SETTINGS -->
 <section class="reveal">
-  <div class="section-eyebrow">Settings</div>
+  <div class="section-eyebrow">Feature . Settings</div>
   <h2>Sorting logic -<br>and edge cases</h2>
   <p>The Settings screen needed to accommodate different combinations of options depending on market, while remaining clean and comprehensible. The main challenge was sorting logic — and the edge cases it created.</p>
 
@@ -743,7 +743,7 @@ Over 8 months, I drove three key initiatives end-to-end, defining behaviour, int
 
 <!-- METADATA CASCADE -->
 <section class="reveal">
-  <div class="section-eyebrow">Metadata Cascade</div>
+  <div class="section-eyebrow">Feature . Metadata Cascade</div>
   <h2>Logic When Data<br>Is Missing</h2>
   <p>Metadata from radio stations is not guaranteed. Stations may send a full set of information, partial information, or nothing at all. The component needed to behave gracefully across all scenarios - we controlled the display logic, not the data source.</p>
   <p>I defined a cascade of fallback rules across two independent dimensions - image and text - ensuring the component always had something meaningful to show and avoiding empty states that users wouldn't perceive as elegant.</p>
