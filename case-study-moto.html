@@ -686,15 +686,10 @@ Consistency</h2>
 <!-- LIMITATIONS -->
 <section class="reveal">
   <div class="section-eyebrow">Testing & validation</div>
-  <h2>Industry<br>tests limitations</h2>
+  <h2>Simulator<br>Testing</h2>
 
-  <p> In automotive UX, dedicated usability testing isn't always feasible — this project had no simulator access due to timeline constraints. Validation used industry standards instead: HMI guidelines, ISO safety compliance, and reviews with Functional Owners + engineering.</p>
-  
-  <p><strong>Next steps (if possible):</strong></p>
-    <ul class="bullet-list">
-    <li class="bullet-list-item">Driving simulator tests (cognitive load, glanceability, speed)</li>
-    <li class="bullet-list-item">Independent HMI heuristic evaluation (Manual Tuner focus)</li>
-    </ul>
+  <p>I participated in creating prototypes for usability testing with ~15 riders in a motorcycle simulator. Due to geographic constraints, I wasn't present during testing but had access to results.</p>
+<p>The customization system was particularly praised—riders immediately understood how to access priority data. Testing validated navigation intuitiveness, glanceability, and system consistency.</p>
 
 
 </section>
@@ -704,18 +699,21 @@ Consistency</h2>
   <div class="section-eyebrow">Key Learnings & Impact</div>
   <h2>Main lessons<br>from this project</h2>
 
-  <p>This redesign delivered a production-ready radio player balancing legacy features, market variations, and data challenges within automotive constraints.</p>
+  <p>This work established the structural foundation for BMW Motorrad's instrument cluster—system architecture, behavior rules, and safety logic that will scale across motorcycles launching in 2027.</p>
 
   <ul class="bullet-list">
-    <li class="bullet-list-item">Data vs. Requirements: When usage data conflicts with stakeholders requirements (like legacy tuning), relocate features to high-traffic areas rather than removing them.</li><br>
-    <li class="bullet-list-item">Edge Case Mastery: Map market variations (USA/Japan fixed lists vs. Germany Public Value) into tables for clarity, then build systematic fallbacks.</li><br>
-    <li class="bullet-list-item">Process Documentation: I learned that documenting decisions throughout the process is crucial - it forces clearer thinking about edge cases, trade-offs, and validation alternatives.</li><br>
+    <li class="bullet-list-item">System thinking over individual screens: The flowchart became the single source of truth keeping the team aligned. In safety-critical interfaces, inconsistency isn't just bad UX, it's a safe issue.
+</li><br>
+    <li class="bullet-list-item">Document while building, not after: Maintaining the flowchart and matrices throughout the process forced clearer thinking about edge cases and caught conflicts when they were easy to fix.</li><br>
+    <li class="bullet-list-item">Developer collaboration improves design: Feedback from developers on my flowchart and specifications often revealed missed edge cases or clearer ways to structure interaction rules, improving both documentation and implementation.</li><br>
     <li class="bullet-list-item">Stakeholder Collaboration: Translate specific concerns (like mode confusion) into universal design principles that build trust across teams.</li><br>
-    <li class="bullet-list-item">When simulator testing isn't possible, use HMI/ISO standards and stakeholder reviews as reliable alternatives — and always document your ideal next steps (driving tests and HMI heuristics).</li>
+    <li class="bullet-list-item">Automotive constraints teach precision: Fixed hardware, unpredictable sensors and safety standards taught me to think ahead. Every state needs a fallback. Every error needs clear communication.
+</li>
     </ul>
 
 
- <p>Impact: Zero empty states, consistent global behaviors, and driver-focused interactions — delivering reliability where it matters most, the safety-critical automotive UX.</p>
+ <p>The system structure flowchart, priority matrices, and decision trees became team-wide references. When the cluster launches in 2027, riders will experience consistent, predictable, and safe interactions across all BMW Motorrad motorcycles.
+</p>
 
 </section>
 
