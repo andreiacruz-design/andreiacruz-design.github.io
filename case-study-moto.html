@@ -667,22 +667,6 @@ Consistency</h2>
 <p>During usability testing with ~15 riders in a simulator, the system was praised for being intuitive and immediately understandable.</p>   
 </section>
 
-<!-- METADATA CASCADE -->
-<section class="reveal">
-  <div class="section-eyebrow">Feature . Metadata Cascade</div>
-  <h2>Logic When Data<br>Is Missing</h2>
-  <p>Metadata from radio stations is not guaranteed. Stations may send a full set of information, partial information, or nothing at all. The component needed to behave gracefully across all scenarios - we controlled the display logic, not the data source.</p>
-  <p>I defined a cascade of fallback rules across two independent dimensions - image and text - ensuring the component always had something meaningful to show and avoiding empty states that users wouldn't perceive as elegant.</p>
-
-
-  <div class="diagram-wrap">
-    <div class="diagram-top">Diagram 4 - Metadata Cascade Logic</div>
-    <img style="width:100%; height:auto; display:block;" src="4_port_radio.png" alt="Metadata Cascade Logic" style="width:50%; height:auto; display:block;">
-    <div class="diagram-caption">Two parallel fallback chains ensure the component always displays something meaningful, regardless of what data the station provides.
-</div>
-</section>
-
-
 <!-- LIMITATIONS -->
 <section class="reveal">
   <div class="section-eyebrow">Testing & validation</div>
