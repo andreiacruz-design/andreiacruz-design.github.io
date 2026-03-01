@@ -614,15 +614,7 @@ Consistency</h2>
      <li class="bullet-list-item">Rider-centered customization: Riders choose critical vehicle data (tire pressure, engine temperature, fuel). One button press access - no menus.
 </li>
     </ul>
-  <p>The flowchart became the team's source of truth. Designers referenced it for transitions, developers for implementation — ensuring the entire team produced consistent interactions.
-</p>
-
-  <div class="diagram-wrap">
-    <div class="diagram-top">Diagram 1 - Popup Interaction Logic</div>
-    <img style="width:100%; height:auto; display:block;" src="1_port_moto.png" alt="Popup Interaction Logic" style="width:50%; height:auto; display:block;">
-    <div class="diagram-caption">Example behaviors mapped in the system structure. Popups either persist with no background changes, remain visible while background updates, or close while background changes — ensuring predictable responses across the interface.
-</div>
-  </div>
+ 
   
 </section>
 
@@ -640,19 +632,15 @@ Consistency</h2>
 
   </ul>
 
+   <p>The flowchart became the team's source of truth. Designers referenced it for transitions, developers for implementation — ensuring the entire team produced consistent interactions.
+</p>
+
   <div class="diagram-wrap">
-    <div class="diagram-top">Diagram 2 - Public Value: Progressive Disclosure Across Contexts</div>
-    <img style="width:100%; height:auto; display:block;" src="2_port_radio.png" alt="Progressive Disclosure" style="width:50%; height:auto; display:block;">
-    <div class="diagram-caption">The same indicator scales in verbosity: abbreviated in compact contexts, fully labelled where space and attention allow.</div>
+    <div class="diagram-top">Diagram 1 - Popup Interaction Logic</div>
+    <img style="width:100%; height:auto; display:block;" src="1_port_moto.png" alt="Popup Interaction Logic" style="width:50%; height:auto; display:block;">
+    <div class="diagram-caption">Example behaviors mapped in the system structure. Popups either persist with no background changes, remain visible while background updates, or close while background changes — ensuring predictable responses across the interface.
+</div>
   </div>
-    <ul class="bullet-list">
-    <li class="bullet-list-item">Lists/widgets show just "PV" (compact for quick glances)</li>
-    <li class="bullet-list-item">Player/Settings expand to "Public Value" + icon (full explanation where space allows)</li>
-    </ul>
-
-    <p>2. Layout stability: PV icon anchored left of the always-present frequency. When crossing borders, PV disappears but the layout stays rock-solid - no distracting visual jumps.</p>
-    <p>3. Edge case: Sorting by PV in regions with no qualifying stations (like Austria) shows "No Public Value stations available" followed by the full station list.</p>
-
 </section>
 
 <!-- MANUAL TUNER -->
