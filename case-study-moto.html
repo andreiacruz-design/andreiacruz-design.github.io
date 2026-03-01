@@ -543,20 +543,57 @@ For more than 1 year, I focused on system architecture and rider-centered featur
 <!-- OVERVIEW -->
 <section class="reveal">
   <div class="section-eyebrow">Context & Constrains</div>
-  <h2>Between Legacy,<br>Diversity and Law</h2>
-  <p>Radio formats, technical standards, and regulations vary widely across markets, yet the product needed to operate as one coherent system. This shaped the component architecture: every pattern had to flex for regional behaviours while staying consistent globally.
+  <h2>Between Safety,<br>Complexity and Speed</h2>
+  <p>Designing for motorcycles means designing for life-or-death contexts. Every interaction happens while riders navigate traffic at speed, wearing helmets. Any distraction can be fatal.
 </p>
-  <p><strong>The design reconciled three ongoing pressures:</strong></p>
-    <ul class="bullet-list">
-    <li class="bullet-list-item">Preserving legacy behaviours for existing users</li>
-     <li class="bullet-list-item">Meeting market-specific legal requirements (one added mid-project)</li>
-     <li class="bullet-list-item">Working within strict implementation constraints</li>
-    </ul>  
+   <p>The instrument cluster serves three motorcycle types (urban, sport, adventure) with different feature sets, handles unpredictable sensor data, and adapts to multiple languages within a fixed screen size.</p>
+  <p>The challenge wasn't designing individual screens—it was architecting a system that flexes across models, features, and failure states while never compromising rider safety.</p>
 
-  <p>These drove decisions from information architecture to microinteractions and component parameterisation.</p>
-  <p>Above all, drivers use radio in motion - minimising distraction through fast, predictable interactions was a safety requirement, not just a UX principle.
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Constraint</th>
+          <th>Why it Matters</th>
+          <th>Design Solution</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Physical controls</td>
+          <td><span class="dot dot-on"></span>Riders interact via physical buttons on handlebars while riding - no touchscreen</td>
+          <td><span class="dot dot-on"></span>Simplified navigation paths, clear shortcuts, logical button mapping</td>
+        </tr>
+        <tr>
+          <td>Helmet visor</td>
+          <td><span class="dot dot-off"></span>Scratched/tinted visors reduce visibility; reflections in sunlight</td>
+          <td><span class="dot dot-off"></span>High contrast ratios, larger text, icon-first design</td>
+        </tr>
+        <tr>
+          <td>Motion context</td>
+          <td><span class="dot dot-on"></span>Glancing while riding - every second matters</td>
+          <td><span class="dot dot-on"></span>One-tap critical info, strong visual hierarchy</td>
+        </tr>
+        <tr>
+          <td>Multiple languages</td>
+          <td><span class="dot dot-off"></span>German text is 40% longer than English on same screen size</td>
+          <td><span class="dot dot-off"></span>Icon-based when possible, tested with longest translations</td>
+        </tr>
+        <tr>
+          <td>Optional features</td>
+          <td><span class="dot dot-off"></span>Features like heating are buyer-selected extras - not all bikes have them</td>
+          <td><span class="dot dot-on"></span>Modular system adapts UI based on installed hardware</td>
+        </tr>
+        <tr>
+          <td>Unpredictable sensors</td>
+          <td><span class="dot dot-off"></span>Tire pressure sensor can fail mid-ride</td>
+          <td><span class="dot dot-on"></span>Graceful error states, never empty screens</td>
+        </tr>
 
-</p>
+      </tbody>
+    </table>
+  </div>
+
 </section>
 
 <!-- CHALLENGE -->
