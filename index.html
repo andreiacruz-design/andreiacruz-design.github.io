@@ -299,6 +299,42 @@
   }
   .footer-links a:hover { color: var(--white); }
 
+  /* Scroll Indicator */
+.scroll-indicator {
+  position: fixed;
+  right: 3rem;
+  bottom: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  z-index: 50;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-indicator.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.scroll-text {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-weight: 300;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 60px;
+  background: var(--muted);
+  opacity: 0.5;
+}
+
   @keyframes fadeUp {
   from {
     opacity: 0;
@@ -382,6 +418,10 @@
   footer { flex-direction: column; gap: 1.2rem; padding: 2rem 1.5rem; text-align: center; }
   .footer-links { justify-content: center; flex-wrap: wrap; }
 }
+  .scroll-indicator {
+    display: none;
+  }
+}
 </style>
 </head>
 <body>
@@ -412,6 +452,10 @@
     <a href="https://drive.google.com/file/d/1RnYrQMSy70FWa43kGkUvBKhkx79SMf69/view" class="hero-link">Resume ↗</a>
     <a href="mailto:andreiafccruz@gmail.com" class="hero-link">Email ↗</a>
     <a href="https://www.linkedin.com/in/andreiacanudocruz/" class="hero-link">LinkedIn ↗</a>
+  </div>
+  <div class="scroll-indicator">
+    <span class="scroll-text">SCROLL</span>
+    <div class="scroll-line"></div>
   </div>
 </section>
 
@@ -503,6 +547,23 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+  <script>
+  // Scroll indicator - desaparece quando chega ao Work
+  const scrollIndicator = document.querySelector('.scroll-indicator');
+  const workSection = document.querySelector('#projects'); // ou #work se tiver esse id
+  
+  window.addEventListener('scroll', () => {
+    if (!workSection || !scrollIndicator) return;
+    
+    const workPosition = workSection.getBoundingClientRect().top;
+    
+    if (workPosition <= window.innerHeight) {
+      scrollIndicator.classList.add('hidden');
+    } else {
+      scrollIndicator.classList.remove('hidden');
+    }
+  });
 </script>
 </body>
 </html>
