@@ -116,7 +116,7 @@
   }
 
   .hero-photo-wrap {
-    width: clamp(180px, 28vw, 300px);
+    width: clamp(240px, 340px, 340px);
     aspect-ratio: 3/4;
     overflow: hidden;
     border-radius: 12px;
@@ -125,10 +125,13 @@
     animation: fadeIn 1s ease forwards 0.4s;
   }
   .hero-photo-wrap img {
-    width: 100%; height: 100%;
-    object-fit: cover; object-position: center top;
-  }
-
+  width: 140%;
+  height: 180%;
+  object-fit: cover;
+  object-position: center;
+  margin-left: -20%;
+  margin-top: 0%;
+}
   /* Tagline sits below DESIGNER, right-aligned */
   .hero-tagline-row {
     display: flex;
