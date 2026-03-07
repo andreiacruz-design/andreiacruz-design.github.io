@@ -169,14 +169,24 @@
 
   /* ABOUT */
   .about {
-    padding: 7rem 3rem;
-    display: grid; grid-template-columns: 200px 1fr;
-    gap: 6rem;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 3rem;
     border-top: 1px solid var(--border);
   }
+  .about-text {
+    max-width: 800px;
+    width: 100%;
+  }
   .about-label {
-    font-size: 0.82rem; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--muted); padding-top: 0.4rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 1.5rem;
   }
   .about-text h2 {
     font-family: 'Bebas Neue', sans-serif;
@@ -184,7 +194,7 @@
     line-height: 1.05; letter-spacing: 0.02em; margin-bottom: 2rem;
   }
   .about-text p {
-    font-size: 0.95rem; color: var(--muted); line-height: 1.85;
+    font-size: 1rem; color: var(--muted); line-height: 1.85;
     max-width: 55ch; margin-bottom: 1.2rem; font-weight: 300;
   }
 
@@ -303,7 +313,7 @@
     .hero-tagline { font-size: 0.85rem; max-width: 22ch; }
     .hero-links-row { gap: 2rem; margin-top: 2.5rem; }
 
-    .about { grid-template-columns: 1fr; gap: 1.5rem; padding: 4rem 1.5rem; }
+    .about { grid-template-columns: 1fr; gap: 1.5rem; padding: 0rem 1.5rem; }
     .projects { padding: 3rem 1.5rem 5rem; }
     .project-card-inner { grid-template-columns: 1fr; gap: 1.5rem; padding: 2rem 0; }
     .project-thumb { height: 220px; }
@@ -348,6 +358,7 @@
 <section class="about" id="about">
   <p class="about-label reveal">About</p>
   <div class="about-text reveal">
+        <span class="about-label">ABOUT</span>
     <h2>Craft, curiosity<br>& cross-functional teams</h2>
     <p>Hi, I'm Andreia - Product Designer by craft, problem-solver by nature. Based in Lisbon, Portugal, I work with cross-functional teams around the world.</p>
     <p>Since 2020, I've been designing websites, mobile apps, and digital products - from a digital agency to the automotive industry. I specialise in interaction design, design systems, and translating complex requirements into clear, considered experiences.</p>
