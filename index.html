@@ -330,7 +330,14 @@
       justify-content: center;
     }
     .hero-tagline { font-size: 0.85rem; max-width: 22ch; }
-    .hero-links-row { gap: 2rem; margin-top: 2.5rem; }
+    .hero-links-row { 
+    gap: 2rem; 
+    position: absolute;              /* ← ADICIONA */
+    bottom: 2rem;                    /* ← ADICIONA (menos espaço no mobile) */
+    left: 50%;                       /* ← ADICIONA */
+    transform: translateX(-50%);     /* ← ADICIONA */
+    margin-top: 0;                   /* ← MUDA de 2.5rem para 0 */
+  }
     .hero-right-section {
   align-items: center;
   padding-left: 0;
