@@ -217,6 +217,35 @@
     max-width: 80ch; margin-bottom: 1.2rem; font-weight: 300;
   }
 
+  css/* Badges Container */
+.badges-container {
+  display: flex;
+  gap: 2rem;
+  margin-top: 3rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.badge {
+  width: 120px;
+  height: 120px;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.badge:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
   /* PROJECTS */
   .projects {
     padding: 4rem 3rem 8rem;
@@ -461,6 +490,14 @@
     <h2>Craft, curiosity<br>& cross-functional teams</h2>
     <p>Hi, I'm Andreia - Product Designer by craft, problem-solver by nature. Based in Lisbon, Portugal, I work with cross-functional teams around the world.</p>
     <p>Since 2020, I've been designing websites, mobile apps, and digital products - from a digital agency to the automotive industry. I specialise in interaction design, design systems, and translating complex requirements into clear, considered experiences.</p>
+ <div class="badges-container">
+      <div class="badge">
+        <img src="unnamed__1_.png" alt="NNg UX Certified">
+      </div>
+      <div class="badge">
+        <img src="asset_38psu.png" alt="Professional Scrum with User Experience PSU I">
+      </div>
+    </div>  
   </div>
 </section>
 
