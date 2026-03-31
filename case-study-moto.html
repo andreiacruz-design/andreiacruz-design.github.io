@@ -159,9 +159,16 @@
 
   /* SECTIONS */
   section {
-    padding: 6rem 3rem;
-    border-bottom: 1px solid var(--border);
-  }
+  display: flex;
+  justify-content: center;
+  padding: 6rem 3rem;
+  border-bottom: 1px solid var(--border);
+}
+
+section > * {
+  width: 100%;
+  max-width: 800px;
+}
 
   .section-eyebrow {
     font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
