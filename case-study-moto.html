@@ -159,9 +159,16 @@
 
   /* SECTIONS */
   section {
-    padding: 6rem 3rem;
-    border-bottom: 1px solid var(--border);
-  }
+  padding: 6rem 3rem;
+  border-bottom: 1px solid var(--border);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+  .case-hero {
+  max-width: none;
+  margin: 0;
+}
 
   .section-eyebrow {
     font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
@@ -438,7 +445,10 @@
     .hero-img { height: 240px; }
     .case-meta-row { justify-content: flex-start; }
     .case-meta-item { text-align: left; }
-    section { padding: 4rem 1.5rem; }
+    section {
+  padding: 4rem 1.5rem;
+  max-width: 800px;
+}
     .grid-3, .skills-grid { grid-template-columns: 1fr; }
     .grid-2 { grid-template-columns: 1fr; }
     .tl-item { grid-template-columns: 1fr; gap: 0.5rem; }
@@ -468,7 +478,10 @@
     .nav-links li:not(:last-child) { display: none; }
     .case-title { font-size: clamp(3rem, 12vw, 6rem); }
     .case-meta-row { gap: 2rem; flex-wrap: wrap; }
-    section { padding: 3.5rem 1.5rem; }
+    section {
+  padding: 3.5rem 1.5rem;
+  max-width: 800px;
+}
     .grid-2, .skills-grid { grid-template-columns: 1fr; }
     .tl-item { grid-template-columns: 1fr; gap: 0.4rem; }
     .tl-step { padding-top: 0; }
