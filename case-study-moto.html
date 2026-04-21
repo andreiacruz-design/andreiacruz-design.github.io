@@ -485,6 +485,7 @@ section > * {
     .diagram-svg { max-height: 40vh; }
     .impact-item { gap: 1.5rem; }
     footer { flex-direction: column; gap: 1.2rem; padding: 2rem 1.5rem; text-align: center; }
+    .constraint-grid { grid-template-columns: 1fr !important; }
   }
 
 </style>
@@ -530,7 +531,7 @@ Over 18 months, as part of a multi-disciplinary team, I worked on the parts of t
       <div class="case-meta-row">
         <div class="case-meta-item">
           <p class="label">Duration</p>
-          <p class="value">1 year</p>
+          <p class="value">1.5 year</p>
         </div>
         <div class="case-meta-item">
           <p class="label">Industry</p>
@@ -559,56 +560,26 @@ Over 18 months, as part of a multi-disciplinary team, I worked on the parts of t
 <section class="reveal">
   <div class="section-eyebrow">Context & Constrains</div>
   <h2>Between Safety,<br>Complexity and Speed</h2>
-  <p>Designing for motorcycles means designing for life-or-death contexts. Every interaction happens while riders navigate traffic at speed, wearing helmets. Any distraction can be fatal.
-</p>
-   <p>The instrument cluster serves three motorcycle types (urban, sport, adventure) with different feature sets, handles unpredictable sensor data, and adapts to multiple languages within a fixed screen size.</p>
-  <p>The challenge wasn't designing individual screens - it was architecting a system that flexes across models, features, and failure states while never compromising rider safety.</p>
+  <p>Designing for motorcycles means designing for motion. Every interaction happens at speed, through a helmet visor, with one hand on the handlebars. Distraction isn't an inconvenience — it's a safety risk.</p>
+<p>The challenge wasn't designing individual screens. It was architecting a system that flexes across three motorcycle types, adapts to installed hardware, handles sensor failures gracefully, and never breaks focus.</p>
 
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th>Constraint</th>
-          <th>Why it Matters</th>
-          <th>Design Solution</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Physical controls</td>
-          <td>Riders interact via physical buttons on handlebars while riding</td>
-          <td>Simplified navigation paths and clear shortcuts</td>
-        </tr>
-        <tr>
-          <td>Helmet visor</td>
-          <td>Scratched/tinted visors and sunlight reduce visibility</td>
-          <td>High contrast ratios, larger text, icon-first design</td>
-        </tr>
-        <tr>
-          <td>Motion context</td>
-          <td>Glancing while riding - every second matters</td>
-          <td>One-tap critical info, strong visual hierarchy</td>
-        </tr>
-        <tr>
-          <td>Multiple languages</td>
-          <td>German text is 40% longer than English</td>
-          <td>Icon-based when possible, tested with longest translations</td>
-        </tr>
-        <tr>
-          <td>Optional features</td>
-          <td>Features like heating are buyer-selected extras</td>
-          <td>Modular system adapts UI based on installed hardware</td>
-        </tr>
-        <tr>
-          <td>Unpredictable sensors</td>
-          <td>Tire pressure sensor can fail mid-ride</td>
-          <td>Graceful error states, never empty screens</td>
-        </tr>
-
-      </tbody>
-    </table>
+<div class="constraint-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:1px; margin-top:3rem; background:var(--border);">
+  <div style="background:var(--bg); padding:2rem;">
+    <p style="font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--white); font-weight:500; margin-bottom:0.5rem; max-width:100%;">Glance interaction</p>
+    <p style="font-size:0.88rem; color:var(--muted); margin:0; line-height:1.6; max-width:100%;">Critical info in one tap — every second of attention counts.</p>
   </div>
-
+  <div style="background:var(--bg); padding:2rem;">
+    <p style="font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--white); font-weight:500; margin-bottom:0.5rem; max-width:100%;">Physical controls</p>
+    <p style="font-size:0.88rem; color:var(--muted); margin:0; line-height:1.6; max-width:100%;">Navigation via handlebar buttons only — no touch while riding.</p>
+  </div>
+  <div style="background:var(--bg); padding:2rem;">
+    <p style="font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--white); font-weight:500; margin-bottom:0.5rem; max-width:100%;">Visor visibility</p>
+    <p style="font-size:0.88rem; color:var(--muted); margin:0; line-height:1.6; max-width:100%;">Scratched or tinted visors demand high contrast and icon-first design.</p>
+  </div>
+  <div style="background:var(--bg); padding:2rem;">
+    <p style="font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--white); font-weight:500; margin-bottom:0.5rem; max-width:100%;">Sensor failures</p>
+    <p style="font-size:0.88rem; color:var(--muted); margin:0; line-height:1.6; max-width:100%;">Tyre pressure can fail mid-ride — graceful states, never empty screens.</p>
+  </div>
 </section>
 
 <!-- CHALLENGE -->
