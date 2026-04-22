@@ -236,30 +236,6 @@
   height: 100%;
   object-fit: contain;
 }
-  .section-outer {
-  position: relative;
-  border-top: 1px solid var(--border);
-}
-
-.v-label {
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 10rem;
-  display: flex; align-items: center; justify-content: center;
-  border-right: 1px solid var(--border);
-  overflow: hidden;
-}
-
-.v-label span {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(4rem, 6vw, 7rem);
-  letter-spacing: 0.06em;
-  color: rgba(240,237,232,0.12);
-  white-space: nowrap;
-  user-select: none;
-}
 
   /* PROJECTS */
   .projects {
@@ -468,7 +444,6 @@
   .project-thumb { height: 220px; }
   footer { flex-direction: column; gap: 1.2rem; padding: 2rem 1.5rem; text-align: center; }
   .footer-links { justify-content: center; flex-wrap: wrap; }
-  .v-label { display: none; }
 .container { padding: 0 1.5rem; }
 }
 </style>
@@ -508,7 +483,7 @@
   </div>
 </section>
 
-<div class="section-outer" id="about">
+<section class="about" id="about">
   <div class="v-label"><span>About</span></div>
   <section class="about">
     <div class="about-text reveal">
