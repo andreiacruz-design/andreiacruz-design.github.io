@@ -77,13 +77,13 @@
 
 .case-back {
   font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--white); text-decoration: none;
+  color: var(--muted); text-decoration: none;
   display: flex; align-items: center; gap: 0.75rem;
   margin-bottom: 2rem; padding: 1rem 0;
   opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s;
-  width: fit-content; transition: opacity 0.2s;
+  width: fit-content; transition: color 0.2s;
 }
-.case-back:hover { opacity: 0.6; }
+.case-back:hover { color: var(--white); }
 
 .hero-grid {
   display: grid;
@@ -265,10 +265,10 @@ section {
   /* TIMELINE */
   .timeline { margin-top: 3rem; }
   .tl-item {
-    display: grid; grid-template-columns: 160px 1fr;
-    gap: 3rem; padding: 2.5rem 0;
-    border-top: 1px solid var(--border);
-  }
+  display: grid; grid-template-columns: 40px 1fr;
+  gap: 2rem; padding: 2rem 0;
+  border-top: 1px solid var(--border);
+}
   .tl-item:last-child { border-bottom: 1px solid var(--border); }
   .tl-step {
     font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
@@ -678,8 +678,8 @@ section {
 <section class="reveal">
   <div class="section-eyebrow">Testing & Validation</div>
   <h2>Simulator<br>Testing</h2>
-  <p>I participated in building the prototypes used for usability testing with ~15 riders in a motorcycle simulator. Due to geographic constraints, I wasn't present during the sessions but had full access to results.</p>
-  <p>Testing the product validated navigation intuitiveness, glanceability, and system consistency across all interface states.</p>
+  <p>I built the prototypes used for usability testing with ~15 riders in a motorcycle simulator. The sessions focused on three areas: navigation intuitiveness, glanceability under realistic riding conditions, and system consistency across all interface states.</p>
+  <p>Results validated the core interaction model - particularly the customisation system, which riders found immediately understandable. Feedback from testing fed directly into the final iteration of the priority matrix and shortcut logic.</p>
 </section>
 
 <!-- REFLECTIONS -->
