@@ -571,7 +571,7 @@ section {
   <div class="section-eyebrow">Context & Constraints</div>
   <h2>Between Safety,<br>Complexity & Speed</h2>
   <p>Designing for motorcycles means designing for motion. Every interaction happens at speed, through a helmet visor, with the hands on the handlebars. Distraction isn't an inconvenience, it's a safety risk.</p>
-  <p>The challenge wasn't designing individual screens. It was architecting a system that flexes across three motorcycle types, adapts to installed hardware, handles sensor failures gracefully, and never breaks focus.</p>
+  <p>TThe challenge was not just designing an interface, but ensuring critical information could be understood instantly in high-risk, high-speed contexts.</p>
 
   <div class="constraint-grid">
     <div class="constraint-item">
@@ -597,7 +597,7 @@ section {
 <section class="reveal">
   <div class="section-eyebrow">Design Strategy</div>
   <h2>Foundation for<br>Consistency</h2>
-  <p>My role centred on the structural foundation — the architecture, behaviour rules, and safety logic that keep the system consistent across all states and riders safe.</p>
+  <p>My role centred on the structural foundation — the architecture, behaviour rules, and safety logic. These helped to reduce variability across screens, ensuring predictable interactions even in high-pressure contexts.</p>
 
   <div style="margin-top:3rem;">
     <div class="tl-item">
@@ -635,12 +635,14 @@ section {
 <section class="reveal">
   <div class="section-eyebrow">System Structure Flowchart</div>
   <h2>Mapping<br>the Entire Interface</h2>
-  <p>As features were being defined across the team, I created and maintained the system structure flowchart — a living document mapping the complete interface architecture, used by designers for transitions and developers for implementation.</p>
+  <p>As features were being defined across the team, I created and maintained the system structure flowchart - a living document mapping the complete interface architecture, used by designers for transitions and developers for implementation.</p>
 
   <p><strong style="color:var(--white); font-weight:500;">Navigation structure</strong> - Every screen, every path, from main menu to deepest levels.</p>
   <p><strong style="color:var(--white); font-weight:500;">Popup & overlay behaviour</strong> - Where they open, how they dismiss, and what happens when a button is pressed while a popup is visible.</p>
   <p><strong style="color:var(--white); font-weight:500;">Shortcuts</strong> - Direct access paths bypassing standard navigation, with clear rules for activation.</p>
 
+  <p>We structured the system around quick access over depth, prioritising immediate comprehension instead of exhaustive navigation.</p>
+  
   <div class="diagram-wrap">
     <div class="diagram-top">Diagram 1 - Popup Interaction Logic</div>
     <img style="width:100%; height:auto; display:block;" src="1a_port_moto.png" alt="Popup Interaction Logic">
@@ -664,7 +666,7 @@ section {
 <section class="reveal">
   <div class="section-eyebrow">Vehicle Info Customization</div>
   <h2>One Tap<br>to Critical Data</h2>
-  <p>I led the UX for a customisation system letting riders choose what vehicle data matters most to them - tire pressure, engine temperature, fuel level - accessible with one button press, no menus.</p>
+  <p>I led the UX for a customisation system letting riders choose what vehicle data matters most to them - tire pressure, engine temperature, fuel level - accessible with one button press, no menus. We reduced interaction steps to a single tap to minimise cognitive load in high-speed scenarios, even if it limited access to secondary information.</p>
   <p>The system adapts to each bike model, showing only data for installed sensors. During usability testing with ~15 riders in a simulator, it was praised for being intuitive and immediately understandable.</p>
 
   <div class="diagram-wrap">
