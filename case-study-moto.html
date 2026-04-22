@@ -75,14 +75,13 @@
   margin: 0 auto;
 }
 
-case-back {
+.case-back {
   font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--white); text-decoration: none;
   display: flex; align-items: center; gap: 0.75rem;
-  margin-bottom: 4.5rem;
+  margin-bottom: 2rem; padding: 1rem 0;
   opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s;
-  width: fit-content;
-  transition: opacity 0.2s;
+  width: fit-content; transition: opacity 0.2s;
 }
 .case-back:hover { opacity: 0.6; }
 
@@ -133,11 +132,11 @@ case-back {
     margin-top: 2rem;
   }
   .case-meta-item { text-align: left; }
-  .case-meta-item .label  {
-    font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--white); margin-bottom: 0.4rem;
-    font-weight: 500;
-  }
+  .case-meta-item .label {
+  font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--highlight); margin-bottom: 0.4rem;
+  font-weight: 500;
+}
   .case-meta-item .value {
     font-size: 0.95rem; color: var(--muted); font-weight: 300;
   }
@@ -376,12 +375,13 @@ section {
     from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-  .reveal {
-    opacity: 1; transform: translateY(0);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .reveal.animate { opacity: 0; transform: translateY(20px); }
-  .reveal.animate.visible { opacity: 1; transform: translateY(0); }
+.reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1; transform: translateY(0);
+}
 
   /* MODAL STYLES */
   .modal-overlay {
@@ -751,12 +751,16 @@ section {
     });
   });
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classLis
-t.add('visible'); });
-  }, { threshold: 0.2 });
-  document.querySelectorAll('.reveal.animate').forEach(r => observer.observe(r));
-
+ const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { 
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  
   // MODAL FUNCTIONALITY FOR DIAGRAM IMAGES
   const modalOverlay = document.getElementById('modalOverlay');
   const modalImage = document.getElementById('modalImage');
