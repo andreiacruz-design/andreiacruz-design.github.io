@@ -69,30 +69,30 @@
 
   /* HERO */
  .case-hero {
-  padding: 8rem 0 5rem;
+  padding: 8rem 3rem 5rem;
   border-bottom: 1px solid var(--border);
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-.case-back {
-  display: flex; align-items: center; gap: 0.75rem;
-  max-width: 800px; margin: 0 auto; width: 100%;
-  padding: 0 3rem;
+case-back {
   font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--white); text-decoration: none;
+  display: flex; align-items: center; gap: 0.75rem;
   margin-bottom: 4.5rem;
   opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s;
+  width: fit-content;
   transition: opacity 0.2s;
 }
 .case-back:hover { opacity: 0.6; }
 
 .hero-grid {
-  max-width: 800px; margin: 0 auto; width: 100%;
-  padding: 0 3rem;
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 5rem; align-items: start;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
   opacity: 0; animation: fadeUp 0.8s ease forwards 0.3s;
 }
-
   /* TWO-COLUMN GRID */
   .hero-grid {
     display: grid;
