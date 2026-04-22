@@ -45,6 +45,36 @@
     transform: translate(-50%, -50%);
     transition: width 0.25s ease, height 0.25s ease;
   }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 0;
+  align-items: start;
+}
+.about-left {
+  padding-right: 0.5rem;
+  border-right: 1px solid rgba(240,237,232,0.22);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding-top: 0.4rem;
+  padding-bottom: 1.5rem;
+}
+.about-emoji {
+  font-size: 4rem;
+  line-height: 1;
+  padding: 0 1.5rem;
+}
+.about-text {
+  padding-left: 3rem;
+}
+
+@media (max-width: 768px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .about-left { border-right: none; border-bottom: 1px solid rgba(240,237,232,0.22); justify-content: flex-start; padding-bottom: 2rem; }
+}
+  
   @media (hover: none) {
     .cursor, .cursor-ring { display: none; }
     body { cursor: auto; }
@@ -484,23 +514,21 @@
 </section>
 
 <section class="about" id="about">
-  <div class="about-text reveal">
-    <h2>Hi,<br>I'm Andreia 👋 </h2>
-    <p>Product Designer based in Lisbon, working with cross-functional teams around the world.</p>
-    <p>Since 2020, I've been designing digital products across automotive, healthcare, and telecommunications — industries where complexity is the norm and getting the details right matters. My background in Communication and Journalism shapes how I work: people and context first, interfaces second.</p>
-<p>Brands I've collaborated with include BMW, BMW Motorrad, Novartis, Pfizer, MEO, Media Capital and Orange.</p>
-    
-    <div class="badges-container">
-      <div class="badge">
-        <img src="NNG_2.png" alt="NNg UX Certified">
+  <div class="about-grid reveal">
+    <div class="about-left">
+      <div class="about-emoji">👋</div>
+    </div>
+    <div class="about-text">
+      <h2>Hi,<br>I'm Andreia.</h2>
+      <p><strong style="color:var(--white); font-weight:500;">Product Designer based in Lisbon, working with cross-functional teams around the world.</strong></p>
+      <p>Since 2020, I've been designing digital products across automotive, healthcare, and telecommunications — industries where complexity is the norm and getting the details right matters. My background in Communication and Journalism shapes how I work: people and context first, interfaces second.</p>
+      <p>Brands I've collaborated with include BMW, BMW Motorrad, Novartis, Pfizer, MEO, Media Capital and Orange.</p>
+      <div class="badges-container">
+        <div class="badge"><img src="NNG_2.png" alt="NNg UX Certified"></div>
+        <div class="badge"><img src="ixdf.png" alt="Interaction Design Foundation"></div>
+        <div class="badge"><img src="scrum_grey.png" alt="PSU I"></div>
       </div>
-    <div class="badge">
-        <img src="ixdf.png" alt="Interaction Design Foundation Cerfications">
-      </div>
-      <div class="badge">
-        <img src="scrum_grey.png" alt="Professional Scrum with User Experience PSU I">
-      </div>
-    </div>  
+    </div>
   </div>
 </section>
 
