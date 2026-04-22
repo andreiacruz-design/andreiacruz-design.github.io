@@ -59,7 +59,7 @@
   align-items: flex-start;
   justify-content: flex-end;
   padding-top: 0.4rem;
-  padding-bottom: 1.5rem;
+  padding-bottom: 5rem;
 }
 .about-emoji {
   font-size: 4rem;
@@ -71,9 +71,8 @@
 }
 
 @media (max-width: 768px) {
-  .about-grid { grid-template-columns: 1fr; }
-  .about-left { border-right: none; border-bottom: 1px solid rgba(240,237,232,0.22); justify-content: flex-start; padding-bottom: 2rem; }
-}
+.about-left { display: none; }
+.about-grid { grid-template-columns: 1fr; }
   
   @media (hover: none) {
     .cursor, .cursor-ring { display: none; }
