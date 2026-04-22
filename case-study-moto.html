@@ -432,6 +432,11 @@ section > * {
     border-radius: 8px;
   }
 
+.constraint-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin-top: 3rem; background: var(--border); }
+.constraint-item { background: var(--bg); padding: 2rem; }
+.constraint-item h3 { font-size: 0.95rem; font-weight: 500; color: var(--white); margin-bottom: 0.5rem; }
+.constraint-item p { font-size: 0.95rem; color: var(--muted); margin: 0; line-height: 1.85; max-width: 100%; }
+
   /* Container centrado — igual ao About */
 .section-inner {
   max-width: 800px;
@@ -451,6 +456,8 @@ section > * {
     .tl-item { grid-template-columns: 1fr; gap: 0.5rem; }
     table { font-size: 0.88rem; }
     th, td { padding: 0.75rem; }
+    .constraint-grid { grid-template-columns: 1fr; }
+
   }
 
   /* MOBILE */
@@ -558,50 +565,67 @@ Over 18 months, as part of a multi-disciplinary team, I worked on the parts of t
 
 <!-- OVERVIEW -->
 <section class="reveal">
-  <div class="section-eyebrow">Context & Constrains</div>
-  <h2>Between Safety,<br>Complexity and Speed</h2>
-  <p>Designing for motorcycles means designing for motion. Every interaction happens at speed, through a helmet visor, with the hands on the handlebars. Distraction isn't an inconvenience — it's a safety risk.</p>
-<p>The challenge wasn't designing individual screens. It was architecting a system that flexes across three motorcycle types, adapts to installed hardware, handles sensor failures gracefully, and never breaks focus.</p>
+  <div class="section-eyebrow">Context & Constraints</div>
+  <h2>Between Safety,<br>Complexity & Speed</h2>
+  <p>Designing for motorcycles means designing for motion. Every interaction happens at speed, through a helmet visor, with the hands on the handlebars. Distraction isn't an inconvenience, it's a safety risk.</p>
+  <p>The challenge wasn't designing individual screens. It was architecting a system that flexes across three motorcycle types, adapts to installed hardware, handles sensor failures gracefully, and never breaks focus.</p>
 
-<div class="constraint-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:1px; margin-top:3rem; background:var(--border);">
-  <div style="background:var(--bg); padding:2rem;">
-    <p style="font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--white); font-weight:500; margin-bottom:0.5rem; max-width:100%;">Glance interaction</p>
-    <p style="font-size:0.88rem; color:var(--muted); margin:0; line-height:1.6; max-width:100%;">Critical info in one tap — every second of attention counts.</p>
-  </div>
-  <div style="background:var(--bg); padding:2rem;">
-    <p style="font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--white); font-weight:500; margin-bottom:0.5rem; max-width:100%;">Physical controls</p>
-    <p style="font-size:0.88rem; color:var(--muted); margin:0; line-height:1.6; max-width:100%;">Navigation via handlebar buttons - Simplified navigation paths and clear shortcuts.</p>
-  </div>
-  <div style="background:var(--bg); padding:2rem;">
-    <p style="font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--white); font-weight:500; margin-bottom:0.5rem; max-width:100%;">Visor visibility</p>
-    <p style="font-size:0.88rem; color:var(--muted); margin:0; line-height:1.6; max-width:100%;">Scratched or tinted visors demand high contrast and icon-first design (if possible).</p>
-  </div>
-  <div style="background:var(--bg); padding:2rem;">
-    <p style="font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--white); font-weight:500; margin-bottom:0.5rem; max-width:100%;">Sensor failures</p>
-    <p style="font-size:0.88rem; color:var(--muted); margin:0; line-height:1.6; max-width:100%;">Tire pressure can fail mid-ride — graceful states and fallbacks, never empty screens.</p>
+  <div class="constraint-grid">
+    <div class="constraint-item">
+      <h3>Glance interaction</h3>
+      <p>Critical info in one tap - every second of attention counts.</p>
+    </div>
+    <div class="constraint-item">
+      <h3>Physical controls</h3>
+      <p>Navigation via handlebar buttons — Simplified navigation paths and clear shortcuts.</p>
+    </div>
+    <div class="constraint-item">
+      <h3>Visor visibility</h3>
+      <p>Scratched or tinted visors demand high contrast and icon-first design (when possible).</p>
+    </div>
+    <div class="constraint-item">
+      <h3>Sensor failures</h3>
+      <p>Tire pressure can fail mid-ride — graceful states, fallbacks, never empty screens.</p>
+    </div>
   </div>
 </section>
-
+  
 <!-- CHALLENGE -->
 <section class="reveal">
+  <div class="section-eyebrow">Design Strategy</div>
+  <h2>Foundation for<br>Consistency</h2>
+  <p>My role centred on the structural foundation — the architecture, behaviour rules, and safety logic that keep the system consistent across all states and riders safe.</p>
 
-    <div class="section-eyebrow">Design Strategy</div>
-    <h2>Foundation<br>for
-Consistency</h2>
-    <p>My role centered on building the structural foundation — system architecture, behavior rules, and safety logic - that would ensure consistency across all interface states while keeping riders safe.</p>
-  <p><strong>Core principles:</strong></p>
-    <ul class="bullet-list">
-    <li class="bullet-list-item">System structure flowchart: I created and maintained a comprehensive flowchart documenting navigation paths, popup behaviors, overlay interactions, and shortcuts. Designers used it for transitions; developers for implementation.
-</li><br>
-     <li class="bullet-list-item">Decision trees for dynamic features: For heating and ride height, I mapped every state: available/unavailable (based on bike model), active/inactive, levels, and errors.
-</li><br>
-     <li class="bullet-list-item">Popup priority matrix: I defined which alerts override others when multiple appear. Safety warnings (critical/high) always come first. Rules specify: blocking vs. non-blocking, queuing vs. simultaneous display.
-</li><br>
-     <li class="bullet-list-item">Rider-centered customization: Riders choose critical vehicle data (tire pressure, engine temperature, fuel). One button press access - no menus.
-</li>
-    </ul>
- 
-  
+  <div style="margin-top:3rem;">
+    <div class="tl-item">
+      <p class="tl-step">01</p>
+      <div class="tl-content">
+        <h3>System flowchart</h3>
+        <p>Navigation paths, popup behaviours, overlays, and shortcuts — single source of truth for designers and developers.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <p class="tl-step">02</p>
+      <div class="tl-content">
+        <h3>Decision trees</h3>
+        <p>Every state for heating and ride height: available/unavailable, active/inactive, levels, errors.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <p class="tl-step">03</p>
+      <div class="tl-content">
+        <h3>Priority matrix</h3>
+        <p>Which alerts override others when multiple appear. Safety warnings always first - rules for blocking, queuing, and simultaneous display.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <p class="tl-step">04</p>
+      <div class="tl-content">
+        <h3>Customisation system</h3>
+        <p>Riders choose their critical data - tire pressure, engine temperature, fuel. One button. No menus.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- PUBLIC VALUE -->
