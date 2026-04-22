@@ -236,6 +236,30 @@
   height: 100%;
   object-fit: contain;
 }
+  .section-outer {
+  position: relative;
+  border-top: 1px solid var(--border);
+}
+
+.v-label {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 10rem;
+  display: flex; align-items: center; justify-content: center;
+  border-right: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.v-label span {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(4rem, 6vw, 7rem);
+  letter-spacing: 0.06em;
+  color: rgba(240,237,232,0.12);
+  white-space: nowrap;
+  user-select: none;
+}
 
   /* PROJECTS */
   .projects {
@@ -355,6 +379,13 @@
   opacity: 0.5;
 }
 
+  .container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 3rem 0 13rem;
+  width: 100%;
+}
+  
   @keyframes fadeUp {
   from {
     opacity: 0;
@@ -437,6 +468,8 @@
   .project-thumb { height: 220px; }
   footer { flex-direction: column; gap: 1.2rem; padding: 2rem 1.5rem; text-align: center; }
   .footer-links { justify-content: center; flex-wrap: wrap; }
+  .v-label { display: none; }
+.container { padding: 0 1.5rem; }
 }
 </style>
 </head>
@@ -475,8 +508,10 @@
   </div>
 </section>
 
-<section class="about" id="about">
-  <div class="about-text reveal">
+<div class="section-outer" id="about">
+  <div class="v-label"><span>About</span></div>
+  <section class="about">
+    <div class="about-text reveal">
     <h2>Hi,<br>I'm Andreia 👋 </h2>
     <p>Product Designer based in Lisbon, working with cross-functional teams around the world.</p>
     <p>Since 2020, I've been designing digital products across automotive, healthcare, and telecommunications — industries where complexity is the norm and getting the details right matters. My background in Communication and Journalism shapes how I work: people and context first, interfaces second.</p>
