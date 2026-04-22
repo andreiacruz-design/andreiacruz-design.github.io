@@ -577,7 +577,7 @@ Over 18 months, as part of a multi-disciplinary team, I worked on the parts of t
     </div>
     <div class="constraint-item">
       <h3>Physical controls</h3>
-      <p>Navigation via handlebar buttons — Simplified navigation paths and clear shortcuts.</p>
+      <p>Navigation via handlebar buttons - Simplified navigation paths and clear shortcuts.</p>
     </div>
     <div class="constraint-item">
       <h3>Visor visibility</h3>
@@ -585,7 +585,7 @@ Over 18 months, as part of a multi-disciplinary team, I worked on the parts of t
     </div>
     <div class="constraint-item">
       <h3>Sensor failures</h3>
-      <p>Tire pressure can fail mid-ride — graceful states, fallbacks, never empty screens.</p>
+      <p>Tire pressure can fail mid-ride - graceful states, fallbacks, never empty screens.</p>
     </div>
   </div>
 </section>
@@ -601,7 +601,7 @@ Over 18 months, as part of a multi-disciplinary team, I worked on the parts of t
       <p class="tl-step">01</p>
       <div class="tl-content">
         <h3>System flowchart</h3>
-        <p>Navigation paths, popup behaviours, overlays, and shortcuts — single source of truth for designers and developers.</p>
+        <p>Navigation paths, popup behaviours, overlays, and shortcuts - single source of truth for designers and developers.</p>
       </div>
     </div>
     <div class="tl-item">
@@ -634,9 +634,9 @@ Over 18 months, as part of a multi-disciplinary team, I worked on the parts of t
   <h2>Mapping<br>the Entire Interface</h2>
   <p>As features were being defined across the team, I created and maintained the system structure flowchart — a living document mapping the complete interface architecture, used by designers for transitions and developers for implementation.</p>
 
-  <p><strong style="color:var(--white); font-weight:500;">Navigation structure</strong> — Every screen, every path, from main menu to deepest levels.</p>
-  <p><strong style="color:var(--white); font-weight:500;">Popup & overlay behaviour</strong> — Where they open, how they dismiss, and what happens when a button is pressed while a popup is visible.</p>
-  <p><strong style="color:var(--white); font-weight:500;">Shortcuts</strong> — Direct access paths bypassing standard navigation, with clear rules for activation.</p>
+  <p><strong style="color:var(--white); font-weight:500;">Navigation structure</strong> - Every screen, every path, from main menu to deepest levels.</p>
+  <p><strong style="color:var(--white); font-weight:500;">Popup & overlay behaviour</strong> - Where they open, how they dismiss, and what happens when a button is pressed while a popup is visible.</p>
+  <p><strong style="color:var(--white); font-weight:500;">Shortcuts</strong> - Direct access paths bypassing standard navigation, with clear rules for activation.</p>
 
   <div class="diagram-wrap">
     <div class="diagram-top">Diagram 1 - Popup Interaction Logic</div>
@@ -649,15 +649,15 @@ Over 18 months, as part of a multi-disciplinary team, I worked on the parts of t
 <section class="reveal">
   <div class="section-eyebrow">Popup Priority Matrix</div>
   <h2>Alert System<br>Priority</h2>
-  <p>I created a priority matrix defining which popups take precedence and how they behave when appearing simultaneously. These examples illustrate the core logic applied across all interface alerts.</p>  
-    <ul class="bullet-list">
-    <li class="bullet-list-item">Critical messages (e.g. engine failure): Immediate safety threats. Always interrupt everything, including open dialogues. Require manual dismissal.</li><br>
-     <li class="bullet-list-item">Warning messages (e.g. tire pressure, ABS): Important alerts. Same behavior as critical — interrupt dialogues and push them to stack — but queue behind any active critical messages.
-</li><br>
-     <li class="bullet-list-item">Feedback messages (e.g. setting confirmed): Confirmations and changes. Coexist with other popups - layer alongside dialogues and warnings. Exception: suppressed when critical messages are active.</li><br>
-    </ul>  
-    <p>When critical or warning messages appear during an open dialogue, the dialogue pauses and returns to the stack. Feedback messages display alongside existing popups unless critical alerts demand full attention.</p>
+  <p>I defined which alerts take precedence and how they behave when appearing simultaneously.</p>
 
+  <p><strong style="color:var(--white); font-weight:500;">Critical</strong> <span style="color:var(--muted-light); font-style:italic;">(engine failure)</span> - Interrupts everything, including open dialogues. Requires manual dismissal.</p>
+  <p><strong style="color:var(--white); font-weight:500;">Warning</strong> <span style="color:var(--muted-light); font-style:italic;">(tyre pressure, ABS)</span> - Same behaviour as critical, but queues behind any active critical message.</p>
+  <p><strong style="color:var(--white); font-weight:500;">Feedback</strong> <span style="color:var(--muted-light); font-style:italic;">(setting confirmed)</span> - Layers alongside other popups. Suppressed when critical alerts are active.</p>
+
+  <div class="highlight">
+    <p>When critical or warning messages appear during an open dialogue, the dialogue pauses and returns to the stack.</p>
+  </div>
 </section>
 
 <!-- SETTINGS -->
