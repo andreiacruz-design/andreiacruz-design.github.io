@@ -652,20 +652,23 @@
     }
   });
 
-  // Active nav
-const navLinks = document.querySelectorAll('.nav-links a');
-const aboutSection = document.querySelector('#about');
-const projectsSection = document.querySelector('#projects');
-
-window.addEventListener('scroll', () => {
-  const scrollY = window.scrollY + window.innerHeight / 2;
-  navLinks.forEach(link => link.classList.remove('active'));
-  if (projectsSection && scrollY >= projectsSection.offsetTop) {
-    document.querySelector('.nav-links a[href="#projects"]').classList.add('active');
-  } else if (aboutSection && scrollY >= aboutSection.offsetTop) {
-    document.querySelector('.nav-links a[href="#about"]').classList.add('active');
+// Active nav
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const aboutSection = document.querySelector('#about');
+  const projectsSection = document.querySelector('#projects');
+  function updateActiveNav() {
+    const scrollY = window.scrollY + 100;
+    navLinks.forEach(link => link.classList.remove('active'));
+    if (projectsSection && scrollY >= projectsSection.offsetTop) {
+      const link = document.querySelector('.nav-links a[href="#projects"]');
+      if (link) link.classList.add('active');
+    } else if (aboutSection && scrollY >= aboutSection.offsetTop) {
+      const link = document.querySelector('.nav-links a[href="#about"]');
+      if (link) link.classList.add('active');
+    }
   }
-});
+  window.addEventListener('scroll', updateActiveNav);
+  updateActiveNav();
 </script>
 </body>
 </html>
