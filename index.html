@@ -616,7 +616,7 @@
       ring.style.width = '36px'; ring.style.height = '36px';
     });
   });
-  const observer = new IntersectionObserver(entries => {
+  const revealObserver = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
@@ -638,23 +638,34 @@
     }
   });
 
+      document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-links a');
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      navLinks.forEach(link => link.classList.remove('active'));
-      const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
-      if (active) active.classList.add('active');
+  // Scroll indicator
+  const scrollIndicator = document.querySelector('.scroll-indicator');
+  const workSection = document.querySelector('#projects');
+  window.addEventListener('scroll', () => {
+    if (!workSection || !scrollIndicator) return;
+    if (workSection.getBoundingClientRect().top <= window.innerHeight) {
+      scrollIndicator.classList.add('hidden');
+    } else {
+      scrollIndicator.classList.remove('hidden');
     }
   });
-}, { threshold: 0.5 });
 
-sections.forEach(section => observer.observe(section));
-
-
+  // Active nav
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const navObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => link.classList.remove('active'));
+        const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.5 });
+  sections.forEach(section => navObserver.observe(section));
 </script>
 </body>
 </html>
+    
