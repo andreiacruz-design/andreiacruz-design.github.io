@@ -106,6 +106,10 @@
   }
   .nav-links a:hover { color: var(--white); }
 
+  .nav-links a.active {
+  color: var(--primary);
+}
+
   /* HERO */
   .hero {
   height: 100vh;
@@ -633,6 +637,24 @@
       scrollIndicator.classList.remove('hidden');
     }
   });
+
+
+    const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(link => link.classList.remove('active'));
+      const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { threshold: 0.5 });
+
+sections.forEach(section => observer.observe(section));
+
+
 </script>
 </body>
 </html>
