@@ -587,7 +587,7 @@ Over 8 months, I drove three key initiatives end-to-end, defining behaviour, int
 <section class="reveal">
   <div class="section-eyebrow">Market Analysis</div>
   <h2>Market<br>Differences</h2>
-  <p>Rather than designing separate solutions per market, I mapped every variation upfront into a single requirements matrix — defining exactly which elements appeared where.</p>
+  <p>Rather than designing separate solutions per market, I mapped every variation upfront into a single requirements matrix - defining exactly which elements appeared where.</p>
 
   <div class="table-wrap">
     <table style="width:100%; border-collapse:collapse; margin-top:2rem;">
@@ -650,25 +650,19 @@ Over 8 months, I drove three key initiatives end-to-end, defining behaviour, int
 <!-- PUBLIC VALUE -->
 <section class="reveal">
   <div class="section-eyebrow">Feature . Public Value Indicator</div>
-  <h2>German<br>Legal Requirement</h2>
-  <p> This arrived mid-project with no prior benchmarks: publicly funded radio stations must be marked only within territorial borders. The designation changes dynamically within Germany and disappears completely when crossing international borders. This drove three specific design decisions:
+  <h2>Designing for<br>the Law</h2>
+  <p>Mid-project, a new legal requirement arrived with no prior benchmarks: publicly funded stations must be marked only within German territory. The designation changes dynamically - and disappears completely when crossing borders.</p>
+  <p>Three design decisions followed:</p>
 
-</p>
+  <p><strong style="color:var(--white); font-weight:500;">Progressive disclosure</strong> - Lists and widgets show "PV" only. The player and settings expand to "Public Value" + icon where space and attention allow.</p>
+  <p><strong style="color:var(--white); font-weight:500;">Layout stability</strong> - The PV icon was anchored left of the always-present frequency. When crossing borders, PV disappears, but the layout stays stable, no distracting jumps.</p>
+  <p><strong style="color:var(--white); font-weight:500;">Edge case</strong> - Sorting by PV in regions with no qualifying stations shows "No Public Value stations available" followed by the full list.</p>
 
   <div class="diagram-wrap">
     <div class="diagram-top">Diagram 2 - Public Value: Progressive Disclosure Across Contexts</div>
-    <img style="width:100%; height:auto; display:block;" src="2_port_radio.png" alt="Progressive Disclosure" style="width:50%; height:auto; display:block;">
+    <img style="width:100%; height:auto; display:block;" src="2_port_radio.png" alt="Public Value Progressive Disclosure">
     <div class="diagram-caption">The indicator scales its information density based on context: abbreviated in compact contexts, fully labelled where space and attention allow.</div>
   </div>
-  <p><strong>1. Progressive Disclosure:</strong></p>
-    <ul class="bullet-list">
-    <li class="bullet-list-item">Lists/widgets show just "PV" (compact for quick glances)</li>
-    <li class="bullet-list-item">Player/Settings expand to "Public Value" + icon (full explanation where space allows)</li>
-    </ul>
-
-    <p>2. Layout stability: PV icon anchored left of the always-present frequency. When crossing borders, PV disappears but the layout stays rock-solid - no distracting visual jumps.</p>
-    <p>3. Edge case: Sorting by PV in regions with no qualifying stations (like Austria) shows "No Public Value stations available" followed by the full station list.</p>
-
 </section>
 
 <!-- MANUAL TUNER -->
