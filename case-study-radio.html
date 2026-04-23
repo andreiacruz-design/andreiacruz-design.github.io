@@ -242,6 +242,19 @@
   }
   .grid-2-item p { font-size: 0.95rem; max-width: 100%; color: var(--muted); }
 
+  .tl-item {
+  display: grid; grid-template-columns: 40px 1fr;
+  gap: 2rem; padding: 2rem 0;
+  border-top: 1px solid var(--border);
+}
+.tl-item:last-child { border-bottom: 1px solid var(--border); }
+.tl-step {
+  font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--highlight); font-weight: 500; padding-top: 0.2rem;
+}
+.tl-content h3 { font-size: 0.95rem; font-weight: 500; margin-bottom: 0.4rem; }
+.tl-content p { font-size: 0.95rem; max-width: 58ch; color: var(--muted); margin: 0; }
+
   /* MARKET TABLE */
   .table-wrap { margin-top: 3rem; overflow-x: auto; margin-bottom: 3rem;}
   table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
