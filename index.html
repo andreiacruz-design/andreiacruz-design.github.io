@@ -196,7 +196,7 @@
   animation: fadeUp 0.9s ease forwards 0.7s;
   display: none;   /* ← ADICIONA isto temporariamente */
 }
-  .hero-link {
+ .hero-link {
     font-size: 0.82rem;
     font-weight: 800;
     letter-spacing: 0.18em;
@@ -207,17 +207,19 @@
     display: flex;
     align-items: center;
     gap: 0.3rem;
+    white-space: nowrap;
   }
   .hero-link:hover { opacity: 0.7; }
   .hero-links-row {
   display: flex;
-  gap: 3rem;
+  gap: 1.5rem;
   position: absolute;           
   bottom: 3rem;               
   left: 50%;                     
   transform: translateX(-50%);   
   opacity: 0;
   animation: fadeUpCenter 0.9s ease forwards 0.9s;
+  white-space: nowrap;
 }
   .hero-right-section {
   flex: 1;
