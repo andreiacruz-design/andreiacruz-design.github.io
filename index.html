@@ -653,18 +653,19 @@
   });
 
   // Active nav
-  const sections = document.querySelectorAll('section[id], div[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-  const navObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        navLinks.forEach(link => link.classList.remove('active'));
-        const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
-        if (active) active.classList.add('active');
-      }
-    });
- }, { threshold: 0.3, rootMargin: '-20% 0px -20% 0px' });
-  sections.forEach(section => navObserver.observe(section));
+const navLinks = document.querySelectorAll('.nav-links a');
+const aboutSection = document.querySelector('#about');
+const projectsSection = document.querySelector('#projects');
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY + window.innerHeight / 2;
+  navLinks.forEach(link => link.classList.remove('active'));
+  if (projectsSection && scrollY >= projectsSection.offsetTop) {
+    document.querySelector('.nav-links a[href="#projects"]').classList.add('active');
+  } else if (aboutSection && scrollY >= aboutSection.offsetTop) {
+    document.querySelector('.nav-links a[href="#about"]').classList.add('active');
+  }
+});
 </script>
 </body>
 </html>
