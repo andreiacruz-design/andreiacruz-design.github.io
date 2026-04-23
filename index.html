@@ -653,7 +653,7 @@
   });
 
   // Active nav
-  const sections = document.querySelectorAll('section[id]');
+  const sections = document.querySelectorAll('section[id], div[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
   const navObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
