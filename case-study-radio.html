@@ -667,27 +667,23 @@ Over 8 months, I drove three key initiatives end-to-end, defining behaviour, int
 
 <!-- MANUAL TUNER -->
 <section class="reveal">
-  <div class="section-eyebrow">Feature . Manual Tuner</div>
+  <div class="section-eyebrow">Feature · Manual Tuner</div>
   <h2>Adapt Legacy<br>to Real Usage</h2>
-  <p>Manual tuning represented my biggest design challenge. The feature (manual seek and tuning controls) had very low usage in the previous generation, yet it was a stakeholder requirement to maintain due to legacy system commitments. Data showed users spent 90% of their time in the full-screen player, so I reimagined the tuner to live there instead of as a separate buried screen.</p>
+  <p>The Manual Tuner was a stakeholder requirement: legacy system commitments demanded it stayed. But data told a different story: users spent 90% of their time in the full-screen player, and manual tuning had very low usage in the previous generation.</p>
+  <p>The solution: bring the Manual Tuner into the player instead of burying it in a separate screen. One tap swaps playback controls for tuning controls via subtle animation - zero navigation, full metadata visible.</p>
+  <p>Stakeholders were concerned users wouldn't know when they were in tuning mode versus playback. I addressed this through:</p>
 
-   <div class="diagram-wrap">
+  <p><strong style="color:var(--white); font-weight:500;">Visual toggle selection</strong> - the icon confirms the mode change at a glance.</p>
+  <p><strong style="color:var(--white); font-weight:500;">Title change</strong> - "Manual Tuner" replaces the station name, making the mode unambiguous.</p>
+  <p><strong style="color:var(--white); font-weight:500;">Exclusive AM/FM toggle</strong> - only visible in this mode, reinforcing context.</p>
+  <p><strong style="color:var(--white); font-weight:500;">Smooth transition animation</strong> - non-distractive, but clear enough to signal the state change.</p>
+  <p>For seeking, I aligned interaction patterns with competitor vehicles to ensure instant familiarity.</p>
+
+  <div class="diagram-wrap">
     <div class="diagram-top">Diagram 3 - Manual Tuner: Normal vs Active Mode</div>
-    <img style="width:100%; height:auto; display:block;" src="3_port_radio.png" alt="Normal vs Active Mode" style="width:50%; height:auto; display:block;">
-    <div class="diagram-caption">Activating the Manual Tuner replaces standard controls in place - title, toggle state and AM/FM selector confirm the mode change without leaving the full-screen layout.
-</div>
+    <img style="width:100%; height:auto; display:block;" src="3_port_radio.png" alt="Manual Tuner Normal vs Active Mode">
+    <div class="diagram-caption">Activating the Manual Tuner replaces standard controls in place — title, toggle state and AM/FM selector confirm the mode change without leaving the full-screen layout.</div>
   </div>
-  
-  <p>The solution to create a Manual Tuner Mode within the player layout. One tap on the Manual Tuner toggle swaps playback controls for tuning controls via subtle animation - zero navigation, full metadata visible.</p>
-  <p>Stakeholders were worried that users wouldn't clearly understand when they were in manual tuning mode versus playback. I prioritized this by:</p>
-    <ul class="bullet-list">
-    <li class="bullet-list-item">Visually selecting the toggle icon</li>
-     <li class="bullet-list-item">Changing the title to "Manual Tuner"</li>
-     <li class="bullet-list-item">Making AM/FM toggle exclusive to this mode</li>
-     <li class="bullet-list-item">Adding smooth and non distractive control transition animation</li>
-    </ul>  
-    <p>Regarding the seeking feature, I aligned interaction patterns with competitor vehicles to ensure instant user familiarity.</p>
-
 </section>
 
 <!-- SETTINGS -->
