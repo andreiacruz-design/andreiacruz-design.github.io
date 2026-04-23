@@ -587,69 +587,62 @@ Over 8 months, I drove three key initiatives end-to-end, defining behaviour, int
 <section class="reveal">
   <div class="section-eyebrow">Market Analysis</div>
   <h2>Market<br>Differences</h2>
-  <p>To parameterise this complexity upfront, I created a requirements matrix defining exactly which elements appeared per market:
-
-</p>
+  <p>Rather than designing separate solutions per market, I mapped every variation upfront into a single requirements matrix — defining exactly which elements appeared where.</p>
 
   <div class="table-wrap">
-    <table>
+    <table style="width:100%; border-collapse:collapse; margin-top:2rem;">
       <thead>
         <tr>
-          <th>Feature</th>
-          <th>Rest of World</th>
-          <th>Germany</th>
-          <th>USA</th>
-          <th>Japan</th>
+          <th style="font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); font-weight:500; text-align:left; padding:1rem 1.5rem 1rem 0; border-bottom:1px solid var(--border);">Feature</th>
+          <th style="font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); font-weight:500; text-align:left; padding:1rem 1.5rem; border-bottom:1px solid var(--border);">Rest of World</th>
+          <th style="font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); font-weight:500; text-align:left; padding:1rem 1.5rem; border-bottom:1px solid var(--border);">Germany</th>
+          <th style="font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); font-weight:500; text-align:left; padding:1rem 1.5rem; border-bottom:1px solid var(--border);">USA</th>
+          <th style="font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); font-weight:500; text-align:left; padding:1rem 1.5rem; border-bottom:1px solid var(--border);">Japan</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Station name</td>
-          <td><span class="dot dot-on"></span>Yes</td>
-          <td><span class="dot dot-on"></span>Yes</td>
-          <td><span class="dot dot-on"></span>Yes</td>
-          <td><span class="dot dot-on"></span>Yes</td>
+          <td style="font-size:0.95rem; font-weight:500; color:var(--white); padding:1.2rem 1.5rem 1.2rem 0; border-bottom:1px solid var(--border);">Station name</td>
+          <td style="font-size:0.95rem; color:var(--muted); padding:1.2rem 1.5rem; border-bottom:1px solid var(--border);"><span style="color:var(--highlight);">●</span> Yes</td>
+          <td style="font-size:0.95rem; color:var(--muted); padding:1.2rem 1.5rem; border-bottom:1px solid var(--border);"><span style="color:var(--highlight);">●</span> Yes</td>
+          <td style="font-size:0.95rem; color:var(--muted); padding:1.2rem 1.5rem; border-bottom:1px solid var(--border);"><span style="color:var(--highlight);">●</span> Yes</td>
+          <td style="font-size:0.95rem; color:var(--muted); padding:1.2rem 1.5rem; border-bottom:1px solid var(--border);"><span style="color:var(--highlight);">●</span> Yes</td>
         </tr>
         <tr>
-          <td>Frequency shown</td>
-          <td><span class="dot dot-off"></span>No</td>
-          <td><span class="dot dot-off"></span>No</td>
-          <td><span class="dot dot-on"></span>Yes</td>
-          <td><span class="dot dot-on"></span>Yes</td>
+          <td style="font-size:0.95rem; font-weight:500; color:var(--white); padding:1.2rem 1.5rem 1.2rem 0; border-bottom:1px solid var(--border);">Frequency shown</td>
+          <td style="font-size:0.95rem; color:var(--muted); padding:1.2rem 1.5rem; border-bottom:1px solid var(--border);">● No</td>
+          <td style="font-size:0.95rem; color:var(--muted); padding:1.2rem 1.5rem; border-bottom:1px solid var(--border);">● No</td>
+          <td style="font-size:0.95rem; color:var(--muted); padding:1.2rem 1.5rem; border-bottom:1px solid var(--border);"><span style="color:var(--highlight);">●</span> Yes</td>
+          <td style="font-size:0.95rem; color:var(--muted); padding:1.2rem 1.5rem; border-bottom:1px solid var(--border);"><span style="color:var(--highlight);">●</span> Yes</td>
         </tr>
         <tr>
-          <td>FM/AM/DAB band indicator</td>
-          <td><span class="dot dot-on"></span>Yes - unified list</td>
-          <td><span class="dot dot-on"></span>Yes - unified list</td>
-          <td><span class="dot dot-off"></span>No - separate lists</td>
-          <td><span class="dot dot-off"></span>No - separate lists</td>
+          <td style="font-size:0.95rem; font-weight:500; color:var(--white); padding:1.2rem 1.5rem 1.2rem 0; border-bottom:1px solid var(--border);">FM/AM/DAB band indicator</td>
+          <td style="font-size:0.95rem; color:var(--muted); padding:1.2rem 1.5rem; border-bottom:1px solid var(--border);"><span style="color:var(--highlight);">●</span> Yes – unified list</td>
+          <td style="font-size:0.95rem; color:var(--muted); padding:1.2rem 1.5rem; border-bottom:1px solid var(--border);"><span style="color:var(--highlight);">●</span> Yes – unified list</td>
+          <td style="font-size:0.95rem; color:var(--muted); padding:1.2rem 1.5rem; border-bottom:1px solid var(--border);">● No – separate lists</td>
+          <td style="font-size:0.95rem; color:var(--muted); padding:1.2rem 1.5rem; border-bottom:1px solid var(--border);">● No – separate lists</td>
         </tr>
         <tr>
-          <td>HD Radio indicator</td>
-          <td><span class="dot dot-off"></span>No</td>
-          <td><span class="dot dot-off"></span>No</td>
-          <td><span class="dot dot-on"></span>When digital only</td>
-          <td><span class="dot dot-off"></span>No</td>
+          <td style="font-size:0.95rem; font-weight:500; color:var(--white); padding:1.2rem 1.5rem 1.2rem 0; border-bottom:1px solid var(--border);">HD Radio indicator</td>
+          <td style="font-size:0.95rem; color:var(--muted); padding:1.2rem 1.5rem; border-bottom:1px solid var(--border);">● No</td>
+          <td style="font-size:0.95rem; color:var(--muted); padding:1.2rem 1.5rem; border-bottom:1px solid var(--border);">● No</td>
+          <td style="font-size:0.95rem; color:var(--muted); padding:1.2rem 1.5rem; border-bottom:1px solid var(--border);"><span style="color:var(--highlight);">●</span> When digital only</td>
+          <td style="font-size:0.95rem; color:var(--muted); padding:1.2rem 1.5rem; border-bottom:1px solid var(--border);">● No</td>
         </tr>
         <tr>
-          <td>Public Value (PV) indicator</td>
-          <td><span class="dot dot-off"></span>No</td>
-          <td><span class="dot dot-on"></span>Yes - legal requirement</td>
-          <td><span class="dot dot-off"></span>No</td>
-          <td><span class="dot dot-off"></span>No</td>
+          <td style="font-size:0.95rem; font-weight:500; color:var(--white); padding:1.2rem 1.5rem 1.2rem 0;">Public Value (PV) indicator</td>
+          <td style="font-size:0.95rem; color:var(--muted); padding:1.2rem 1.5rem;">● No</td>
+          <td style="font-size:0.95rem; color:var(--muted); padding:1.2rem 1.5rem;"><span style="color:var(--highlight);">●</span> Yes – legal requirement</td>
+          <td style="font-size:0.95rem; color:var(--muted); padding:1.2rem 1.5rem;">● No</td>
+          <td style="font-size:0.95rem; color:var(--muted); padding:1.2rem 1.5rem;">● No</td>
         </tr>
-
       </tbody>
     </table>
   </div>
 
-  <div class="diagram-wrap" style="margin-top:3rem;">
-    <div class="diagram-top">Diagram 1 - List Entry Component: Market Variations</div>
-    <img style="width:100%; height:auto; display:block;" src="1_port_radio.png" alt="List Entry Component: Conditional Elements" style="width:50%; height:auto; display:block;">
-    <div class="diagram-caption">The list entry adapts per market: Rest of World shows PV (only for Public Value radio) and a permanent band indicator (FM/AM/DAB). US/Japan show HD badge only for digital radio — same component, different conditional logic.</div>
-  </div>
+  <p style="margin-top:2rem;">The list entry component adapted per market through conditional logic — same component, different rules. Rest of World showed PV and a permanent band indicator. US and Japan showed the HD badge only for digital radio.</p>
 </section>
-
+  
 <!-- PUBLIC VALUE -->
 <section class="reveal">
   <div class="section-eyebrow">Feature . Public Value Indicator</div>
