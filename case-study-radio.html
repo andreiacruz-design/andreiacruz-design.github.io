@@ -688,53 +688,44 @@ Over 8 months, I drove three key initiatives end-to-end, defining behaviour, int
 
 <!-- SETTINGS -->
 <section class="reveal">
-  <div class="section-eyebrow">Feature . Settings</div>
-  <h2>Sorting logic -<br>and edge cases</h2>
-  <p>The Settings screen needed to accommodate different combinations of options depending on market, while remaining clean and comprehensible. The main challenge was sorting logic — and the edge cases it created.</p>
+  <div class="section-eyebrow">Feature · Settings</div>
+  <h2>Sorting Logic<br>and Edge Cases</h2>
+  <p>The Settings screen accommodates different combinations of options per market while staying clean and comprehensible. The main challenge was sorting logic — and the edge cases it created.</p>
 
- <div class="table-wrap">
-    <table>
+  <div class="table-wrap">
+    <table style="width:100%; border-collapse:collapse; margin-top:2rem;">
       <thead>
         <tr>
-          <th>Market</th>
-          <th>Sorting Options</th>
-          <th>Toggles</th>
+          <th style="font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--white); font-weight:500; text-align:left; padding:1rem 1.5rem 1rem 0; border-bottom:1px solid var(--border);">Market</th>
+          <th style="font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--white); font-weight:500; text-align:left; padding:1rem 1.5rem; border-bottom:1px solid var(--border);">Sorting Options</th>
+          <th style="font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--white); font-weight:500; text-align:left; padding:1rem 1.5rem; border-bottom:1px solid var(--border);">Toggles</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>USA/Japan</td>
-           <td>[None]</td>
-           <td>HD Radio, Show AM</td>
+          <td style="font-size:0.95rem; font-weight:500; color:var(--white); padding:1.2rem 1.5rem 1.2rem 0; border-bottom:1px solid var(--border);">USA / Japan</td>
+          <td style="font-size:0.95rem; color:var(--muted); padding:1.2rem 1.5rem; border-bottom:1px solid var(--border);">None</td>
+          <td style="font-size:0.95rem; color:var(--muted); padding:1.2rem 1.5rem; border-bottom:1px solid var(--border);">HD Radio, Show AM</td>
         </tr>
         <tr>
-          <td>Rest of World</td>
-           <td>Alphabetical/Frequency</td>
-          <td>Radio Info, Show AM</td>
+          <td style="font-size:0.95rem; font-weight:500; color:var(--white); padding:1.2rem 1.5rem 1.2rem 0; border-bottom:1px solid var(--border);">Rest of World</td>
+          <td style="font-size:0.95rem; color:var(--muted); padding:1.2rem 1.5rem; border-bottom:1px solid var(--border);">Alphabetical / Frequency</td>
+          <td style="font-size:0.95rem; color:var(--muted); padding:1.2rem 1.5rem; border-bottom:1px solid var(--border);">Radio Info, Show AM</td>
         </tr>
         <tr>
-          <td>Germany</td>
-          <td>Alphabetical/Frequency/Public Value</td>
-          <td>Radio Info, Show AM</td>
+          <td style="font-size:0.95rem; font-weight:500; color:var(--white); padding:1.2rem 1.5rem 1.2rem 0;">Germany</td>
+          <td style="font-size:0.95rem; color:var(--muted); padding:1.2rem 1.5rem;">Alphabetical / Frequency / Public Value</td>
+          <td style="font-size:0.95rem; color:var(--muted); padding:1.2rem 1.5rem;">Radio Info, Show AM</td>
         </tr>
-
       </tbody>
     </table>
-    </div>
-  
-<p><strong>Key improvements:</strong></p>
-    <ul class="bullet-list">
-    <li class="bullet-list-item">In frequency sort, DAB stations come first (by block, then alphabetically), followed by FM/AM</li>
-    <li class="bullet-list-item">When no Public Value stations exist, it shows a clear message + full list</li>
-    <li class="bullet-list-item">Region-specific toggles (Show AM, HD Radio, Radio Info)</li>
-    <li class="bullet-list-item">Consistent handling of all edge cases, preventing empty screens</li>
-    </ul>
-   
-  <p>This structure ensures global consistency while staying locally relevant.</p>
+  </div>
 
-   
+  <p style="margin-top:2.5rem;"><strong style="color:var(--white); font-weight:500;">Frequency sort order</strong> — DAB stations come first (by block, then alphabetically), followed by FM/AM.</p>
+  <p><strong style="color:var(--white); font-weight:500;">Empty states</strong> — When no Public Value stations exist, a clear message appears followed by the full list — no blank screens.</p>
+  <p><strong style="color:var(--white); font-weight:500;">Region-specific toggles</strong> — Show AM, HD Radio, and Radio Info appear only where relevant.</p>
+  <p><strong style="color:var(--white); font-weight:500;">Edge case coverage</strong> — Consistent handling across all combinations prevents unexpected empty or broken states.</p>
 </section>
-
 <!-- METADATA CASCADE -->
 <section class="reveal">
   <div class="section-eyebrow">Feature . Metadata Cascade</div>
