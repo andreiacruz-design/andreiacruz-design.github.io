@@ -622,23 +622,6 @@
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 </script>
   <script>
-  // Scroll indicator - desaparece quando chega ao Work
-  const scrollIndicator = document.querySelector('.scroll-indicator');
-  const workSection = document.querySelector('#projects'); // ou #work se tiver esse id
-  
-  window.addEventListener('scroll', () => {
-    if (!workSection || !scrollIndicator) return;
-    
-    const workPosition = workSection.getBoundingClientRect().top;
-    
-    if (workPosition <= window.innerHeight) {
-      scrollIndicator.classList.add('hidden');
-    } else {
-      scrollIndicator.classList.remove('hidden');
-    }
-  });
-
-      document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
   // Scroll indicator
   const scrollIndicator = document.querySelector('.scroll-indicator');
