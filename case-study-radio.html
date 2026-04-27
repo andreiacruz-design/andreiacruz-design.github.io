@@ -47,30 +47,25 @@
 
   /* NAV */
   nav {
-    position: fixed; top: 0; left: 0; right: 0;
-    z-index: 100; padding: 1.5rem 3rem;
-    display: flex; justify-content: space-between; align-items: center;
-    background: rgba(10,10,10,0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-  }
-  .nav-logo {
-    font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem;
-    letter-spacing: 0.15em; color: var(--white); text-decoration: none;
-  }
-  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-  .nav-links a {
-    font-size: 0.88rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--muted); text-decoration: none; transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--white); }
-  .nav-cta {
-    background: var(--primary); color: #fff !important;
-    padding: 0.45rem 1.1rem; border-radius: 2px;
-    transition: background 0.2s !important;
-  }
-  .nav-cta:hover { background: var(--primary-hover) !important; }
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: #0a0a0a;
+  padding: 1.5rem 3rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem;
+  letter-spacing: 0.15em; color: var(--white); text-decoration: none;
+}
+.nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+.nav-links a {
+  font-size: 0.88rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--white); }
+.burger { display: none; }
+.mobile-overlay { display: none; }
 
+  
   /* HERO */
   .case-hero {
     display: flex; flex-direction: column;
@@ -441,6 +436,15 @@
 
   @media (max-width: 768px) {
     nav { padding: 1.2rem 1.5rem; }
+    .nav-links { display: none; }
+    .burger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .burger span { display: block; width: 22px; height: 2px; background: #f0ede8; transition: all 0.3s ease; transform-origin: center; }
+    .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .burger.open span:nth-child(2) { opacity: 0; }
+    .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-overlay { position: fixed; top: 0; left: 0; right: 0; height: 26vh; background: #0a0a0a; border-bottom: 1px solid rgba(240,237,232,0.15); z-index: 99; display: flex; flex-direction: column; align-items: flex-end; justify-content: flex-end; padding: 1.5rem; gap: 2rem; transform: translateY(-100%); transition: transform 0.35s ease; }
+    .mobile-overlay.open { transform: translateY(0); }
+    .mobile-overlay a { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: #f0ede8; text-decoration: none; font-weight: 300; }
     .case-hero { padding: 4rem 1.5rem 3rem; }
     .case-back { margin-bottom: 4rem; padding: 0; }
     .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -507,10 +511,17 @@
   <a href="https://andreiacruz-design.github.io" class="nav-logo">Andreia Cruz</a>
   <ul class="nav-links">
     <li><a href="https://andreiacruz-design.github.io/#about">About</a></li>
-    <li><a href="https://andreiacruz-design.github.io#projects">Work</a></li>
-
+    <li><a href="https://andreiacruz-design.github.io/#projects">Work</a></li>
   </ul>
+  <div class="burger" id="burger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
+
+<div class="mobile-overlay" id="mobileOverlay">
+  <a href="https://andreiacruz-design.github.io/#about" onclick="toggleMenu()">About</a>
+  <a href="https://andreiacruz-design.github.io/#projects" onclick="toggleMenu()">Work</a>
+</div>
 
 <!-- HERO -->
 <header class="case-hero">
@@ -895,6 +906,11 @@ t.add('visible'); });
       closeModal();
     }
   });
+
+  function toggleMenu() {
+  document.getElementById('burger').classList.toggle('open');
+  document.getElementById('mobileOverlay').classList.toggle('open');
+}
 </script>
 
 </body>
