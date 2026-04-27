@@ -445,9 +445,21 @@ section {
   width: 100%;
   margin: 0 auto;
 }
+
+.burger { display: none; }
+.mobile-overlay { display: none; }
+  
   @media (max-width: 768px) {
     nav { padding: 1.2rem 1.5rem; }
-    .nav-links li:not(:last-child) { display: none; }
+    .nav-links { display: none; }
+    .burger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .burger span { display: block; width: 22px; height: 2px; background: #f0ede8; transition: all 0.3s ease; transform-origin: center; }
+    .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .burger.open span:nth-child(2) { opacity: 0; }
+    .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-overlay { position: fixed; top: 0; left: 0; right: 0; height: 26vh; background: #0a0a0a; border-bottom: 1px solid rgba(240,237,232,0.15); z-index: 99; display: flex; flex-direction: column; align-items: flex-end; justify-content: flex-end; padding: 1.5rem; gap: 2rem; transform: translateY(-100%); transition: transform 0.35s ease; }
+    .mobile-overlay.open { transform: translateY(0); }
+    .mobile-overlay a { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: #f0ede8; text-decoration: none; font-weight: 300; }
     .nav-links a { font-size: 0.82rem; }
     .case-hero { padding: 4rem 1.5rem 3rem; }
     .case-back { margin-bottom: 4rem; padding: 0; }
@@ -519,7 +531,15 @@ section {
     <li><a href="https://andreiacruz-design.github.io/#about">About</a></li>
     <li><a href="https://andreiacruz-design.github.io/#projects">Work</a></li>
   </ul>
+  <div class="burger" id="burger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
+
+<div class="mobile-overlay" id="mobileOverlay">
+  <a href="https://andreiacruz-design.github.io/#about" onclick="toggleMenu()">About</a>
+  <a href="https://andreiacruz-design.github.io/#projects" onclick="toggleMenu()">Work</a>
+</div>
 
 <!-- HERO -->
 <header class="case-hero">
@@ -806,6 +826,12 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
       closeModal();
     }
   });
+
+  function toggleMenu() {
+  document.getElementById('burger').classList.toggle('open');
+  document.getElementById('mobileOverlay').classList.toggle('open');
+}
+  
 </script>
 
 </body>
