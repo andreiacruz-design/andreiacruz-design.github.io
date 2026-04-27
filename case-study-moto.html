@@ -43,30 +43,22 @@
 
   /* NAV */
   nav {
-    position: fixed; top: 0; left: 0; right: 0;
-    z-index: 100; padding: 1.5rem 3rem;
-    display: flex; justify-content: space-between; align-items: center;
-    background: rgba(10,10,10,0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-  }
-  .nav-logo {
-    font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem;
-    letter-spacing: 0.15em; color: var(--white); text-decoration: none;
-  }
-  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-  .nav-links a {
-    font-size: 0.88rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--muted); text-decoration: none; transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--white); }
-  .nav-cta {
-    background: var(--primary); color: #fff !important;
-    padding: 0.45rem 1.1rem; border-radius: 2px;
-    transition: background 0.2s !important;
-  }
-  .nav-cta:hover { background: var(--primary-hover) !important; }
-
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: #0a0a0a;
+  padding: 1.5rem 3rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem;
+  letter-spacing: 0.15em; color: var(--white); text-decoration: none;
+}
+.nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+.nav-links a {
+  font-size: 0.88rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--white); }
+  
   /* HERO */
  .case-hero {
   padding: 8rem 3rem 5rem;
@@ -455,6 +447,8 @@ section {
 }
   @media (max-width: 768px) {
     nav { padding: 1.2rem 1.5rem; }
+    .nav-links li:not(:last-child) { display: none; }
+    .nav-links a { font-size: 0.82rem; }
     .case-hero { padding: 4rem 1.5rem 3rem; }
     .case-back { margin-bottom: 4rem; padding: 0; }
     .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -523,8 +517,7 @@ section {
   <a href="https://andreiacruz-design.github.io" class="nav-logo">Andreia Cruz</a>
   <ul class="nav-links">
     <li><a href="https://andreiacruz-design.github.io/#about">About</a></li>
-    <li><a href="https://andreiacruz-design.github.io#projects">Work</a></li>
-
+    <li><a href="https://andreiacruz-design.github.io/#projects">Work</a></li>
   </ul>
 </nav>
 
