@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complex Systems. Simple Rides. - Andreia Cruz</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --white: #f0ede8;
+    --muted: #a8a5a0;
+    --muted-dark: #888480;
+    --muted-light: #c0bdb8;
+    --primary: #5e67e6;
+    --primary-hover: #7880ea;
+    --highlight: #e8845a;
+    --border: rgba(240,237,232,0.22);
+    --hover: rgba(240,237,232,0.03);
+    --card-bg: #111;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'Outfit', sans-serif; font-weight: 300;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+    cursor: auto;
+  }
+
+  /* CURSOR */
+  body { cursor: none; }
+.cursor {
+  position: fixed; width: 10px; height: 10px;
+  background: var(--white); border-radius: 50%;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease, background 0.2s;
+}
+.cursor-ring {
+  position: fixed; width: 36px; height: 36px;
+  border: 1px solid rgba(240,237,232,0.3); border-radius: 50%;
+  pointer-events: none; z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.25s ease, height 0.25s ease;
+}
+
+  /* NAV */
+  nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: #0a0a0a;
+  padding: 1.5rem 3rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem;
+  letter-spacing: 0.15em; color: var(--white); text-decoration: none;
+}
+.nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+.nav-links a {
+  font-size: 0.88rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--white); }
+
+.burger { display: none; }
+.mobile-overlay { display: none; } 
+  
+  /* HERO */
+ .case-hero {
+  padding: 8rem 3rem 5rem;
+  border-bottom: 1px solid var(--border);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.case-back {
+  font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none;
+  display: flex; align-items: center; gap: 0.75rem;
+  margin-bottom: 4.5rem; padding: 0;
+  opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s;
+  width: fit-content; transition: color 0.2s;
+}
+.case-back:hover { color: var(--white); }
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+  opacity: 0; animation: fadeUp 0.8s ease forwards 0.3s;
+}
+  /* TWO-COLUMN GRID */
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+    opacity: 0; animation: fadeUp 0.8s ease forwards 0.3s;
+  }
+
+  .hero-left {
+    display: flex; flex-direction: column;
+  }
+
+  .case-tag {
+    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--highlight); margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  .case-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 7vw, 7.5rem);
+    line-height: 0.92; letter-spacing: 0.02em; color: var(--white);
+    margin-bottom: 1.8rem;
+  }
+  .case-title em {
+    color: var(--white); font-style: normal; display: block;
+  }
+
+  .case-tagline {
+    font-size: 0.9rem; color: var(--muted); max-width: 52ch;
+    font-style: italic; line-height: 1.8; margin-bottom: 2.5rem;
+  }
+
+  .case-meta-row {
+    display: flex; gap: 3rem; align-items: flex-start;
+    margin-bottom: 2.5rem;
+    margin-top: 2rem;
+  }
+  .case-meta-item { text-align: left; }
+  .case-meta-item .label {
+  font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--highlight); margin-bottom: 0.4rem;
+  font-weight: 500;
+}
+  .case-meta-item .value {
+    font-size: 0.95rem; color: var(--muted); font-weight: 300;
+  }
+
+  /* SKILL LABELS */
+  .skill-tags {
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
+  }
+  .skill-tag {
+    font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted-light); border: 1px solid var(--border);
+    padding: 0.3rem 0.75rem; border-radius: 2px;
+    background: rgba(255,255,255,0.03);
+    font-weight: 400;
+  }
+
+  /* HERO IMAGE */
+  .hero-img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  object-position: center 35%;
+  border-radius: 12px;
+  display: block;
+}
+
+/* SECTIONS */
+section {
+  padding: 4rem 3rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+  .section-eyebrow {
+    font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--highlight); margin-bottom: 2.5rem;
+    display: flex; align-items: center; gap: 1.2rem; font-weight: 500;
+  }
+  .section-eyebrow::after {
+    content: ''; height: 1px; width: 40px; background: rgba(232,132,90,0.4);
+  }
+
+  h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    line-height: 1.05; letter-spacing: 0.02em;
+    margin-bottom: 2rem;
+  }
+
+  h3 {
+    font-size: 0.95rem; font-weight: 500;
+    margin-bottom: 0.6rem; color: var(--white);
+  }
+
+  p {
+  font-size: 1rem; color: var(--muted);
+  margin-bottom: 1.4rem; line-height: 1.85; font-weight: 300;
+}
+
+  p:last-child { margin-bottom: 0; }
+
+  /* HIGHLIGHT QUOTE */
+  .highlight {
+    border-left: 2px solid var(--highlight);
+    padding: 1.5rem 2.5rem;
+    margin: 3rem 0;
+    background: var(--card-bg);
+  }
+  .highlight p {
+    font-size: 0.95rem; font-style: italic;
+    color: var(--muted-light); max-width: 70ch; margin-bottom: 0;
+  }
+
+  /* GRID 3 */
+  .grid-3 {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; margin-top: 3rem; background: var(--border);
+  }
+  .grid-3-item {
+    background: var(--bg); padding: 2rem;
+  }
+  .grid-3-item .label {
+    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--white); margin-bottom: 0.8rem;
+  }
+  .grid-3-item .value {
+    font-size: 0.95rem; color: var(--muted); font-weight: 500;
+  }
+
+  /* GRID 2 */
+  .grid-2 {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1px; margin-top: 3rem; background: var(--border);
+  }
+  .grid-2-item {
+    background: var(--bg); padding: 2.5rem;
+  }
+  .grid-2-item .num {
+    font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem;
+    color: #e8845a; line-height: 1; margin-bottom: 1.2rem;
+  }
+  .grid-2-item h3 {
+    font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--white); margin-bottom: 0.75rem; font-weight: 500;
+  }
+  .grid-2-item p { font-size: 0.95rem; max-width: 100%; color: var(--muted); }
+
+  /* MARKET TABLE */
+  .table-wrap { margin-top: 3rem; overflow-x: auto; margin-bottom: 3rem;}
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  th {
+    text-align: left; padding: 1rem 1.5rem;
+    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--white); border-bottom: 1px solid var(--border); font-weight: 500;
+  }
+  td {
+    padding: 1.1rem 1.5rem;
+    border-bottom: 1px solid rgba(240,237,232,0.18);
+    color: var(--muted); vertical-align: middle; font-size: 0.88rem;
+  }
+  td:first-child { color: var(--white); font-weight: 500; }
+  .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-right: 0.6rem; vertical-align: middle; }
+  .dot-on { background: var(--white); }
+  .dot-off { background: #2a2a2a; }
+
+  /* TIMELINE */
+  .timeline { margin-top: 3rem; }
+  .tl-item {
+  display: grid; grid-template-columns: 40px 1fr;
+  gap: 2rem; padding: 2rem 0;
+  border-top: 1px solid var(--border);
+}
+  .tl-item:last-child { border-bottom: 1px solid var(--border); }
+  .tl-step {
+    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--highlight); padding-top: 0.2rem; font-weight: 500;
+  }
+  .tl-content h3 { font-size: 0.95rem; font-weight: 500; margin-bottom: 0.75rem; }
+  .tl-content p { font-size: 0.95rem; max-width: 58ch; color: var(--muted); }
+
+  /* DIAGRAM */
+  .diagram-wrap {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    border: 1px solid var(--border);
+    width: 100%;
+    background: #000000;
+  }
+  .diagram-top {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--muted); border-bottom: 1px solid var(--border);
+    background: var(--card-bg);
+  }
+  .diagram-body {
+    background: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 60vh;
+    overflow: hidden;
+  }
+  .diagram-svg {
+    width: 100%;
+    height: auto;
+    max-height: 60vh;
+    display: block;
+    background: #000000;
+    object-fit: contain;
+  }
+  .diagram-wrap img {
+    display: block;
+    max-height: 60vh;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    background: #000000;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+  .diagram-wrap img:hover {
+    opacity: 0.85;
+  }
+  .diagram-caption {
+    padding: 0.8rem 1.5rem; font-size: 0.82rem; font-style: italic;
+    color: var(--muted); border-top: 1px solid var(--border);
+    background: var(--card-bg);
+  }
+
+  /* HIGHLIGHT - full width */
+  .highlight {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; margin-top: 3rem; background: var(--border);
+  }
+  .skill-item { background: var(--bg); padding: 2rem; }
+  .skill-name {
+    font-size: 0.88rem; font-weight: 500; color: var(--highlight);
+    text-transform: uppercase; letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
+  }
+  .skill-item p { font-size: 0.88rem; color: var(--white); max-width: 100%; margin: 0; line-height: 1.7; }
+
+  /* IMPACT */
+  .impact-list { margin-top: 3rem; }
+  .impact-item {
+    display: flex; gap: 2.5rem; align-items: flex-start;
+    padding: 2rem 0; border-top: 1px solid var(--border);
+  }
+  .impact-item:last-child { border-bottom: 1px solid var(--border); }
+  .impact-n {
+    font-family: 'Bebas Neue', sans-serif; font-size: 3rem;
+    color: #e8845a; line-height: 1; flex-shrink: 0; width: 3rem;
+  }
+  .impact-item h3 { font-size: 0.95rem; font-weight: 500; margin-bottom: 0.5rem; color: var(--white); }
+  .impact-item p { font-size: 0.88rem; max-width: 100%; margin: 0; color: var(--muted); }
+
+  /* BULLET LIST */
+
+  .bullet-list {
+    margin-bottom: 3rem; max-width: 70ch;
+  }
+  .bullet-list-item {
+    margin-left: 1rem;
+    color: rgb(168, 165, 160);
+    font-size: 0.95rem;
+  }
+
+  .hero-img {
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.1s;
+}
+
+  .hero-left {
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.4s;
+}
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+.reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1; transform: translateY(0);
+}
+
+  /* MODAL STYLES */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 1);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .modal-overlay.active {
+    display: flex;
+  }
+
+  .modal-close {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 1.5rem;
+    transition: background 0.3s ease;
+  }
+
+  .modal-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .modal-image {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+
+.constraint-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin-top: 3rem; background: var(--border); }
+.constraint-item { background: var(--bg); padding: 2rem; }
+.constraint-item h3 { font-size: 0.95rem; font-weight: 500; color: var(--white); margin-bottom: 0.5rem; }
+.constraint-item p { font-size: 0.95rem; color: var(--muted); margin: 0; line-height: 1.85; max-width: 100%; }
+
+  /* Container centrado — igual ao About */
+.section-inner {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.burger { display: none; }
+.mobile-overlay { display: none; }
+  
+  @media (max-width: 768px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .nav-links { display: none; }
+    .burger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .burger span { display: block; width: 22px; height: 2px; background: #f0ede8; transition: all 0.3s ease; transform-origin: center; }
+    .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .burger.open span:nth-child(2) { opacity: 0; }
+    .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-overlay { position: fixed; top: 0; left: 0; right: 0; height: 26vh; background: #0a0a0a; border-bottom: 1px solid rgba(240,237,232,0.15); z-index: 99; display: flex; flex-direction: column; align-items: flex-end; justify-content: flex-end; padding: 1.5rem; gap: 2rem; transform: translateY(-100%); transition: transform 0.35s ease; }
+    .mobile-overlay.open { transform: translateY(0); }
+    .mobile-overlay a { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: #f0ede8; text-decoration: none; font-weight: 300; }
+    .nav-links a { font-size: 0.82rem; }
+    .case-hero { padding: 5rem 1.5rem 3rem; }
+    .case-back { margin-bottom: 2rem; }
+    .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-img { height: 240px; }
+    .case-meta-row { justify-content: flex-start; }
+    .case-meta-item { text-align: left; }
+    section { padding: 4rem 1.5rem; }
+    .grid-3, .skills-grid { grid-template-columns: 1fr; }
+    .grid-2 { grid-template-columns: 1fr; }
+    .tl-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    table { font-size: 0.88rem; }
+    th, td { padding: 0.75rem; }
+    .constraint-grid { grid-template-columns: 1fr; }
+
+  }
+
+  /* MOBILE */
+  @media (hover: none) {
+    .cursor, .cursor-ring { display: none; }
+     body { cursor: auto; }
+    .modal-close {
+      top: 1rem;
+      right: 1rem;
+      width: 36px;
+      height: 36px;
+      font-size: 1.3rem;
+    }
+    .modal-image {
+      max-width: 95%;
+      max-height: 85vh;
+    }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .nav-links li:not(:last-child) { display: none; }
+    .case-title { font-size: clamp(3rem, 12vw, 6rem); }
+    .case-meta-row { gap: 2rem; flex-wrap: wrap; }
+    section { padding: 3.5rem 1.5rem; }
+    .grid-2, .skills-grid { grid-template-columns: 1fr; }
+    .tl-item { grid-template-columns: 1fr; gap: 0.4rem; }
+    .tl-step { padding-top: 0; }
+    table { font-size: 0.82rem; }
+    th, td { padding: 0.7rem 0.8rem; }
+    .diagram-wrap img { max-height: 40vh; }
+    .diagram-svg { max-height: 40vh; }
+    .impact-item { gap: 1.5rem; }
+    footer { flex-direction: column; gap: 1.2rem; padding: 2rem 1.5rem; text-align: center; }
+    .constraint-grid { grid-template-columns: 1fr !important; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- MODAL OVERLAY -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-close" id="modalClose">×</div>
+  <img class="modal-image" id="modalImage" src="" alt="">
+</div>
+
+<nav>
+  <a href="https://andreiacruz-design.github.io" class="nav-logo">Andreia Cruz</a>
+  <ul class="nav-links">
+    <li><a href="https://andreiacruz-design.github.io/#about">About</a></li>
+    <li><a href="https://andreiacruz-design.github.io/#projects">Work</a></li>
+  </ul>
+  <div class="burger" id="burger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-overlay" id="mobileOverlay">
+  <a href="https://andreiacruz-design.github.io/#about" onclick="toggleMenu()">About</a>
+  <a href="https://andreiacruz-design.github.io/#projects" onclick="toggleMenu()">Work</a>
+</div>
+
+<!-- HERO -->
+<header class="case-hero">
+  <a href="https://andreiacruz-design.github.io#projects" class="case-back"><span style="font-size:1rem; line-height:1;">←</span> Back to Work</a>
+
+  <img src="bmw_motorrad_cover.png" alt="BMW Motorrad" class="hero-img" style="margin-bottom:3rem;" />
+
+  <div class="hero-left">
+    <h1 class="case-title">
+      Complex Systems.
+      <em>Simple Rides.</em>
+    </h1>
+    <p>I worked as UX Designer on BMW Motorrad's next-generation TFT instrument cluster - an adaptive interface for urban, sport, and adventure motorcycles launching in 2027.</p>
+    <p>Over 18 months, as part of a multi-disciplinary team, I worked on the parts of the system the rider feels most - how information is structured, how the interface adapts, and how critical data stays within reach without breaking focus.</p>
+    <p><i>Note: Some details have been abstracted due to NDA constraints.</i></p>
+
+    <div class="case-meta-row">
+      <div class="case-meta-item">
+        <p class="label">Duration</p>
+        <p class="value">1.5 year</p>
+      </div>
+      <div class="case-meta-item">
+        <p class="label">Industry</p>
+        <p class="value">Automotive / Motorcycle</p>
+      </div>
+      <div class="case-meta-item">
+        <p class="label">Role</p>
+        <p class="value">UX Designer</p>
+      </div>
+    </div>
+    <div class="skill-tags">
+      <span class="skill-tag">Wireframing</span>
+      <span class="skill-tag">Prototyping</span>
+      <span class="skill-tag">Usability Testing</span>
+      <span class="skill-tag">Decision Trees</span>
+      <span class="skill-tag">System Architecture</span>
+    </div>
+  </div>
+</header>
+
+<!-- OVERVIEW -->
+<section class="reveal">
+  <div class="section-eyebrow">Context & Constraints</div>
+  <h2>Between Safety,<br>Complexity & Speed</h2>
+  <p>Designing for motorcycles means designing for motion. Every interaction happens at speed, through a helmet visor, with the hands on the handlebars. Distraction isn't an inconvenience, it's a safety risk.</p>
+  <p>The challenge was not just designing an interface, but ensuring critical information could be understood instantly in high-risk, high-speed contexts.</p>
+
+  <div class="constraint-grid">
+    <div class="constraint-item">
+      <h3>Glance interaction</h3>
+      <p>Critical info in one tap - every second of attention counts.</p>
+    </div>
+    <div class="constraint-item">
+      <h3>Physical controls</h3>
+      <p>Navigation via handlebar buttons - Simplified navigation paths and clear shortcuts.</p>
+    </div>
+    <div class="constraint-item">
+      <h3>Visor visibility</h3>
+      <p>Scratched or tinted visors demand high contrast and icon-first design (when possible).</p>
+    </div>
+    <div class="constraint-item">
+      <h3>Sensor failures</h3>
+      <p>Tire pressure can fail mid-ride - graceful states, fallbacks, never empty screens.</p>
+    </div>
+  </div>
+</section>
+  
+<!-- CHALLENGE -->
+<section class="reveal">
+  <div class="section-eyebrow">Design Strategy</div>
+  <h2>Foundation for<br>Consistency</h2>
+  <p>My role centred on the structural foundation — the architecture, behaviour rules, and safety logic that keep interactions predictable, even under pressure.</p>
+
+
+  <div style="margin-top:3rem;">
+    <div class="tl-item">
+      <p class="tl-step">01</p>
+      <div class="tl-content">
+        <h3>System flowchart</h3>
+        <p>Navigation paths, popup behaviours, overlays, and shortcuts - single source of truth for designers and developers.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <p class="tl-step">02</p>
+      <div class="tl-content">
+        <h3>Decision trees</h3>
+        <p>Every state for heating and ride height: available/unavailable, active/inactive, levels, errors.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <p class="tl-step">03</p>
+      <div class="tl-content">
+        <h3>Priority matrix</h3>
+        <p>Which alerts override others when multiple appear. Safety warnings always first - rules for blocking, queuing, and simultaneous display.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <p class="tl-step">04</p>
+      <div class="tl-content">
+        <h3>Customisation system</h3>
+        <p>Riders choose their critical data - tire pressure, engine temperature, fuel. One button. No menus.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLIC VALUE -->
+<section class="reveal">
+  <div class="section-eyebrow">System Structure Flowchart</div>
+  <h2>Mapping<br>the Entire Interface</h2>
+  <p>As features were being defined across the team, I created and maintained the system structure flowchart - a living document mapping the complete interface architecture, used by designers for transitions and developers for implementation.</p>
+
+  <p><strong style="color:var(--white); font-weight:500;">Navigation structure</strong> - Every screen, every path, from main menu to deepest levels.</p>
+  <p><strong style="color:var(--white); font-weight:500;">Popup & overlay behaviour</strong> - Where they open, how they dismiss, and what happens when a button is pressed while a popup is visible.</p>
+  <p><strong style="color:var(--white); font-weight:500;">Shortcuts</strong> - Direct access paths bypassing standard navigation, with clear rules for activation.</p>
+
+  <p>We structured the system around quick access over depth, prioritising immediate comprehension instead of exhaustive navigation.</p>
+  
+  <div class="diagram-wrap">
+    <div class="diagram-top">Diagram 1 - Popup Interaction Logic</div>
+    <img style="width:100%; height:auto; display:block;" src="1a_port_moto.png" alt="Popup Interaction Logic">
+    <div class="diagram-caption">Example behaviours mapped in the system structure. Popups either persist with no background changes, remain visible while background updates, or close while background changes — ensuring predictable responses across the interface.</div>
+  </div>
+</section>
+
+<!-- MANUAL TUNER -->
+<section class="reveal">
+  <div class="section-eyebrow">Popup Priority Matrix</div>
+  <h2>Alert System<br>Priority</h2>
+  <p>I defined which alerts take precedence and how they behave when appearing simultaneously. We prioritised critical alerts at all times to ensure rider safety, even at the cost of temporarily hiding secondary system feedback.</p>
+
+  <p><strong style="color:var(--white); font-weight:500;">Critical</strong> <span style="color:var(--muted-light); font-style:italic;">(engine failure)</span> - Interrupts everything, including open dialogues. Requires manual dismissal.</p>
+  <p><strong style="color:var(--white); font-weight:500;">Warning</strong> <span style="color:var(--muted-light); font-style:italic;">(tyre pressure, ABS)</span> - Same behaviour as critical, but queues behind any active critical message.</p>
+  <p><strong style="color:var(--white); font-weight:500;">Feedback</strong> <span style="color:var(--muted-light); font-style:italic;">(setting confirmed)</span> - Layers alongside other popups. Suppressed when critical alerts are active.</p>
+
+</section>
+
+<!-- SETTINGS -->
+<section class="reveal">
+  <div class="section-eyebrow">Vehicle Info Customization</div>
+  <h2>One Tap<br>to Critical Data</h2>
+  <p>I led the UX for a customisation system letting riders choose what vehicle data matters most to them - tire pressure, engine temperature, fuel level - accessible with one button press, no menus. We reduced interaction steps to a single tap to minimise cognitive load in high-speed scenarios, even if it limited access to secondary information.</p>
+  <p>The system adapts to each bike model, showing only data for installed sensors. During usability testing with ~15 riders in a simulator, it was praised for being intuitive and immediately understandable.</p>
+
+  <div class="diagram-wrap">
+    <div class="diagram-top">Diagram 2 - Customization Access</div>
+    <img style="width:100%; height:auto; display:block;" src="2_port_moto.png" alt="Customization Access">
+    <div class="diagram-caption">One-button access to selected vehicle data. Riders choose priority functions during setup, making critical information immediately accessible without navigation.</div>
+  </div>
+</section>
+  
+<!-- LIMITATIONS -->
+<section class="reveal">
+  <div class="section-eyebrow">Testing & Validation</div>
+  <h2>Simulator<br>Testing</h2>
+  <p>I built the prototypes used for usability testing with ~15 riders in a motorcycle simulator. The sessions focused on three areas: navigation intuitiveness, glanceability under realistic riding conditions, and system consistency across all interface states.</p>
+  <p>Results validated the core interaction model - particularly the customisation system, which riders found immediately understandable. Feedback from testing fed directly into the final iteration of the priority matrix and shortcut logic.</p>
+</section>
+
+<!-- REFLECTIONS -->
+<section class="reveal">
+  <div class="section-eyebrow">Key Learnings & Impact</div>
+  <h2>What I Learned</h2>
+
+  <p>This work established the structural foundation for BMW Motorrad's instrument cluster - system architecture, behaviour rules, and safety logic that will scale across motorcycles launching in 2027.</p>
+
+  <div style="margin-top:3rem;">
+    <div class="tl-item">
+      <p class="tl-step">01</p>
+      <div class="tl-content">
+        <h3>System thinking over individual screens</h3>
+        <p>The flowchart became the single source of truth. In safety-critical interfaces, inconsistency isn't just bad UX, it's a safety issue.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <p class="tl-step">02</p>
+      <div class="tl-content">
+        <h3>Document while building, not after</h3>
+        <p>Maintaining flowcharts and matrices throughout the process forced clearer thinking about edge cases and caught conflicts when they were still easy to fix.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <p class="tl-step">03</p>
+      <div class="tl-content">
+        <h3>Automotive constraints teach precision</h3>
+        <p>Fixed hardware, unpredictable sensors, and safety standards taught me to think ahead. Every state needs a fallback. Every error needs clear communication.</p>
+      </div>
+    </div>
+  </div>
+  </section>
+<!-- NEXT PROJECT -->
+<section class="reveal" style="border-bottom:none; padding: 5rem 3rem;">
+  <a href="https://andreiacruz-design.github.io#projects" style="text-decoration:none; display:inline-flex; flex-direction:column; gap:1rem; group;">
+    <p style="font-size:0.75rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--muted); margin:0; max-width:100%;">Back to Work</p>
+    <span style="font-family:'Bebas Neue',sans-serif; font-size:clamp(2rem,4vw,3.2rem); letter-spacing:0.02em; color:var(--white); display:flex; align-items:center; gap:1rem; transition: gap 0.3s;"
+      onmouseenter="this.style.gap='1.5rem'" onmouseleave="this.style.gap='1rem'">
+      Case Studies <span style="font-size:1.4rem; font-family:'Outfit',sans-serif; color:var(--white);">→</span>
+    </span>
+  </a>
+</section>
+
+<footer style="border-top:1px solid var(--border); padding:3rem; display:flex; justify-content:space-between; align-items:center;">
+  <p style="font-size:0.82rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); max-width:100%;">© 2026 Andreia Cruz</p>
+  <div style="display:flex; gap:2rem;">
+    <a href="https://drive.google.com/file/d/1RnYrQMSy70FWa43kGkUvBKhkx79SMf69/view" target="_blank" style="font-size:0.82rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); text-decoration:none;">Resume ↗</a>
+     <a href="mailto:andreiafccruz@gmail.com" target="_blank" style="font-size:0.82rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); text-decoration:none;">Email ↗</a>
+     <a href="https://www.linkedin.com/in/andreiacanudocruz/" target="_blank" style="font-size:0.82rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); text-decoration:none;">LinkedIn ↗</a>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+  });
+
+  function animRing() {
+  rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+  requestAnimationFrame(animRing);
+}
+animRing();
+document.querySelectorAll('a, button').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.transform = 'translate(-50%,-50%) scale(2)';
+    cursor.style.background = '#5e67e6';
+    ring.style.width = '56px'; ring.style.height = '56px';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.transform = 'translate(-50%,-50%) scale(1)';
+    cursor.style.background = 'var(--white)';
+    ring.style.width = '36px'; ring.style.height = '36px';
+  });
+});
+
+ const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { 
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  
+  // MODAL FUNCTIONALITY FOR DIAGRAM IMAGES
+  const modalOverlay = document.getElementById('modalOverlay');
+  const modalImage = document.getElementById('modalImage');
+  const modalClose = document.getElementById('modalClose');
+  const diagramImages = document.querySelectorAll('.diagram-wrap img');
+
+  // Open modal when clicking on diagram images
+  diagramImages.forEach(img => {
+    img.addEventListener('click', () => {
+      modalImage.src = img.src;
+      modalImage.alt = img.alt;
+      modalOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  // Close modal function
+  function closeModal() {
+    modalOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Close modal when clicking the X button
+  modalClose.addEventListener('click', closeModal);
+
+  // Close modal when clicking outside the image
+  modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) {
+      closeModal();
+    }
+  });
+
+  // Close modal with ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+      closeModal();
+    }
+  });
+
+  function toggleMenu() {
+  document.getElementById('burger').classList.toggle('open');
+  document.getElementById('mobileOverlay').classList.toggle('open');
+}
+  
+</script>
+
+</body>
+</html>
