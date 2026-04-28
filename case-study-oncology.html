@@ -431,25 +431,6 @@ section {
   max-width: 100%;
 }
 
- .solutions-stack {
-  margin-top: 3rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  background: rgba(240,237,232,0.22);
-  margin-left: -3rem;
-  margin-right: -3rem;
-}
-.solution-text {
-  padding: 3rem;
-  padding-bottom: 2rem;
-}
-.solution-img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
   /* ANIMATIONS */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
@@ -756,38 +737,33 @@ section {
   <div class="section-eyebrow">Design</div>
   <h2>Three Solutions,<br>One Vision</h2>
   <p>Research converged on three complementary directions — each addressing a distinct gap in the oncology experience.</p>
-  <div class="solutions-stack">
-   <div class="solution-item">
-  <div class="solution-text">
-    <h3>Patient Companion App</h3>
-    <p>Simplified symptom logging between appointments. Doctors send trusted content directly. Patients feel less isolated — and arrive with better, more continuous data.</p>
+  <div class="tl-list">
+  <div class="tl-item">
+    <p class="tl-step">Patient</p>
+    <div class="tl-content">
+      <h3>Patient Companion App</h3>
+      <p>Simplified symptom logging between appointments. Doctors send trusted content directly. Patients feel less isolated — and arrive with better, more continuous data.</p>
+      <img src="patient_app.png" alt="Patient App" style="width:100%; margin-top:2rem;">
+    </div>
   </div>
-  <div class="diagram-wrap">
-    <div class="diagram-top">Some Screens of Patient App</div>
-    <img style="width:100%; height:auto; display:block;" src="patient_app.png" alt="Patient App">
+  <div class="tl-item">
+    <p class="tl-step">Clinician</p>
+    <div class="tl-content">
+      <h3>HCP Platform</h3>
+      <p>Patient input transformed into clinical trends and scores. Curated, evidence-based content surfaced at the right moment. Less admin, better decisions.</p>
+      <img src="images/hcp-platform.png" alt="HCP Platform" style="width:100%; margin-top:2rem;">
+    </div>
   </div>
-</div>
-  </div>
-   <div class="solution-item">
-  <div class="solution-text">
-    <h3>Patient Companion App</h3>
-    <p>Simplified symptom logging between appointments. Doctors send trusted content directly. Patients feel less isolated — and arrive with better, more continuous data.</p>
-  </div>
-  <img src="patient_app.png" alt="Patient App" class="solution-img">
-</div>
-  </div>
-   <div class="solution-item">
-  <div class="solution-text">
-    <h3>Patient Companion App</h3>
-    <p>Simplified symptom logging between appointments. Doctors send trusted content directly. Patients feel less isolated — and arrive with better, more continuous data.</p>
-  </div>
-  <img src="patient_app.png" alt="Patient App" class="solution-img">
-</div>
+  <div class="tl-item">
+    <p class="tl-step">Knowledge</p>
+    <div class="tl-content">
+      <h3>Editorial Programme</h3>
+      <p>A daily stream of specialty-relevant content — research, masterclasses, podcasts — delivered in formats that fit into a doctor's actual life.</p>
+      <img src="images/editorial.png" alt="Editorial Programme" style="width:100%; margin-top:2rem;">
+    </div>
   </div>
 </div>
 </section>
-
- 
   
 <!-- LIMITATIONS -->
 <section class="reveal">
