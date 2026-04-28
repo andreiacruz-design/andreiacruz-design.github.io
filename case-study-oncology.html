@@ -407,6 +407,29 @@ section {
   color: #8fa09a;
   line-height: 1.5;
 }
+  .findings {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  margin-top: 3rem;
+  background: rgba(240,237,232,0.22);
+}
+.finding {
+  background: #080c0e;
+  padding: 2rem;
+}
+.finding h3 {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+.finding p {
+  font-size: 0.85rem;
+  color: #8fa09a;
+  line-height: 1.7;
+  max-width: 100%;
+}
 
   /* ANIMATIONS */
   @keyframes fadeUp {
@@ -638,7 +661,7 @@ section {
 <!-- CHALLENGE -->
 <section class="reveal">
   <div class="section-eyebrow">Research</div>
-  <h2>Into<br>THe Field</h2>
+  <h2>Into<br>The Field</h2>
   <p>We followed a Human-Centred Design approach - speaking directly with oncologists and internal stakeholders, and spending time observing real clinical environments.</p>
 
    <div class="stats">
@@ -652,21 +675,33 @@ section {
 
 <!-- PUBLIC VALUE -->
 <section class="reveal">
-  <div class="section-eyebrow">System Structure Flowchart</div>
-  <h2>Mapping<br>the Entire Interface</h2>
-  <p>As features were being defined across the team, I created and maintained the system structure flowchart - a living document mapping the complete interface architecture, used by designers for transitions and developers for implementation.</p>
+  <div class="section-eyebrow">Discovery</div>
+  <h2>What<br>We Found</h2>
+  <p>Five findings shaped every decision that followed.</p>
 
-  <p><strong style="color:var(--white); font-weight:500;">Navigation structure</strong> - Every screen, every path, from main menu to deepest levels.</p>
-  <p><strong style="color:var(--white); font-weight:500;">Popup & overlay behaviour</strong> - Where they open, how they dismiss, and what happens when a button is pressed while a popup is visible.</p>
-  <p><strong style="color:var(--white); font-weight:500;">Shortcuts</strong> - Direct access paths bypassing standard navigation, with clear rules for activation.</p>
-
-  <p>We structured the system around quick access over depth, prioritising immediate comprehension instead of exhaustive navigation.</p>
-  
-  <div class="diagram-wrap">
-    <div class="diagram-top">Diagram 1 - Popup Interaction Logic</div>
-    <img style="width:100%; height:auto; display:block;" src="1a_port_moto.png" alt="Popup Interaction Logic">
-    <div class="diagram-caption">Example behaviours mapped in the system structure. Popups either persist with no background changes, remain visible while background updates, or close while background changes — ensuring predictable responses across the interface.</div>
+  <div class="findings">
+  <div class="finding">
+    <h3>Time is the scarcest resource</h3>
+    <p>In a 15-min consultation, 50% of a doctor's time goes to admin — not patient care.</p>
   </div>
+  <div class="finding">
+    <h3>Knowledge is fragmented</h3>
+    <p>Relevant science is scattered, mixed with noise, and hard to access in real time.</p>
+  </div>
+  <div class="finding">
+    <h3>Training gaps beyond the clinical</h3>
+    <p>Doctors lack support in emotional management, communication, and leadership.</p>
+  </div>
+  <div class="finding">
+    <h3>No data to decide with</h3>
+    <p>Despite the digital era, professionals consistently reported having no reliable data to act on.</p>
+  </div>
+  <div class="finding" style="grid-column: 1 / -1;">
+    <h3>The industry relationship is stuck</h3>
+    <p>Contact with pharma is almost entirely mediated by sales reps. There's space for something much more meaningful — and both sides want it.</p>
+  </div>
+</div>
+ 
 </section>
 
 <!-- MANUAL TUNER -->
