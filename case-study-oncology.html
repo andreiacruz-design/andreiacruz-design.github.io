@@ -384,6 +384,30 @@ section {
   animation: fadeUp 0.8s ease forwards 0.4s;
 }
 
+  .stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  margin-top: 3rem;
+  background: rgba(238,242,240,0.1);
+}
+.stat {
+  background: #080c0e;
+  padding: 2rem 1.8rem;
+}
+.stat-n {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.2rem;
+  color: #2eb38a;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.stat-l {
+  font-size: 0.8rem;
+  color: #8fa09a;
+  line-height: 1.5;
+}
+
   /* ANIMATIONS */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
@@ -486,8 +510,13 @@ section {
     table { font-size: 0.88rem; }
     th, td { padding: 0.75rem; }
     .constraint-grid { grid-template-columns: 1fr; }
+    .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
   }
+  
 
   /* MOBILE */
   @media (hover: none) {
@@ -522,6 +551,9 @@ section {
     .impact-item { gap: 1.5rem; }
     footer { flex-direction: column; gap: 1.2rem; padding: 2rem 1.5rem; text-align: center; }
     .constraint-grid { grid-template-columns: 1fr !important; }
+    .stats {
+  grid-template-columns: repeat(2, 1fr);
+}
   }
 
 </style>
@@ -565,7 +597,7 @@ section {
       <em>Oncology Care.</em>
     </h1>
     <p>I worked as part of a team of 3 designers, partnering with a pharmaceutical company to reimagine the relationship between oncologists, patients and the industry - through field research, co-design and a suite of human-centred solutions.</p>
-    <p>As part of a multidisciplinary team, we conducted an in-depth study - speaking with oncologists, nurses and internal stakeholders, mapping the full experience and designing solutions to address the gaps we found.</p>
+    <p>As part of a multidisciplinary team, we conducted an in-depth study - speaking with oncologists and internal stakeholders, mapping the full experience and designing solutions to address the gaps we found.</p>
     <p><i>Note: Some details have been abstracted and the brand is kept confidential due to NDA constraints.</i></p>
 
     <div class="case-meta-row">
@@ -605,41 +637,17 @@ section {
   
 <!-- CHALLENGE -->
 <section class="reveal">
-  <div class="section-eyebrow">Design Strategy</div>
-  <h2>Foundation for<br>Consistency</h2>
-  <p>My role centred on the structural foundation — the architecture, behaviour rules, and safety logic that keep interactions predictable, even under pressure.</p>
+  <div class="section-eyebrow">Research</div>
+  <h2>Into<br>THe Field</h2>
+  <p>We followed a Human-Centred Design approach - speaking directly with oncologists and internal stakeholders, and spending time observing real clinical environments.</p>
 
-
-  <div style="margin-top:3rem;">
-    <div class="tl-item">
-      <p class="tl-step">01</p>
-      <div class="tl-content">
-        <h3>System flowchart</h3>
-        <p>Navigation paths, popup behaviours, overlays, and shortcuts - single source of truth for designers and developers.</p>
-      </div>
-    </div>
-    <div class="tl-item">
-      <p class="tl-step">02</p>
-      <div class="tl-content">
-        <h3>Decision trees</h3>
-        <p>Every state for heating and ride height: available/unavailable, active/inactive, levels, errors.</p>
-      </div>
-    </div>
-    <div class="tl-item">
-      <p class="tl-step">03</p>
-      <div class="tl-content">
-        <h3>Priority matrix</h3>
-        <p>Which alerts override others when multiple appear. Safety warnings always first - rules for blocking, queuing, and simultaneous display.</p>
-      </div>
-    </div>
-    <div class="tl-item">
-      <p class="tl-step">04</p>
-      <div class="tl-content">
-        <h3>Customisation system</h3>
-        <p>Riders choose their critical data - tire pressure, engine temperature, fuel. One button. No menus.</p>
-      </div>
-    </div>
+   <div class="stats">
+    <div class="stat"><p class="stat-n">14</p><p class="stat-l">Interviews with internal stakeholders</p></div>
+    <div class="stat"><p class="stat-n">22</p><p class="stat-l">Interviews with healthcare professionals</p></div>
+    <div class="stat"><p class="stat-n">6</p><p class="stat-l">Public hospitals observed</p></div>
+    <div class="stat"><p class="stat-n">6</p><p class="stat-l">Private hospitals observed</p></div>
   </div>
+
 </section>
 
 <!-- PUBLIC VALUE -->
