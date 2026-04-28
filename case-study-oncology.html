@@ -440,27 +440,16 @@ section {
 }
 .solution-item {
   background: #0a0a0a;
-  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 .solution-text {
-  padding: 3rem;
-}
-.solution-text h3 {
-  font-size: 1rem;
-  font-weight: 500;
-  margin-bottom: 0.75rem;
-}
-.solution-text p {
-  font-size: 0.88rem;
-  color: #8fa09a;
-  line-height: 1.75;
-  max-width: 100%;
+  padding: 3rem 3rem 2rem 3rem;
 }
 .solution-img {
   width: 100%;
   height: auto;
   display: block;
-  margin-top: 2rem;
 }
 
   /* ANIMATIONS */
@@ -770,29 +759,34 @@ section {
   <h2>Three Solutions,<br>One Vision</h2>
   <p>Research converged on three complementary directions — each addressing a distinct gap in the oncology experience.</p>
   <div class="solutions-stack">
-  <div class="solution-item">
-    <div class="solution-text">
-      <h3>Patient Companion App</h3>
-      <p>Simplified symptom logging between appointments. Doctors send trusted content directly. Patients feel less isolated — and arrive with better, more continuous data.</p>
-      <img src="patient_app.png" alt="Patient App" class="solution-img">
-    </div>
+   <div class="solution-item">
+  <div class="solution-text">
+    <h3>Patient Companion App</h3>
+    <p>Simplified symptom logging between appointments. Doctors send trusted content directly. Patients feel less isolated — and arrive with better, more continuous data.</p>
   </div>
-  <div class="solution-item">
-    <div class="solution-text">
-      <h3>HCP Platform</h3>
-      <p>Patient input transformed into clinical trends and scores. Curated, evidence-based content surfaced at the right moment. Less admin, better decisions.</p>
-      <img src="images/hcp-platform.png" alt="HCP Platform" class="solution-img">
-    </div>
+  <img src="patient_app.png" alt="Patient App" class="solution-img">
+</div>
   </div>
-  <div class="solution-item">
-    <div class="solution-text">
-      <h3>Editorial Programme</h3>
-      <p>A daily stream of specialty-relevant content — research, masterclasses, podcasts — delivered in formats that fit into a doctor's actual life.</p>
-      <img src="images/editorial.png" alt="Editorial Programme" class="solution-img">
-    </div>
+   <div class="solution-item">
+  <div class="solution-text">
+    <h3>Patient Companion App</h3>
+    <p>Simplified symptom logging between appointments. Doctors send trusted content directly. Patients feel less isolated — and arrive with better, more continuous data.</p>
+  </div>
+  <img src="patient_app.png" alt="Patient App" class="solution-img">
+</div>
+  </div>
+   <div class="solution-item">
+  <div class="solution-text">
+    <h3>Patient Companion App</h3>
+    <p>Simplified symptom logging between appointments. Doctors send trusted content directly. Patients feel less isolated — and arrive with better, more continuous data.</p>
+  </div>
+  <img src="patient_app.png" alt="Patient App" class="solution-img">
+</div>
   </div>
 </div>
 </section>
+
+ 
   
 <!-- LIMITATIONS -->
 <section class="reveal">
